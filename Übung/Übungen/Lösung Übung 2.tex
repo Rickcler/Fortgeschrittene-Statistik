@@ -1,0 +1,738 @@
+\documentclass{article}
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Allow align environments to break across pages
+\allowdisplaybreaks[4]
+
+% Begin document
+\begin{document}
+\title{Übung 2 Lösungen}
+\author{Victor Minig}
+\date{\today}
+\maketitle
+
+
+\section*{1}
+\textbf{Gegeben:} \\
+
+Würfel der so manipuliert ist, dass die Wahrscheinlichkeit für das Auftreten der Augenzahl, proportional zu $i, ~ (i = 1, \ldots, 6)$ ist. $X$ ist die Augenzahl.\\ \\
+\textbf{Gesucht: } \\
+
+Wahrscheinlichkeitsdichtefunktion von X\\ \\
+\textbf{Lösung:}
+
+Die Summe $\sum_{x\in \{ 1, \ldots, 6\}} x = 21$. Da für die pdf $f(\cdot)$ gelten muss, dass $f(\{1, \ldots, 6\}) = 1$, muss  \[f(x) = \frac{x}{21} I_{\{1, \ldots, 6\}}(x)\qquad \text{sein}\]
+
+\section*{2}
+\textbf{Gegeben:} \\
+
+Münze wird so lange geworfen bis zum ersten mal Kopf erscheint, aber höchstens drei mal. $X$ ist die Anzahl der Würfe \\ \\
+\textbf{Gesucht: } \\
+
+Wahrscheinlichkeitsdichte- und Verteilungsfunktion von X\\ \\
+\textbf{Lösung:} \\
+
+Die Dichte von X verteilt sich nur auf drei Möglichkeiten, nämlich 1, 2 und 3. Für den ersten Wurf besteht eine $50$\%ige Wahrscheinlichkeit, dass Kopf geworfen wird und das Experiment damit endet. Es gibt nur einen zweiten Wurf wenn der erste Wurf nicht Kopf war und beim zweiten Wurf gibt es wieder nur eine $50$\%ige Wahrscheinlichkeit für Kopf. Insofern, ist das Experiment mit einer Wahrscheinlichkeit von $0.5\cdot0.5=25$\%, dass es zwei Würfe gibt. Nach dem dritten Wurf ist das Experiment auf jeden Fall beendet insofern gibt es eine $1 -0.5 -0.25 = 25$\%ige Chance auf drei Würfe. Es ergibt sich, dass 
+\[  f(x) =\begin{cases}
+            0.5& \text{ wenn }  x = 1 \\
+            0.25 & \text{ wenn } x \in \{2,3\} \\
+            0 & \text{ sonst.} \\
+        \end{cases}\qquad \text{und} \qquad 
+    F(x) =\begin{cases}
+            0 & \text{ wenn } x < 1 \\
+            0.5 & \text{ wenn } 1 \leq x < 2 \\
+            0.75 & \text{ wenn } 2 \leq x < 3 \\
+            1 & \text{ wenn } x \geq 3
+    \end{cases}\] 
+
+\section*{3}
+\textbf{Gegeben:} \\
+
+Zufallsvariable X mit $f(x) = \frac{1}{2}(2-x)I_{(0,2)}(x)$ \\ \\ \\  \\ \\
+
+\subsection*{a)} 
+\textbf{Gesucht: } \\
+
+$P(x <1.2)$\\ \\
+\textbf{Lösung:} \\
+
+Zunächst gilt es die Verteilungsfunktion $F(x)$ zu $f(x)$ zu finden:
+\begin{align*}
+    F(b) &= \int_{-\infty}^{b}f(x)dx = \int_{-\infty}^{b}\frac{1}{2}(2-x)I_{(0,2)}(x)dx\\
+    &= [x-\frac{1}{4}x^{2}]_{0}^{b}I_{(0,2)}(b) + I_{[2,\infty)}(b) = ([b-\frac{1}{4}b^{2}] -[0- 0])I_{(0,2)}(b) + I_{[2,\infty)}(b)\\ 
+    &= (b-\frac{1}{4}b^{2})I_{(0,2)}(b) + I_{[2,\infty)}(b)
+\end{align*}  
+
+Für $P(x < 1.2)$ müssen wir $b = 1.2$ setzen: \[P(x <1.2) = F(1.2) = (1.2-\frac{1}{4}1.2^{2})I_{(0,2)}(1.2) + I_{[2,\infty)}(1.2) = 0.84\]
+
+\subsection*{b)} 
+\textbf{Gesucht: } \\
+
+$P(x >1.6)$\\ \\
+\textbf{Lösung:} \\
+
+Da sich die ganze Dichte auf dem Intervall $(0,2)$ verteilt und dementsprechend $P(x \in (0,2)) = 1$ ist, gilt:
+\[
+P(x>1.6) = 1 - P(x<1.6) = 1 - F(1.6)  = 1 - (1.6-\frac{1}{4}1.2^{2})I_{(0,2)}(1.6) + I_{[2,\infty)}(1.6) = 1 - 0.96 = 0.04
+\] 
+
+\subsection*{c)} 
+\textbf{Gesucht: } \\
+
+$P(1.2 < x < 1.6)$\\ \\
+\textbf{Lösung:} \\
+\[
+P(1.2 < x < 1.6) = 1 - P(x < 1.2) - P(x>1.6) = 1 - 0.84 - 0.04 = 0.12
+\]
+
+\section*{4}
+\textbf{Frage:} \\
+
+
+Sind die beiden folgenden Funktionen PDFs? \\ \\ \\
+
+\subsection*{a)}
+\textbf{Gegeben:} \\
+
+    $f(x) = \frac{1}{x}I_{\{2,3, \ldots\}}(x)$ \\ \\ 
+\textbf{Lösung:}\\
+
+
+Funktion ist diskret, es gilt also nur zu überprüfen, ob $\sum_{x \in \{2,3, \ldots \}}f(x) = 1$ ist.
+
+
+\begin{align*}
+    \sum_{x \in \{2,3, \ldots \}}f(x) &= \sum_{x \in \{2,3, \ldots \}} \frac{1}{x} \\
+    &=\frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \sum_{x \in \{5,6, \ldots\}}\frac{1}{x} \\
+    &= \frac{13}{12} + \sum_{x \in \{5,6, \ldots\}} > 1
+\end{align*} 
+
+    $\Longrightarrow$ keine PDF
+
+\subsection*{b)}
+\textbf{Gegeben:} \\
+
+    $f(x) = \frac{1}{2^{x}}I_{\{2,3, \ldots\}}(x)$ \\ \\ 
+\textbf{Lösung:}\\
+
+
+Funktion ist diskret, es gilt also wieder nur zu überprüfen, ob $\sum_{x \in \{2,3, \ldots \}}f(x) = 1$ ist.
+    
+\begin{align*}
+    \sum_{x \in \{2,3, \ldots \}}f(x) &= \sum_{x \in \{2,3, \ldots \}} \frac{1}{2^{x}} = \sum_{x \in \{2,3, \ldots \}} (\frac{1}{2})^x  \tag*{In Form für \textit{geom. Reihe} bringen} \\
+    &=-\frac{1}{2} + \sum_{x \in \{1,2, \ldots \}}  (\frac{1}{2})^x = -1 - \frac{1}{2} + \sum_{x \in \{0,1,2, \ldots \}} (\frac{1}{2})^x \tag*{$\sum_{k=0}^{\infty}q^{k} = \frac{1}{1-q}$} \\
+    &= -1.5 + \frac{1}{1-0.5} = -1.5 + 2 = 0.5 
+\end{align*}
+
+    $\Longrightarrow$ keine PDF
+
+\section*{5}
+\textbf{Gesucht:} \\
+
+Die CDFs zu den PDFs 
+\subsection*{a)}
+\textbf{Gegeben:} \\
+
+\[
+f(x) = \begin{cases}
+    x & \text{für } 0 \leq x < 1, \\
+    2 - x & \text{für } 1 \leq x < 2, \\
+    0 & \text{sonst.}
+\end{cases}
+\]
+\textbf{Lösung:} \\
+\[
+F(b) = \begin{cases}
+    0 & \text{für } b < 0 \\
+    \int_{0}^{b}x ~dx = \frac{1}{2}x^{2} & \text{für } 0 \leq b < 1, \\
+    F(1) + \int_{1}^{b} 2 - x = \frac{1}{2} + [2x - \frac{1}{2}x^{2}]_{1}^{b} = \frac{1}{2} + 2b - \frac{1}{2}b^{2} - 2 + \frac{1}{2}= 2b - \frac{1}{2}b^{2} - 1  & \text{für } 1 \leq b < 2, \\
+    1 & \text{für } b \geq 2
+\end{cases}
+\]
+
+
+\subsection*{b)}
+\textbf{Gegeben:} \\
+
+\[
+f(x) = \begin{cases}
+    x & \text{für } 0 \leq x < 1, \\
+    \frac{1}{4}(3-x) & \text{für } 1 \leq x < 3, \\
+    0 & \text{sonst.}
+\end{cases}
+\]
+\textbf{Lösung:} \\
+\[
+F(b) = \begin{cases}
+    0 & \text{für } b < 0 \\
+    \int_{0}^{b}x ~dx = \frac{1}{2}x^{2} & \text{für } 0 \leq b < 1, \\
+    F(1) + \int_{1}^{b} \frac{1}{4}(3-x) = \frac{1}{2} + [\frac{3}{4}x - \frac{1}{8}x^{2}]_{1}^{b} = \frac{1}{2} + \frac{3}{4}b - \frac{1}{8}b^{2} - \frac{3}{4} + \frac{1}{8}= \frac{3}{4}b - \frac{1}{8}b^{2} - \frac{1}{8}  & \text{für } 1 \leq b < 3, \\
+    1 & \text{für } b \geq 3
+\end{cases}
+\]
+
+\subsection*{c)}
+\textbf{Gegeben:} \\
+
+\[
+f(x) = \begin{cases}
+    x & \text{für } 0 \leq x < 1, \\
+    (x-1) & \text{für } 1 \leq x < 2, \\
+    0 & \text{sonst.}
+\end{cases}
+\]
+\textbf{Lösung:} \\
+\[
+F(b) = \begin{cases}
+    0 & \text{für } b < 0 \\
+    \int_{0}^{b}x ~dx = \frac{1}{2}x^{2} & \text{für } 0 \leq b < 1, \\
+    F(1) + \int_{1}^{b} (x-1) = \frac{1}{2} + [\frac{1}{2}x^{2} -x]_{1}^{b} = \frac{1}{2} + \frac{1}{2}b^2 - b - \frac{1}{2} + 1 = \frac{1}{2}b^2 - b + 1   & \text{für } 1 \leq b < 2, \\
+    1 & \text{für } b \geq 2
+\end{cases}
+\]
+
+\subsection*{d)}
+\textbf{Gegeben:} \\
+
+\[
+f(x) = \begin{cases}
+    x & \text{für } 0 \leq x < 1, \\
+    (x-5) & \text{für } 5 \leq x < 6, \\
+    0 & \text{sonst.}
+\end{cases}
+\]
+\textbf{Lösung:} \\
+\[
+F(b) = \begin{cases}
+    0 & \text{für } b < 0 \\
+    \int_{0}^{b}x ~dx = \frac{1}{2}x^{2} & \text{für } 0 \leq b < 1, \\
+    F(1) = \frac{1}{2 } &\text{für } 1 \leq b < 5 \\
+    F(5) + \int_{5}^{b} (x-5) = \frac{1}{2} + [\frac{1}{2}x^{2} - 5x]_{5}^{b} = \frac{1}{2} + \frac{1}{2}b^2 - 5b - \frac{1}{2}5^{2} + 25 = \frac{1}{2} b^2 - 5b + 13   & \text{für } 5 \leq b < 6, \\
+    1 & \text{für } b \geq 2
+\end{cases}
+\]
+
+\section*{6}
+\textbf{Gesucht:} \\
+
+Die PDFs zu den CDFs 
+\subsection*{a)}
+\textbf{Gegeben:} \\
+
+
+Ich schreibe $F(b)$ um mit der Notation von oben konsistent zu bleiben
+\[
+F(b) = \begin{cases}
+    0 & \text{für } b < 0, \\
+    b^2 & \text{für } 0 \leq b < 1, \\
+    1 & \text{sonst.}
+\end{cases}
+\]
+\textbf{Lösung:} \\
+\[
+f(x) = \begin{cases}
+    2x & \text{für } 0 \leq x < 1 \\
+    0 & \text{sonst } 
+\end{cases}
+\]
+\subsection*{b)}
+\textbf{Gegeben:} \\
+
+\[
+F(b) = \begin{cases}
+    0 & \text{für } b < 0, \\
+    (x-2)^3 & \text{für } 0 \leq 2 \leq b \leq 3, \\
+    1 & \text{sonst.}
+\end{cases}
+\]
+\textbf{Lösung:} \\
+\[
+f(x) = \begin{cases}
+    2(x-2)^2 & \text{für } 2 \leq x \leq 3 \\
+    0 & \text{sonst } 
+\end{cases}
+\]
+
+\subsection*{c)}
+\textbf{Gegeben:} \\
+
+\[
+F(b) = [1 - exp\{-\lambda (x-c)\}] I_{[c, \infty)}(b), \qquad \lambda > 0
+\]
+\textbf{Lösung:} \\
+\[
+f(x) = \frac{d}{dx} [1 - exp\{-\lambda x + \lambda c\}] I_{[c, \infty)}(x) = -exp\{-\lambda x + \lambda c\} \cdot  (-\lambda) = \lambda ~exp\{-\lambda (x -c)\} I_{[c, \infty)}(x) \qquad  \lambda > 0
+\]
+
+\section*{7}
+\textbf{Gegeben:} \\
+
+\[f(x) = \alpha(1-\beta)^{x-1} I_{\{1,2,3,\ldots\}}(x),\quad \text{mit } \beta \in (0,1). \]
+\subsection*{a)}
+\textbf{Frage:}\\
+
+Für welche Werte von $\alpha$ ist $f(x)$ tatsächlich eine Wahrscheinlichkeitsdichtefunktion?\\ \\
+\textbf{Lösung:} \\
+
+Da $X$ eine diskrete Zufallsvariable ist, muss für $C = \{x: f(x) > 0, x \in \mathbb{R}\}$ gelten, dass $\sum_{x \in C}f(x) = 1$ ist. Im vorliegenden Fall ist $C = \mathbb{N} = \{1,2,3, \ldots\}$. (Im Folgenden wird dementsprechend auch die Indikatorfunktion $I_{\{1,2,3,...\}}$ weggelassen).
+\begin{align*}
+    \sum_{x \in \mathbb{N}} f(x) &= \sum_{x \in \mathbb{N}}\alpha (1-\beta)^{x-1} \tag*{$\sum_{x} ax = a \sum_{x}x$} \\
+    &= \alpha \sum_{x \in \mathbb{N}} (1-\beta)^{x-1} \tag*{$a\sum_{x \in \mathbb{N}}b^{x-1}= ab^{0} + a\sum_{x \in \mathbb{N}}a^{x}$} \\
+    &= \alpha + \alpha \sum_{x \in \mathbb{N}}(1-ß)^{x} \tag*{$\sum_{x \in \mathbb{N}} b^{x} = -b^{0} +\sum_{x \in \underbrace{\mathbb{N}_{0}}_{\mathbb{N}\cup \{ 0 \}}} b^{x}$}  \\
+    &= \alpha - \alpha(1-\beta)^{0} + \alpha \sum_{x \in \mathbb{N}_{0}}(1-ß)^{x} \tag*{$\sum_{k \in N_{0}} q^{k} = \frac{1}{1-q}\quad \forall q \in (-1, 1)$} \\
+    &= \alpha - \alpha  + \alpha \frac{1}{1- ( 1 - \beta)} \\
+    &= \frac{\alpha}{\beta} \\ \\
+    \Longrightarrow \frac{\alpha}{\beta} &\overset{!}{=} 1 \\
+    \Rightarrow \alpha &= \beta 
+\end{align*}
+$\Longrightarrow$ also wenn $\alpha = \beta, \quad \alpha, \beta \in (0,1)$ ist die Funktion tatsächlich eine PDF 
+
+\subsection*{b)}
+\textbf{Frage:}\\
+
+Wie lautet die funktionale Form der PDF, wenn $P(x=1)=0.05$ seien soll? Wie groß ist dann $P(x = 10)$? \\\\ 
+\textbf{Lösung}:
+
+Wenn $P(x=1)=0.05$ und $\alpha = \beta$ heißt das: 
+
+\begin{align*}
+    f(1) = \alpha(1-\alpha)^{1-1}&= 0.05 \\
+    \Rightarrow \alpha(1-\alpha)^{0} &= 0.05 \\ 
+    \Rightarrow \alpha &= 0.05
+\end{align*}
+
+Folglich ist die genaue funktionale Form der PDF \[f(x) = 0.05(1-0.05)^{x-1}I_{\mathbb{N}}(x)\] 
+
+Und für $P(x = 10)$ ergibt sich \[P(x = 10)=f(10)= 0.05(1-0.05)^{10-1} \approx 0.0315 \]
+\subsection*{c)}
+\textbf{Gesucht:}\\
+
+Verteilungsfunktion von $X$ und Wahrscheinlichkeit von $x \leq 10$ \\ \\
+\textbf{Lösung:}\\
+
+Da $X$ eine diskrete Zufallsvariable ist, ist Verteilungsfunktion $X$ gegeben durch \[F(b) = \sum_{x=1}^{b}f(x)= \sum_{x=1}^{b}\alpha(1-\alpha)^{(1-x)}\] 
+
+Für $P(x \leq 10)$ ergibt sich \[P(x \leq 10)= F(10) = \sum_{x=1}^{10}\alpha(1-\alpha)^{(1-x)}\]
+
+\section*{8}
+
+\textbf{Gegeben:}\\
+
+Gemeinsame Dichte von $(X_{1}, X_{2})$:\[f(x_{1}, x_{2})= \frac{1}{4}I_{[0,4]}(x_{1})I_{[0,1]}(x_{2})\]
+\subsection*{a)}
+\textbf{Gesucht:}\\
+
+Verteilungsfunktion von $(X_{1}, X_{2})$ und Wahrscheinlichkeit $P(2 \leq x_{1} \leq 3; 0,5\leq x_{2}\leq 1)$ \\ \\
+\textbf{Lösung:} \\
+
+Da es sich bei $(X_{1}, X_{2})$ um stetige, multivariate Zufallsvariablen handelt, ist die Verteilungsfunktio $F(\cdot)$ gegeben durch: 
+\[F(b_{1}, b_{2}) = \int_{-\infty}^{b2}\int_{-\infty}^{b1}f(x_{1}, x_{2}) dx_{1}dx_{2}\] \\
+
+In unserem konreten Fall also (für $b_{1} \in [0,4], b_{2} \in [0,1] $):
+\begin{align*}
+    F(b_{1}, b_{2}) &= \int_{-\infty}^{b2}\int_{-\infty}^{b1}\frac{1}{4}I_{[0,4]}(x_{1})I_{[0,1]}(x_{2})dx_{1}dx_{2} \\
+    &= \int_{-\infty}^{b2}[\frac{1}{4}x_{1}I_{[0,4]}(x_{1})]^{b_{1}}_{-\infty}I_{[0,1]}(x_{2})dx_{2} \\
+    &= \int_{-\infty}^{b2}\frac{1}{4}b_{1}I_{[0,1]}(x_{2})dx_{2} \\
+    &= [\frac{1}{4}b_{1}x_{2}I_{[0,1]}(x_{2})]^{b_{2}}_{-\infty} \\
+    &= \frac{1}{4}b_{1}b_{2} \\ \\
+    \Longrightarrow& \quad F(b_{1}, b_{2})
+    \begin{cases}
+        0 & \text{wenn } b_{1} \text{ und/ oder } b_{2} < 0 \\
+        b_{1}b_{2}\frac{1}{4} &\text{wenn } b_{1} \in [0, 4] \text{ und } b_{2} \in [0, 1] \\
+        b_{2}\frac{1}{4} &\text{wenn } b_{1} > [0, 4] \text{ und } b_{2} \in [0, 1] \\
+        b_{1}\frac{1}{4} &\text{wenn } b_{1} \in [0, 4] \text{ und } b_{2} > [0, 1] \\
+        1 &\text{wenn } b_{1} > [0, 4] \text{ und } b_{2} > [0, 1] 
+    \end{cases}
+\end{align*} \\
+
+Für die Wahrscheinlichkeit $P(2 \leq x_{1} \leq 3; 0,5\leq x_{2}\leq 1)$ ergibt sich:
+\begin{align*}
+    P(2 \leq x_{1} \leq 3; 0,5\leq x_{2}\leq 1) &= F(3, 1) - F (2, 1) - F(3, 0.5) + F(2, 0.5) \\
+    &= \frac{3}{4} - \frac{2}{4} - \frac{3}{8} + \frac{1}{4} \\
+    &=\frac{1}{8} 
+\end{align*}
+\subsection*{b)}
+\textbf{Gesucht:} \\
+
+Marginale $(f_{1}(x_{1}), f_{2}(x_{2}))$ sowie bedingte $(f(x_{1}|x_{2}), f(x_{2}|x_{1}))$ Dichten \\ \\
+\textbf{Lösung:} \\
+
+Die marginalen Dichten $f_{1}(x_{1})$ und $f_{2}(x_{2})$ lassen sich berechnen durch:
+
+\begin{align*}
+    f_{1}(x_{1}) &= \int_{-\infty}^{\infty}f(x_{1}, x_{2}) dx_{2} \\
+    &= \int_{-\infty}^{\infty}\frac{1}{4}I_{[0,4]}(x_{1})I_{[0,1]}(x_{2})dx_{2} \\
+    &= \int_{0}^{1}\frac{1}{4}I_{[0,4]}(x_{1})dx_{2} \\
+    &= [\frac{1}{4}x_{2}I_{[0,4]}(x_{1})]_{0}^{1} \\
+    &= \frac{1}{4}I_{[0,4]}(x_{1}) - 0 \\
+    &= \frac{1}{4}I_{[0,4]}(x_{1}) \\ \\
+    f_{2}(x_{2}) &= \int_{-\infty}^{\infty}f(x_{1}, x_{2}) dx_{1} \\
+    &= \int_{-\infty}^{\infty}\frac{1}{4}I_{[0,4]}(x_{1})I_{[0,1]}(x_{2})dx_{1} \\
+    &= \int_{0}^{4}\frac{1}{4}I_{[0,4]}(x_{1})dx_{1} \\
+    &= [\frac{1}{4}x_{1}I_{[0,1]}(x_{2})]_{0}^{4} \\
+    &= I_{[0,1]}(x_{2}) - 0 \\
+    &= I_{[0,1]}(x_{2})
+\end{align*} \\ 
+
+Die bedingten Dichten $(f(x_{1}|x_{2}), f(x_{2}|x_{1}))$ lassen sich wie folgt berechnen:
+
+\begin{align*}
+    f(x_{1}|x_{2}) &= \frac{f(x_{1}, x_{2})}{f_{2}(x_{2})} \\
+    &= \frac{\frac{1}{4}I_{[0,4]}(x_{1})I_{[0,1]}(x_{2})}{I_{[0,1]}(x_{2})} \\
+    &= \frac{1}{4}I_{[0,4]}(x_{1}) \\ \\
+    f(x_{2}|x_{1}) &= \frac{f(x_{1, x_{2}})}{f_{1}(x_{1})} \\
+    &= \frac{\frac{1}{4}I_{[0,4]}(x_{1})I_{[0,1]}(x_{2})}{\frac{1}{4}I_{[0,4]}(x_{1})} \\
+    &= I_{[0,1]}(x_{2})
+\end{align*}\\
+
+$\Longrightarrow$ Aufgrund von Unabhängigkeit von $X_{1} \& X_{2}$ sind marginale und bedingte Dichten gleich
+
+\section*{10}
+\textbf{Gegeben:}
+\[f(x_{1}, x_{2}) = \frac{1}{2}(4x_{1}x_{2}+ 1)I_{[0,1]}(x_{1})I_{[0,1]}(x_{2})\]
+\subsection*{a)}
+\textbf{Gesucht:}\\
+
+Gemeinsame Verteilungsfunktion $F(b_{1}, b_{2})$ von $(X_{1}, X_{2})$ (wenn $b_{1}, b_{2} \in [0,1]$) \\ \\
+\textbf{Lösung:} \\
+\begin{align*}
+    F(b_{1}, b_{2}) &= \int_{\infty}^{b_{2}}\int_{\infty}^{b_{1}} \frac{1}{2}(4x_{1}x_{2}+ 1)I_{[0,1]}(x_{1})I_{[0,1]}(x_{2}) dx_{1}dx_{2} \\
+    &= \int_{0}^{b_{2}}\int_{0}^{b_{1}}2x_{1}x_{2} + \frac{1}{2}dx_{1} dx_{2} \\
+    &= \int_{0}^{b_{2}}[x_{1}^{2}x_{2} + \frac{1}{2}x_{1}]^{b_{1}}_{0}dx_{2} \\
+    &= \int_{0}^{b_{2}}b_{1}^{2}x_{2} + \frac{1}{2}b_{1} dx_{2} \\
+    &= [\frac{1}{2}b_{1}^{2} x_{2}^{2} + \frac{1}{2}b_{1}x_{2}]_{0}^{b_{2}} \\
+    &= \frac{1}{2}b_{1}^{2} b_{2}^{2} + \frac{1}{2}b_{1}b_{2}
+\end{align*} \\
+
+Damit ergibt sich für die Verteilungsfunktion: 
+\[F(b_{1}, b_{2})
+\begin{cases}
+    0 & \text{wenn } b_{1}< 0\text{ und/ oder } b_{2} < 0 \\
+    \frac{1}{2}b_{1}^{2} b_{2}^{2} + \frac{1}{2}b_{1}b_{2} &\text{wenn } b_{1} \in [0, 1] \text{ und } b_{2} \in [0, 1] \\
+    F_{2}(b_{2}) = \frac{1}{2} b_{2}^{2} + \frac{1}{2}b_{2} &\text{wenn } b_{1} > [0, 1] \text{ und } b_{2} \in [0, 1] \\
+    F_{1}(b_{1}) = \frac{1}{2} b_{1}^{2} + \frac{1}{2}b_{1} &\text{wenn } b_{1} \in [0, 1] \text{ und } b_{2} > [0, 1] \\
+    1 &\text{wenn } b_{1} > 1 \text{ und } b_{2} > 1 
+\end{cases}\]
+\subsection*{b)}
+\textbf{Frage:}\\
+
+Was sind die marginalen PDFS $f_{1}(x_{1}) ~\& ~ f_{2}(x_{2})$ und sind $X_{1} ~ \& ~ X_{2}$ stochastisch unabhängig? \\ \\
+\textbf{Lösung:}\\
+
+\begin{align*}
+    f_{1}(x_{1}) &= \int_{-\infty}^{\infty}\frac{1}{2}(4x_{1}x_{2}+ 1)I_{[0,1]}(x_{1})I_{[0,1]}(x_{2}) dx_{2} \\
+    &=\int_{0}^{1}\frac{1}{2}(4x_{1}x_{2}+ 1)I_{[0,1]}(x_{1}) dx_{2} \\
+    &= [x_{1}x_{2}^{2} + \frac{1}{2}x_{2}I_{[0,1]}(x_{1})]_{0}^{1} \\
+    &= (x_{1} + \frac{1}{2}) I_{[0,1]}(x_{1}) \\
+    f_{2}(x_{2}) &= \int_{-\infty}^{\infty}\frac{1}{2}(4x_{1}x_{2}+ 1)I_{[0,1]}(x_{1})I_{[0,1]}(x_{2}) dx_{1} \\
+    &=\int_{0}^{1}\frac{1}{2}(4x_{1}x_{2}+ 1)I_{[0,1]}(x_{2}) dx_{1} \\
+    &= [x_{1}^{2}x_{2} + \frac{1}{2}x_{1}I_{[0,1]}(x_{2})]_{0}^{1} \\
+    &= (x_{2} + \frac{1}{2} )I_{[0,1]}(x_{2}) 
+\end{align*}
+
+Wenn $X_1$ und $X_2$ unabhänig wären würde $f_{1}(x_{1})* f_2(x_{2}) = f(x_1, x_2)~ \forall ~ x_1, ~ x_{2}$ gelten
+\begin{align*}
+    f_1(x_1) \cdot f_2(x_2) &=((x_{1} + \frac{1}{2})I_{[0,1]}(x_{1}))  ((x_{2} + \frac{1}{2} )I_{[0,1]}(x_{2})) \\
+    &= (x_{1}x_{2} + \frac{1}{2}x_{1} + \frac{1}{2}x_{2} + \frac{1}{4}) I_{[0,1]}(x_{1}) I_{[0,1]}(x_{2}) \\
+    &\neq f(x_{1}, x_{2}) \\ 
+    \Longrightarrow &\text{ Stochastisch abhängig}
+\end{align*}
+
+\subsection*{c)}
+\textbf{Gesucht:}\\
+
+Bedingte Dichte $f(x_1|x_2)$ sowie bedingt Verteilung $F(x_1|x_2)$ \\ \\
+\textbf{Lösung: }\\
+
+\begin{align*}
+    f(b_1|x_2) &= \frac{f(x_{1}, x_{2})}{f_2(x_2)} \\
+    &= \frac{\frac{1}{2}(4x_{1}x_{2}+ 1)I_{[0,1]}(x_{1})I_{[0,1]}(x_{2})}{(x_{2} + \frac{1}{2} )I_{[0,1]}(x_{2})} \\
+    (\text{für } x_2, x_2 \in [0,1])\quad &= \frac{2x_1x_2 + 0.5}{x_2 + 0.5} \\ 
+\end{align*}
+\begin{align*}
+    F(b_1|x_2) &= \int_{0}^{b_1} \frac{2x_1x_2 + 0.5}{x_2 + 0.5} dx_1 \\
+    &= \frac{1}{x_2 + 0.5} \cdot \int_{0}^{b_1}2x_1x_2 + 0.5 dx_1\\ 
+    &= \frac{1}{x_2 + 0.5} \cdot [x_{1}^{2} x_2 + 0.5x_1]_{0}^{b_1}\\ 
+    &= \frac{1}{x_2 + 0.5} \cdot (b_{1}^2 x_{2} + 0.5 b_1 ) \\
+    &= \frac{b_{1}^2 x_{2} + 0.5 b_1 }{x_2 + 0.5}
+\end{align*}
+
+\section*{11}
+\textbf{Gegeben:}\\
+
+\[f(x_{1}, x_{2}) =\frac{1}{2}I{[0,4]}(x_1)I_{[0,\frac{1}{4}x_{1}]}(x_{2}) \] \\
+
+\subsection*{a)} 
+\textbf{Gesucht: } \\
+
+Verteilungsfunktion von $(X_{1}, X_{2})$ und die Wahrscheinlichkeit $P(2\leq x_{1}\leq 3 ; \frac{1}{2} \leq x_{2} \leq \frac{3}{2})$ \\ \\
+\textbf{Lösung:}\\
+
+Verteilungsfunktion $F(b_1, b_2)$ finden: 
+
+\begin{align*}
+    F(b_1, b_2) &= \int_{-\infty}^{b_2} \int_{-\infty}^{b_1} f(x_1, x_2) \, dx_1 \, dx_2 \\
+    &= \int_{-\infty}^{b_2} \int_{-\infty}^{b_1} \frac{1}{2} I_{[0,4]}(x_1) I_{[0,\frac{1}{4}x_1]}(x_2) \, dx_1 \, dx_2 \\
+    &= \int_{0}^{b_2} \int_{4x_2}^{b_1} \frac{1}{2} \, dx_1 \, dx_2 \\ 
+    &= \int_{0}^{b_2} \left[ \frac{1}{2} x_1 \right]_{4x_2}^{b_1} \, dx_2 \\
+    &= \int_{0}^{b_2} \frac{1}{2} b_1 - 2x_2 \, dx_2 \\
+    &= \left[ \frac{1}{2} b_1 x_2 - x_2^2 \right]_0^{b_2} \\
+    &= \frac{1}{2} b_1 b_2 - b_2^2 - 0 + 0 \\
+    &= \frac{1}{2} b_1 b_2 - b_2^2 \\ \\
+    \Longrightarrow F(b_1, b_2) &= 
+    \begin{cases*}
+        0 & if $b_1 \leq 0$ und/oder $b_2 \leq 0$, \\
+        \frac{1}{2} b_1 b_2 - b_2^2 & if  $b_1 \in [0,4]$ und  $b_{2} \in [0, \frac{1}{4}x_1]$, \\
+        F_1(b_{1}) = F(b_1, \frac{1}{4}b_1) & if $b_{1} \in [0,4]$ und $b_{2} > \frac{1}{4} b_1$, \\
+        F_2(b_{2}) = F(4b_2, b_2) & if $b_{2} \in [0,1]$ und $b_1 > 4$, \\
+        1 & sonst.
+    \end{cases*}
+\end{align*}
+
+Wahrscheinlichkeit $P(2\leq x_{1}\leq 3 ; \frac{1}{2} \leq x_{2} \leq \frac{3}{2})$ finden: 
+\begin{align*}
+    P(2\leq x_{1}\leq 3 ; \frac{1}{2} \leq x_{2} \leq \frac{3}{2}) &= F(3, \frac{3}{2}) - F(3, \frac{1}{2}) - F(2, \frac{3}{2}) + F(2, \frac{1}{2})
+    &= F(3, \frac{3}{4}) - F(3, \frac{1}{2}) - F(2, \frac{1}{2}) + F(2, \frac{1}{2}) \\ 
+    &= (\frac{1}{2}3\cdot\frac{3}{4} - \frac{3}{4}^2)  - (\frac{1}{2}3\cdot\frac{1}{2} - \frac{1}{2}^2)  \\ 
+    &= \frac{9}{16} - \frac{1}{2} \\
+    &= \frac{1}{16}
+\end{align*}
+
+\subsection*{b)}
+\textbf{Gesucht:}
+
+Marginale Dichten $f_1(x_1),~ f_2(x_2)$ und bedingte Dichten $f(x_1|x_2 = \frac{1}{4})\text{ und }f(x_2|x_1 = 1)$ \\ \\
+\textbf{Lösung:}\\
+Marginale Dichten
+
+\begin{align*}
+    f_1(x_1) &= \int_{-\infty}^{\infty} f(x_1, x_2) dx_2 \\ 
+    &= \int_{-\infty}^{\infty} \frac{1}{2}I_{[0,4]}(x_1)I_{[0,\frac{1}{4}x_1]}(x_2) dx_2 \\
+    &= \int_{0}^{\frac{1}{4}x_1} \frac{1}{2}I_{[0,4]}(x_1) dx_2 \\
+    &= \left[\frac{1}{2}x_{2} I_{[0,4]}(x_1)\right]^{\frac{1}{4}x_1}_{0} \\
+    &= \frac{1}{8}x_1 I_{[0,4]}(x_1) \\ \\
+    f_{2}(x_2) &=  \int_{-\infty}^{\infty} f(x_1, x_2) dx_1 \\ 
+    &= \int_{-\infty}^{\infty} \frac{1}{2}I_{[0,4]}(x_1)I_{[0,\frac{1}{4}x_1]}(x_{2}) dx_1 \\
+    &= \int_{4x_2}^{4} \frac{1}{2}I_{[0,1]}(x_2) dx_1 \\
+    &= \left[\frac{1}{2}x_1 I_{[0,1]}(x_2)\right]^{4}_{4x_2} \\
+    &= (2 - 2x_2)I_{[0,1]}(x_2)
+\end{align*}
+
+Bedingte Dichten
+\begin{align*}
+    f(x_1|x_2 = \frac{1}{4}) &= \frac{f(x_1, x_2)}{f_2(\frac{1}{4})} \\
+    &= \frac{\frac{1}{2}I_{[0,4]}(x_1)I_{[0, \frac{1}{4}x_1]}(x_2)}{2-2\frac{1}{4}} \\
+    &= \frac{\frac{1}{2}I_{[4x_2,4]}(x_1)}{\frac{3}{2}} \\
+    &= \frac{1}{3}I_{[1,4]} \\
+    f(x_2|x_1 = 1) &= \frac{f(x_1, x_2)}{f_2(\frac{1}{4})} \\
+    &= \frac{\frac{1}{2}I_{[0,4]}(x_1)I_{[0, \frac{1}{4}x_1]}(x_2)}{\frac{1}{8} \cdot 1} \\
+    &= 4I_{[0, \frac{1}{4}]}(x_2)
+\end{align*}
+
+\section*{12} 
+\textbf{Gegeben:} \\
+
+\[f(x_1, x_2, x_3) = \frac{3}{16}(x_1x_2^2e^{-x_3})I_{[0,2]}(x_1)I_{[0,2]}(x_2)I_{[0, \infty)}(x_3)\]
+\subsection*{a)}
+\textbf{Gesucht:} \\
+
+Marginale Dichten $f_1, f_2, f_3$ \\ \\
+\textbf{Lösung:} 
+\begin{align*}
+    f_1(x_1) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f(x_1, x_2, x_3) dx_2 dx_3 \\
+    &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \frac{3}{16}(x_1x_2^2e^{-x_3})I_{[0,2]}(x_1)I_{[0,2]}(x_2)I_{[0, \infty)}(x_3) dx_2 dx_3 \\
+    &= \int_{0}^{\infty}\int_{0}^{2} \frac{3}{16}(x_1x_2^2e^{-x_3})I_{[0,2]}(x_1) dx_2 dx_3 \\
+    &= \int_{0}^{\infty} \left[\frac{3}{16}(x_1\frac{1}{3}x_2^3e^{-x_3})I_{[0,2]}(x_1)\right]^{2}_0 dx_3 \\
+    &= \int_{0}^{\infty} (\frac{3}{16}(x_1\frac{1}{3}2^3e^{-x_3}) - 0 )I_{[0,2]}(x_1) dx_3 \\
+    &= \frac{3}{16}x_1\frac{8}{3}I_{[0,2]}(x_1)\left[-e^{-x_3}\right]_0^{\infty} \\
+    &= \frac{3}{16}x_1\frac{8}{3}I_{[0,2]}(0 - (-1)) \\
+    &= \frac{1}{2} x_1 I_{[0,2]} \\ \\
+    f_2(x_2) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f(x_1, x_2, x_3) dx_1 dx_3 \\
+    &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \frac{3}{16}(x_1x_2^2e^{-x_3})I_{[0,2]}(x_1)I_{[0,2]}(x_2)I_{[0, \infty)}(x_3) dx_1 dx_3 \\
+    &= \int_{0}^{\infty}\int_{0}^{2} \frac{3}{16}(x_1x_2^2e^{-x_3})I_{[0,2]}(x_2) dx_1 dx_3 \\
+    &= \int_{0}^{\infty} \frac{3}{16}x_2^2e^{-x_3}I_{[0,2]}(x_2)\left[\frac{1}{2}x_1\right]^{2}_0 dx_3 \\
+    &= \int_{0}^{\infty} \frac{3}{16}x_2^2e^{-x_3}I_{[0,2]}(x_2)(2 - 0) dx_3 \\
+    &= \frac{6}{16}x_2^2\left[-e^{-x_3}\right]_0^{\infty} \\
+    &= \frac{6}{16}x_2^2I_{[0,2]}(x_2)(0 - (-1)) \\
+    &= \frac{6}{16}x_2^2I_{[0,2]}(x_2) \\ \\
+    f_3(x_3) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f(x_1, x_2, x_3) dx_1 dx_2 \\
+    &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} \frac{3}{16}(x_1x_2^2e^{-x_3})I_{[0,2]}(x_1)I_{[0,2]}(x_2)I_{[0, \infty)}(x_3) dx_1 dx_2 \\
+    &= \int_{0}^{2}\int_{0}^{2} \frac{3}{16}(x_1x_2^2e^{-x_3})I_{[0,\infty)}(x_3) dx_1 dx_2 \\ 
+    &= \int_{0}^{2} \frac{6}{16}x_2^2 e^{-x_3}I_{[0,\infty)}(x_3)dx_2 \\
+    &= \frac{6}{16} e^{-x_3}I_{[0,\infty)}(x_3) \left[\frac{1}{3}x_2^3\right]^2_0 \\
+    &= \frac{6}{16} e^{-x_3}I_{[0,\infty)}(x_3) (\frac{8}{3}- 0) \\
+    &= e^{-x_3}I_{[0,\infty)}(x_3) 
+\end{align*}
+
+\subsection*{b)}
+\textbf{Gesucht:}\\
+
+Die Wahrscheinlichkeit $P(x_1 \geq 1)$\\\\
+\textbf{Lösung:} \\
+\begin{align*}
+    P(x_1 \geq 1) &= 1 - \int_{-\infty}^{1}f_1(x_1)dx_1 \\
+    &= 1 - \int_{0}^{1}\frac{1}{2} x_1 dx_1 \\
+    &= 1 - \left[\frac{1}{4} x_1^2 \right]_0^1 \\
+    &= 1 - \frac{1}{4} \\ 
+    &= \frac{3}{4} 
+\end{align*}
+
+\subsection*{c)}
+\textbf{Frage:}\\
+
+Sind $X_1, X_2 und X_3$ unabhängig?\\\\
+\textbf{Lösung:}\\
+
+Wenn sie gemeinsam unabhängig wären würde $f_1(x_1) \cdot f_2(x_2) \cdot f_3(x_3) = f(x_1, x_2, x_3)$ gelten 
+
+\begin{align*}
+    f_1(x_1) \cdot f_2(x_2) \cdot f_3(x_3) &= \frac{1}{2}x_1 I_{[0,2]}(x_1) * \frac{6}{16} x_2^2 I_{[0,2]}(x_2) * e^{-x_3}I_{[0,\infty)}(x_3) \\
+    &= \frac{3}{16}x_1 I_{[0,2]}(x_1)x_2^2 I_{[0,2]}(x_2)e^{-x_3}I_{[0,\infty)}(x_3) \\
+    &= f(x_1, x_2, x_3)
+\end{align*}
+
+\subsection*{d)}
+\textbf{Gesucht:} \\
+
+Marginale Verteilungsfunktionen von $X_2$ und $X_3$\\ \\
+\textbf{Lösung:} \\
+
+Für $b_2 < 2$ 
+\begin{align*}
+    F_2(b_2) &= \int_{-\infty}^{b_2} f_2(x_2) dx_2 \\
+    &= \int_{-\infty}^{b_2} \frac{6}{16} x_2^2 I_{[0,2]}(x_2) dx_2 \\
+    &= \int_{0}^{b_2} \frac{6}{16} x_2^2 dx_2 \\
+    &= \left[\frac{2}{16} x_2^3\right]_0^{b_2} \\ 
+    &= \frac{2}{16} b_2^3 - 0 \\
+    &= \frac{2}{16} b_2^3 \\ 
+    \Longrightarrow F_2(b_2) = &\begin{cases}
+        0 &\text{wenn } b_2 \leq 0 \\
+        \frac{2}{16} b_2^3 &\text{wenn } 0 < b_2 \leq 2 \\
+        1 &\text{sonst}
+    \end{cases}\\
+    F_3(b_3) &= \int_{-\infty}^{b_3} f_2(x_3) dx_3 \\
+    &= \int_{-\infty}^{b_3} e^{-x_3} I_{[0,\infty)}(x_3) dx_3 \\
+    &= \int_{0}^{b_3} e^{-x_3} dx_3 \\
+    &= \left[-e^{-x_3}\right]_0^{b_3} \\
+    &= -e^{-b_3} - (-e^{-0}) \\
+    &= 1 - e^{-b_3} \\
+    \Longrightarrow F_2(b_2) = &\begin{cases}
+        0 &\text{wenn } b_3 \leq 0 \\
+        1- e^{-b_3}&\text{sonst } \\
+    \end{cases}\\
+\end{align*}
+\subsection*{e)}
+\textbf{Gesucht:} \\
+
+Gemeinsame Verteilungsfunktion $F(b_1, b_2, b_3)$ und die Wahrscheinlichkeit $P(x_1 \leq 1, x_2 \leq 1, x_3 \leq 10)$ \\  \\
+\textbf{Lösung:} \\
+
+Die Verteilungsfunktion: 
+
+\begin{align*}
+    F(b_1, b_2, b_3) &= \int_{-\infty}^{b_3}\int_{-\infty}^{b_2}\int_{-\infty}^{b_1} f(x_1, x_2, x_3) dx_1 dx_2 dx_3 \\
+    &=   \int_{0}^{b_3}\int_{0}^{b_2}\int_{0}^{b_1} \frac{3}{16} x_1x_2^2e^{-x_3} dx_1dx_2dx_3 \\
+    &= \int_{0}^{b_3}\int_{0}^{b_2} \frac{3}{16}x_2^2e^{-x_3}\left[\frac{1}{2} x_1^2\right]^{b_1}_0 dx_2 dx_3 \\
+    &= \int_{0}^{b_3}\int_{0}^{b_2} \frac{3}{16}x_2^2e^{-x_3} \frac{1}{2} b_1^2 dx_2 dx_3 \\
+    &= \int_{0}^{b_3}\frac{3}{16}e^{-x_3} \frac{1}{2}b_1^2 \left[\frac{1}{3}x_2^3\right]_0^{b_2} dx_3 \\
+    &= \int_{0}^{b_3}\frac{3}{16}e^{-x_3} \frac{1}{2}b_1^2 \frac{1}{3} b_2^3 dx_3 \\
+    &= \frac{3}{16}\frac{1}{2}b_1^2 \frac{1}{3} b_2^3 \left[-e^{-x_3}\right]_0^{b_3} \\
+    &= \frac{3}{16}\frac{1}{2}b_1^2 \frac{1}{3} b_2^3 (1 - e^{-b_3}) \\
+    &= \frac{1}{32}b_1^2 b_2^3(1- e^{-b_3})\\
+    \longrightarrow F(b_1, b_2, b_3) &= \begin{cases}
+        0 &\text{wenn } b_1 < 0 \cup b_2 < 0 \cup b_3 < 0 \\
+        \frac{1}{32}b_1^2 b_2^3(1- e^{-b_3}) &\text{wenn } b_1 \in [0,2] \cap b_2 \in [0,2] \cap b_3 \in [0,\infty) \\
+        \frac{1}{8}b_2^3(1- e^{-b_3}) &\text{wenn } b_1 > 2 \cap b_2 \in [0,2] \cap b_3 \in [0,\infty) \\
+        \frac{1}{2}b_1^2(1- e^{-b_3}) &\text{wenn } b_1 \in [0,2] \cap b_2 > 2 \cap b_3 \in [0,\infty) \\
+        1- e^{-b_3} &\text{wenn } b_1 > 2 \cap b_2 > 2 \cap b_3 \in [0,\infty)
+    \end{cases}
+\end{align*}
+
+Die Wahrscheinlichkeit:
+\begin{align*}
+    P(x_1 \leq 1, x_2 \leq 1, x_3 \leq 10) &= F(1, 1, 10 ) \\
+    &= \frac{1}{32} 1^2 \cdot 1^3 \cdot (1- e^{[-10]}) \\
+    &\approx 0.031
+\end{align*}
+
+\section*{13}
+\textbf{Gegeben:}\\
+
+\[f(x,y) = k \cdot (x^2 + y^2)I_{[0,1]}(x)I_{[0,1]}(y)\]
+\subsection*{a)}
+\textbf{Gesucht:} \\
+
+k, sodass $f(x,y)$ eine pdf\\ \\
+\textbf{Lösung:}\\
+
+$f(x,y)$ ist genau dann eine pdf, wenn $\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f(x,y) dx dy = 1$
+
+\begin{align*} 
+    \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} f(x,y) dx dy &= 1 \\
+    \int_{0}^{1}\int_{0}^{1} k (x^2 + y^2) dx dy &= 1 \\
+    \int_{0}^{1} \left[\frac{1}{3}k x^3 + kxy^2 \right]_0^1 dy &= 1 \\
+    \int_{0}^{1} \frac{1}{3}k + ky^2  dy &= 1 \\
+    \left[\frac{1}{3}ky + \frac{1}{3} ky^3\right]^1_0 &= 1 \\
+    \frac{1}{3}k + \frac{1}{3}k &= 1 \\
+    \frac{2}{3}k &= 1 \\
+    k &= \frac{3}{2}
+\end{align*}
+
+\subsection*{b)}
+\textbf{Gesucht:} \\
+
+Die marginalen Verteilungen $F_x(b_x)$ und $F_y(b_y)$ \\ \\
+\textbf{Lösung:} \\
+
+Oben haben wir schon einmal $x$ rausintegriert und haben damit schon die marginale Dichte zu $y$ 
+\begin{align*}
+    F_y(b_y) &= \int_{-\infty}^{b_y} f_y(y) dy \\
+    &= \int_{-\infty}^{b_y} \frac{1}{2} + \frac{3}{2} y^2 dy \\
+    &= \left[\frac{1}{2}y + \frac{3}{2} \frac{1}{3} y^3 \right]^{b_y}_0 \\
+    &= \frac{1}{2}b_y + \frac{1}{2} b_y^3 \\
+    \Longrightarrow F_y(b_y) &= \begin{cases}
+    0 &\text{wenn } b_y < 0 \\
+    \frac{1}{2}b_y + \frac{1}{2} b_y^3 &\text{wenn } 0 \leq b_y < 1 \\
+    1 &\text{sonst}  
+    \end{cases} 
+\end{align*}
+
+Da $x$ und $y$ austauschbar sind (beide werden quadriert und dank kommutativität) ergibt sich die Verteilung $F_x(b_x)$ einfach indem man oben überall für $y ~ x$ und für $b_y ~ b_x$ einsetzt 
+\subsection*{c)}
+\textbf{Gesucht:} \\
+
+Die Wahrscheinlichkeit $P(3x>y)$\\ \\
+\textbf{Lösung:}
+
+\begin{align*}
+    P(3x > y) &= \int_{0}^{\frac{1}{3}}\int_{0}^{3x}\frac{3}{2}(x^2 + y^2)dy ~dx \\
+    &= \int_{0}^{\frac{1}{3}} \left[\frac{3}{2}x^2y + \frac{3}{2}\frac{1}{3}y^3\right]_0^{3x} dx \\
+    &= \int_{0}^{\frac{1}{3}} \frac{3}{2}x^3 3x + \frac{1}{2}(3x)^3 dx \\
+    &= \left[\frac{9}{2}\frac{1}{5}x^5 + \frac{27}{2}\frac{1}{4}x^4\right]^{\frac{1}{3}}_0 \\
+    &= \frac{9}{10} \frac{1}{3^5} + \frac{27}{8}  \frac{1}{3^4} \\
+    &= \frac{1}{27} + \frac{1}{24}
+\end{align*}
+
+\end{document}

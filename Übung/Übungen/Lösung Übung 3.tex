@@ -1,0 +1,834 @@
+\documentclass{article}
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Allow align environments to break across pages
+\allowdisplaybreaks[4]
+
+% Begin document
+\begin{document}
+\title{Übung 3 Lösungen}
+\author{Victor Minig}
+\date{\today}
+\maketitle
+
+\section*{1}
+\textbf{Gegeben:}
+\[f(x) = \Theta(1-\Theta)^{(x-1)}I_{\{1,2...\}}(x).\]
+\textbf{Gesucht:} \\
+
+Erwartungswert $E(X)$ \\ \\
+\textbf{Lösung:} \\
+
+Unsere Zufallsvariable $X$ ist diskret, ihr Erwartungswert, falls er existiert, errechnet sich also wie folgt: 
+\begin{align*}
+    EX &= \sum_{x\in R(X)}x f(x) \\
+    &= \sum_{x \in \mathbb{N}} x \cdot \Theta(1-\Theta)^{(x-1)} \\
+    &= \Theta\sum_{x\in \mathbb{N}} x(1- \Theta)^{(x-1)} \\
+    &= \Theta + \Theta \sum_{x\in \{1,2...\}} (x+1)(1- \Theta)^{(x)} \\
+    &= \Theta + 2 \Theta (1-\Theta) + \Theta \sum_{x\in \{2,3...\}} (x+1)(1- \Theta)^{(x)} \\
+\end{align*}
+
+
+\section*{2}
+\textbf{Gegeben:}
+\[f(x) = \Theta^x(1-\Theta)^{(1-x)}I_{\{0,1\}}(x).\]
+\textbf{Gesucht:} \\
+
+Die nichtzentralen Moment $\mu`_r$ sowie die zentralen Momente $\mu_1, \mu_2, \mu_3, \mu_4$ \\ \\
+\textbf{Lösung:}\\
+
+$X$ ist diskret, die nichtzentralen Momente sind also gegeben durch:
+\begin{align*}
+    \mu`_r &= \sum_{x \in R(X)}x^r f(x) \\
+    &= \sum_{x \in \{0,1\}} x^r \Theta^x(1-\Theta)^{(1-x)} \\
+    &= 0^r\Theta^0 (1- \Theta)^{(1-0)} + 1^r\Theta^1 (1- \Theta)^{(1-1)} \\
+    &= \Theta
+\end{align*}
+
+Die zentralen Momente von $X$:
+\begin{align*}
+    \mu_1 &= \sum_{x \in R(x)} (x- \mu)^1 f(x) \\
+    &= \sum_{x \in \{0,1\}} (x- \Theta) \Theta^x(1-\Theta)^{(1-x)} \\
+    &= (1-\Theta) \Theta^x (1-\Theta)^{(1-1)}  + (0-\Theta) \Theta^0 (1-\Theta)^{(1-0)} \\
+    &= (1-\Theta) \Theta - \Theta(1-\Theta) \\
+    &= 0 \\ 
+    \mu_2 &=  \sum_{x \in R(x)} (x- \mu)^2 f(x) \\
+    &= \sum_{x \in \{0,1\}} (x- \Theta)^2 \Theta^x(1-\Theta)^{(1-x)} \\
+    &= (0- \Theta)^2 \Theta^0(1-\Theta)^{(1-0)} + (1- \Theta)^2 \Theta^1(1-\Theta)^{(1-1)} \\
+    &= \Theta^2(1-\Theta) + (1-\Theta)^2\Theta \\
+    &= \Theta(1-\Theta)(\Theta + (1- \Theta)) \\
+    &= \Theta(1- \Theta) (\Theta - \Theta + 1) \\
+    &= \Theta(1- \Theta) \\
+    \mu_3 &= \sum_{x \in R(x)} (x- \mu)^3 f(x) \\
+    &= \sum_{x \in \{0,1\}} (x-\Theta)^3 \Theta^x(1-\Theta)^{1-x} \\
+    &= (0-\Theta)^3 \Theta^0 (1-\Theta)^{1-0} + (1-\Theta)^3 \Theta^1 (1-\Theta)^{1-1} \\
+    &= -\Theta^3 (1-\Theta) + (1-\Theta)^3 \Theta \\
+    &= \Theta (1-\Theta)(-\Theta^2 + (1-\Theta)^2) \\
+    &= \Theta (1-\Theta)(-\Theta^2 +1^2 - 2\Theta + \Theta^2) \\
+    &= \Theta (1-\Theta)(1- 2\Theta) \\
+    \mu_4 &= \sum_{x\in R(x)} (x- \mu)^4 f(x) \\
+    &= \sum_{x \in \{0,1\}} (x-\Theta)^4 \Theta^x (1- \Theta)^{1-x} \\
+    &= (0-\Theta)^4 \Theta^0 (1- \Theta)^{1-0} +  (1-\Theta)^4 \Theta^1 (1- \Theta)^{1-1} \\
+    &= \Theta^4 (1-\Theta) + (1- \Theta)^4 \Theta \\
+    &= \Theta(1- \Theta)(\Theta^3 + (1-\Theta)^3) \\
+    &= \Theta(1- \Theta)(\Theta^3 +1^3 - 3 \cdot 1^2 \Theta + 3 \cdot 1 \Theta^2 - \Theta^3) \\
+    &= \Theta(1- \Theta)(1 - 3 \Theta + 3 \Theta^2)
+\end{align*}
+
+
+\section*{3}
+\textbf{Gegeben: } \\
+
+\[f(x) = \lambda e^{-\lambda x} I_{(0, \infty)}(x)\]
+
+\section*{4} 
+\textbf{Gegeben:} \\
+
+Stetige Zufallsvariable $X$ mit Erwartungswert $\mu$ einem Median $m$ und einer Varianz $\sigma^2$
+\subsection*{a)}
+\textbf{Zu Zeigen:} \\
+
+Die Funktion $E[(X-b)^2]$ wird für $b = \mu$ minimal\\ \\
+\textbf{Lösung:} \\
+    
+Die Aussage, dass $E[(X-b)^2]$ für $b = \mu$ minimal wird, ist gleichbedeutend mir der Aussage, dass $\frac{\delta E[(X-b)^2]}{\delta b} E[(X-b)^2] = 0$ für $b = \mu$
+\begin{align*}
+    \frac{d}{d b}E[(X-b)^2] &= \frac{d}{db} \int_{-\infty}^{\infty} (x-b)^2  f(x)  dx \\
+    &= \frac{\delta}{db} \int_{-\infty}^{\infty} (x^2 - 2xb + b^2) f(x) dx \\
+    &= \frac{d}{db} \int_{-\infty}^{\infty} x^2 f(x) - 2xb f(x) + b^2 f(x) dx \\
+    &= \frac{d}{db} \int_{-\infty}^{\infty} x^2 f(x) dx - 2b \underbrace{\int_{-\infty}^{\infty} x f(x) dx}_{=\mu} + b^2 \underbrace{\int_{-\infty}^{\infty} f(x)  dx}_{= 1} \tag{Jetzt ableiten nach b}\\ 
+    &= 0 - 2\mu + 2b \\ 
+    \Rightarrow 2 \mu + 2b &\overset{!}{=} 0 \\
+    \Longrightarrow \mu &= b 
+\end{align*}
+
+\subsection*{b)}
+\textbf{Zu Zeigen:}\\
+
+Die Funktion $E[|X-b|]$ wird durch den Median $m$ minimiert\\\\
+\textbf{Lösung:}\\
+
+Die Aussage, dass $E[|X-b|]$ durch $m$ minimiert wird, ist gleichbedeutend mit der Aussage $\frac{\delta E[|X- b|]}{\delta b} E[|X-b|] = 0$ für $ b = m$ \\
+
+Anscheined brauchen wir außerdem die \textit{Leibnizregel} zur Lösung: 
+\begin{align*}
+    I &= \int_{l(z)}^{h(z)} f(s, z) ds \\
+    \frac{\delta I}{\delta z} = \int_{l(z)}^{h(z)} \frac{\delta f}{\delta z} ds + \frac{\delta h}{\delta z} f(h(z, z)) - \frac{\delta l}{\delta z} f(l(z), z)
+\end{align*}
+\begin{align*}
+    \frac{d}{d b}E[|X-b|] &= \frac{d}{d b}  \int_{-\infty}^{\infty} |x-b|  f(x) dx \\ 
+    &= 
+\end{align*}
+\section*{5}
+\textbf{Gegeben:}\\
+
+Stetige Zufallsvariable $X$ die \textit{symmetrisch} um den Wert $x = c$ ist.\\ \\
+\textbf{Zu Zeigen:}\\
+
+$E(X) = c $ und $\mu_3 = 0$ \\\\
+\textbf{Lösung:}\\
+
+Die Symmetrie von $X$ um $x = c$ lässt sich mathematisch ausdrücken durch $f(c + x) = f(c-x) \quad \forall x \in \mathbb{R} $.
+
+\begin{align*}
+    E(X) &= \int_{-\infty}^{\infty} x f(x) ~ dx     \\
+    &= \int_{-\infty}^{c} x f(x) ~ dx + \int_{c}^{\infty} x f(x) ~ dx \tag*{Unabhängig von Symmetrie}\\ \\
+    \text{Für das erste Integral: } x &= c - x_0 \Leftrightarrow dx = -dx_0 \\
+    \text{Für das zweite Integral: } x &= c + x_0  \Leftrightarrow dx = dx_0  \\ \\
+    \text{Durch Substitution ergibt sich: } E(X) &= - \int_{\infty}^{0} (c - x_0) f(c-x_0)dx_0 + \int_{0}^{\infty} (c + x_0) f(c + x_0) dx_0
+\end{align*}
+
+\section*{8}
+\textbf{Gegeben:}
+\begin{enumerate}[label=\roman*)]
+    \item $f(x) = I_{[0,1]}(x)$ \\
+    \item $f(x) = \lambda e ^{-\lambda x}I_{(0, \infty)}(x)$ \\
+    \item $f(x) = xe^{-x} I_{(0, \infty)}$ \\
+    \item $f(x) = \frac{1}{8} \frac{3!}{(3-x)!x!}I_{\{0,1,2,3\}}(x)$ 
+\end{enumerate}
+\subsection*{a)}
+\textbf{Gesucht:}\\
+
+Die jeweiligen momenterzeugenden Funktionen \\ \\
+\textbf{Lösung:}
+
+Momenterzeugende Funktionen sind wie folgt definiert:
+
+\begin{align*}
+    \text{Für diskrete ZVS:} \quad & M_X(T) = Ee^{tX} = \sum_{x \in R(X) }e^{tx}f(x) \\
+    \text{Für stetige ZVS:} \quad & M_X(T) = Ee^{tX} = \int_{-\infty}^{\infty}e^{tx} f(x) dx
+\end{align*}
+\begin{enumerate}[label= zu \roman*)]
+    \item   Ist stetig, also\begin{align*}
+                M_X(t) &=  \int_{-\infty}^{\infty} e^{tx}I_{[0,1]} dx\\
+                &= \int_{0}^{1} e^{tx} dx \\
+                &= \left[\frac{1}{t} e^{tx}\right]_0^1 \\
+                &= \frac{1}{t} e^{t\cdot 1} - \frac{1}{t} e^{t\cdot 0} \\  
+                &= \frac{1}{t} e^t - \frac{1}{t} \\
+                &= \frac{1}{t}(e^t -1)
+            \end{align*} 
+            \[\text{L'Hopital}: ~ \frac{f(x)}{g(x)} = \frac{f'(x)}{g'(x)} \text{ sofern } \underset{x \rightarrow a}{lim} \frac{f(x)}{g(x)} = \frac{0}{0} \text{ oder } \frac{\infty}{\infty}\]
+            \begin{align*} 
+                \text{Für } t &= 0 ~\Rightarrow  \underset{t \rightarrow 0}{lim} \frac{e^t - 1}{t} \overset{L'hoptial}{=} \underset{t \rightarrow 0}{lim} \frac{e^t}{1} = 1 \\
+                \Longrightarrow M_X(t) &= \begin{cases}
+                    1 &\text{wenn } t = 0\\
+                    \frac{1}{t}(e^t-1) \quad & \text{sonst} 
+                \end{cases}
+            \end{align*} \\
+    \item Ist ebenfalls stetig: \begin{align*}
+                M_X(t) &=  \int_{-\infty}^{\infty} e^{tx}\lambda e^{-\lambda x} I_{(0, \infty)}(x) dx\\
+                &= \int_{0}^{\infty} e^{tx} \lambda e^{-\lambda x} dx \\
+                &= \int_{0}^{\infty} \lambda e^{tx  - \lambda x} \\
+                &= \lambda \left[e^{tx  - \lambda x} (\frac{1}{t - \lambda})\right]_0^{\infty} \\
+                &= \frac{\lambda}{t -\lambda} \left[e^{tx  - \lambda x}\right]_0^{\infty} \\
+                &= \frac{\lambda}{t - \lambda} \left((\underset{x \rightarrow \infty}{lim} e^{(t-\lambda) x})-  1\right) \\
+                &= \begin{cases}
+                    \frac{\lambda}{t - \lambda}(0 - 1) = -\frac{\lambda}{t - \lambda} = \frac{\lambda}{\lambda - t} &\text{wenn } \lambda > t \\
+                    0 &\text{sonst }
+                \end{cases}
+            \end{align*} \\
+    \item Wieder stetig: \begin{align*}
+        M_X(t)&= \int_{-\infty}^{\infty}e^{tx}xe^{-x} I_{(0, \infty)} dx\\
+        &=\int_{0}^{\infty} \underbrace{x}_{= h(x)} \underbrace{e^{x(t-1)}}_{= g'(x)} dx \\
+        \intertext{$\left(\text{Partielle Integration: } \int_a^b h(x) g'(x) dx = \left[h(x)\cdot g(x)\right]_a^b - \int_a^b h'(x) g(x) dx\right) $} \\
+        &= \left[x \frac{e^{x (t-1)}}{t-1}\right]_0^{\infty} - \int_{0}^{\infty} 1 \cdot \frac{e^{x(t-1)}}{t-1} dx \\
+        &= \left[x \frac{e^{x (t-1)}}{t-1}\right]_0^{\infty} - \left[\frac{e^{x(t-1)}}{(t-1)^2}\right]_0^{\infty} \\
+        &= \left(\underset{x \rightarrow \infty}{lim} x \frac{e^{x (t-1)}}{t-1} \right) - \left(0 \frac{e^{0 (t-1)}}{t-1}\right) - \left(\underset{x \rightarrow \infty}{lim}\frac{e^{x(t-1)}}{(t-1)^2}\right) + \left(\frac{e^{0(t-1)}}{(t-1)^2}\right) \\
+        &= \frac{1}{t-1}\left(\underset{x \rightarrow \infty}{lim} x e^{x (t-1)} \right) - 0 - \frac{1}{(t-1)^2}\left(\underset{x \rightarrow \infty}{lim}e^{x(t-1)}\right) + \frac{1}{(t-1)^2} \\
+        &=  \begin{cases}
+            \frac{1}{t-1} \cdot 0 -  \frac{1}{(t-1)^2} \cdot 0 + \frac{1}{(t-1)^2} = \frac{1}{(t-1)^2} &\text{wenn } t < 1 \\
+            0\text{/ nicht endlich}& \text{sonst }
+            \end{cases}
+        \end{align*} 
+    \item Diesmal ist die Funktion diskret: \begin{align*}
+        M_X(t) &= \sum_{x \in R(X)} e^{tx} f(x) \\
+        &= \sum_{x \in \{0,1,2,3\}} e^{tx}\frac{1}{8} \frac{3!}{(3-x)!x!} \\
+        &= \frac{3!}{8}(\frac{e^{t\cdot 0}}{(3 -0)!0!} + \frac{e^{t\cdot 1}}{(3 -1)!1!} + \frac{e^{t\cdot 2}}{(3 -2)!2!} \frac{e^{t\cdot 3}1}{(3 -3)!3!}) \\
+        &=  \frac{6}{8}(\frac{1}{6} + \frac{e^{t\cdot 1}}{2} + \frac{e^{t\cdot 2}}{2} + \frac{e^{t\cdot 3}}{6}) \\
+        &= \frac{6}{8}(\frac{1 + 3e^{t} + 3e^{2t} + e^{3t}}{6}) \\
+        &= \frac{1 + 3e^{t} + 3e^{2t} + e^{3t}}{8}
+        \end{align*} 
+\end{enumerate}
+
+\subsection*{b)}
+\textbf{Gesucht:} \\
+
+Die beiden ersten, nichtzentralen Moment (ermittelt mit Hilfe der MGF)\\ \\
+\textbf{Lösung:}\\
+
+Gegeben eine MGF $M_X(t)$ lässt sich ein beliebiges nichtzentrales Moment $\mu_r'$, sofern es exisiert, ermitteln durch: \[\mu_r' = E X^r = \frac{d^r M_X(0)}{dt^r}\]
+\begin{enumerate}[label= zu \roman*)]
+    \item 
+        \begin{align*}
+        \mu'_1 &= \frac{d^1}{dt} M_X(t) \bigg|_{t=0} \\
+        &= \frac{d}{dt} \frac{1}{t}(e^t - 1)\bigg|_{t=0} \\
+        &= -t^{-2}(e^t - 1) + \frac{1}{t}e^t  \bigg|_{t=0} \\
+        &= -\frac{e^t}{t^2} + \frac{1}{t^2} + \frac{e^t}{t} \bigg|_{t=0} \\
+        &= \frac{te^t + 1 - e^t}{t^2} \bigg|_{t=0} \\ 
+        &\overset{L'hopital}{=} \underset{t \rightarrow 0}{lim} \frac{te^t + e^t - e^t}{2t} \\
+        &\overset{L'hopital}{=} \underset{t \rightarrow 0}{lim} \frac{te^t + e^t}{2} \\
+        &= \frac{1}{2} \\
+        \mu'_2 &= \frac{d^2}{dt^2} M_X(t) \bigg|_{t=0} \\
+        &= \frac{d}{dt} (\frac{d}{dt} M_X(t)) \bigg|_{t=0} \tag*{1. Ableitung von vorher} \\
+        &= \frac{d}{dt} \frac{te^t + 1 - e^t}{t^2} \bigg|_{t=0} \\
+        &= \frac{d}{dt} (te^t + 1 - e^t) t^{-2} \bigg|_{t=0} \\
+        &= (te^t + e^t - e^t)t^{-2} +  (te^t + 1 - e^t)(-2t^{-3}) \bigg|_{t=0}\\
+        &= e^t t^{-1} - 2e^t t^{-2} -2t^{-3} + 2e^tt^{-3} \bigg|_{t=0} \\
+        &= \frac{e^t - 2e^t t^{-1} - 2t^{-2} + 2 e^tt^{-2}}{t} \bigg|_{t=0} \\
+        &= \frac{e^t t^2 - 2e^t t - 2 + 2 e^t}{t^3} \bigg|_{t=0} \\
+        & \overset{L'hopital}{=} \underset{t \rightarrow 0}{lim} \frac{e^t t^2}{3t^2}  \\
+        & \overset{L'hopital}{=} \underset{t \rightarrow 0}{lim} \frac{e^t t^2 + 2t e^t}{6t}\\ 
+        & \overset{L'hopital}{=} \underset{t \rightarrow 0}{lim} \frac{e^t t^2 + 2te^t + 2te^t + 2e^t}{6} \\
+        & = \frac{1}{3}
+        \end{align*}
+    \item 
+        \begin{align*}
+            \mu'_1 &= \frac{d^1}{dt} M_X(t) \bigg|_{t=0} \\
+            &= \frac{d}{dt} \frac{\lambda}{\lambda - t} \bigg|_{t=0} \\  
+            &= \lambda \cdot (-1)(\lambda - t)^{-2}\cdot(-1) \bigg|_{t=0} \\
+            &= \frac{\lambda}{(\lambda - t)^2} \bigg|_{t=0} \\
+            &= \frac{1}{\lambda} \\
+            \mu'_2 &= \frac{d^2}{dt^2} M_X(t) \bigg|_{t=0} \\
+            &= \frac{d}{dt} (\frac{d}{dt} M_X(t)) \bigg|_{t=0} \tag*{1. Ableitung von vorher} \\
+            &= \frac{d}{dt} \frac{\lambda}{(\lambda - t)^2} \bigg|_{t=0} \\
+            &= \lambda \cdot (-2) (\lambda- t)^{-3} \cdot (-1) \bigg|_{t=0}\\
+            &= \frac{2\lambda}{(\lambda - t)^3} \bigg|_{t=0} \\
+            &= \frac{2}{\lambda^2}
+        \end{align*}
+    \item 
+        \begin{align*}
+            \mu'_1 &= \frac{d^1}{dt} M_X(t) \bigg|_{t=0} \\
+            &= \frac{d}{dt} \frac{1}{(t-1)^2} \bigg|_{t=0} \\
+            &= \frac{-2}{(t-1)^3} \bigg|_{t=0} \\
+            &= \frac{-2}{-1} = 2
+            \mu'_2 &= frac{d^2}{dt^2} M_X(t) \bigg|_{t=0} \\
+            &= \frac{d}{dt} (\frac{d}{dt} M_X(t)) \bigg|_{t=0} \tag*{1. Ableitung von vorher} \\
+            &= \frac{d}{dt} \frac{-2}{(t-1)^3} \bigg|_{t=0} \\
+            &= \frac{6}{(t-1)^4} \bigg|_{t=0} \\ 
+            &= 6
+        \end{align*}
+    \item 
+        \begin{align*}
+            \mu'_1 &= \frac{d^1}{dt} M_X(t) \bigg|_{t=0} \\
+            &= \frac{d}{dt} \frac{1 + 3 e^t + 3e^{2t}+ e^3t}{8} \bigg|_{t=0} \\
+            &= \frac{3e^t + 6e^{2t}+ 3e^{3t}}{8} \bigg|_{t=0} \\
+            &= \frac{12}{8} = \frac{3}{2} \\
+            \mu'_2 &= \frac{d}{dt} (\frac{d}{dt} M_X(t)) \bigg|_{t=0} \\
+            &= \frac{d}{dt} \frac{3e^t + 6e^{2t}+ 3e^{3t}}{8} \bigg|_{t=0} \\
+            &= \frac{3e^t + 12e^{2t} + 9 e^{3t}}{8} \bigg|_{t=0} \\
+            &= \frac{24}{8} = 3
+        \end{align*}  
+\end{enumerate}
+\section*{8} 
+\textbf{Gegeben:}\\
+
+Zufallsvariable $\underset{-}{X} =( X_1, X_2)$ mit Dichte 
+\begin{align*}
+    f(x_1, x_2) = 
+    \begin{cases}
+        2 e^{-x_1 - x_2}, & \text{für } 0 < x_1 < x_2 < \infty, \\
+        0, & \text{sonst}.
+    \end{cases}
+\end{align*}
+\subsection*{a)}
+\textbf{Gesucht:}\\
+
+MGF zu $\underset{-}{X}$ \\ \\
+\textbf{Lösung:} 
+
+\begin{align*}
+    M_{\underset{-}{X}}(\underset{-}{t}) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{t_1x_1 + t_2x_2} f(x_1, x_2) dx_1 dx_2 \\
+    &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{t_1x_1 + t_2x_2} 2 e^{-x_1 - x_2} I_{(0, x_2)}(x_1) I_{(0, \infty)}(x_2) \\
+    &= \int_{0}^{\infty}\int_{0}^{x_2} 2 e^{t_1 x_1 + t_2 x_2 -x_1 - x_2} dx_1 dx_2 \\
+    &= 2 \int_{0}^{\infty} \left[e^{t_1 x_1 + t_2 x_2 -x_1 - x_2}\frac{1}{t_1 - 1}\right]_0^{x_2} dx_2 \\
+    &= \frac{2}{t_1 - 1} \int_{0}^{\infty}  e^{t_1 x_2 + t_2 x_2 -x_2 - x_2} - e^{t_1 0 + t_2 x_2 -0 - x_2}  dx_2 \\
+    &= \frac{2}{t_1 - 1} \int_{0}^{\infty}  e^{t_1 x_2 + t_2 x_2 - 2x_2 } - e^{t_2 x_2 - x_2} dx_2 \\
+    &= \frac{2}{t_1 - 1} \left[e^{t_1 x_2 + t_2 x_2 - 2x_2 }\frac{1}{t_1 + t_2 - 2} - e^{t_2 x_2 - x_2}\frac{1}{t_2 -1}\right]^{\infty}_0 \\
+    &= \frac{2}{t_1 - 1} ((\underset{x_2 \rightarrow \infty}{lim}e^{t_1 x_2 + t_2 x_2 - 2x_2 }\frac{1}{t_1 + t_2 - 2} - e^{t_2 x_2 - x_2}\frac{1}{t_2 -1}) - (\frac{1}{t_1 + t_2 - 2} -\frac{1}{t_2 -1})) \\
+    (\textit{Von hier nur} &\textit{ unter der Annahme: } t_1 + t_2 > 2 \cap t_2 > 1) \\
+    &= \frac{2}{t_1-1} (0- 0- \frac{1}{t_1 + t_2 - 2} + \frac{1}{t_2 -1})\\
+    &= \frac{2}{(t_1-1) (t_2 -1 )} -\frac{2}{(t_1 -1)(t_1 + t_2 -2)} \\
+    &= \frac{2 (t_1 + t_2 -2)}{(t_1-1) (t_2 -1 )(t_1 + t_2 -2)} -\frac{2(t_2 -1 )}{(t_1 -1)(t_1 + t_2 -2)(t_2 -1 )} \\
+    &= \frac{2(t_1+ t_2 -2 - t_2 + 1)}{(t_1 -1)(t_1 + t_2 -2)(t_2 -1 )} \\
+    &= \frac{2(t_1 -1)}{(t_1 -1)(t_1 + t_2 -2)(t_2 -1 )} \\
+    &= \frac{2}{(t_1 + t_2 -2)(t_2 -1 )} \\
+    \Longrightarrow M_{\underset{-}{X}}(\underset{-}{t}) &= \begin{cases}
+        \frac{2}{(t_1 + t_2 -2)(t_2 -1 )} &\text{wenn } t_1 + t_2 > 2 \cap t_2 > 1 \\
+        0 &\text{sonst}
+    \end{cases}
+\end{align*} 
+
+\subsection*{b)}
+\textbf{Gesucht:}\\
+
+Die beiden ersten nichtzentralen Momente $\mu'_1, ~ \mu'_2$ \\ \\
+\textbf{Lösung:} \\
+\begin{align*}
+    E(X_1) &=  \frac{d}{dt_1} M_X(t_1, t_2) \big|_{t_1, t_2 = 0} \\
+    &= \frac{d}{dt_1} \frac{2}{(t_1 + t_2 -2)(t_2 -1 )} \big|_{t_1, t_2 = 0} \\
+    &= \frac{2}{-(t_1 + t_2 -2)^2(t_2-1)}\\
+    &= \frac{2}{-4 \cdot (-1)} \\
+    &= \frac{1}{2} \\
+    E(X_1^2) &= \frac{d^2}{d^2t_1} M_X(t_1, t_2) \big|_{t_1, t_2 = 0} \\
+    &= \frac{d}{dt_1} \frac{2}{-(t_1 + t_2 -2)^2(t_2-1)} \big|_{t_1, t_2 = 0} \\
+    &= \frac{d}{dt_1} 2 \cdot (-(t_1 + t_2 -2)^{-2}) (t_2-1)\big|_{t_1, t_2 = 0} \\
+    &= 2 (t_2 - 1)^{-1} 2(t_1 + t_2 - 2)^{-3} \big|_{t_1, t_2 = 0}\\
+    &= \frac{4}{(0 - 1) (0 + 0 -2)^{3}}\\
+    &= \frac{4}{8} = \frac{1}{2} \\
+    E(X_2) &= \frac{d}{dt_2} M_X(t_1, t_2) \big|_{t_1, t_2 = 0} \\
+    &= \frac{d}{dt_2} \frac{2}{(t_1 + t_2 -2)(t_2 -1)} \big|_{t_1, t_2 = 0} \\
+    &= \frac{d}{dt_2} 2 (t_1 + t_2 -2)^{-1}(t_2 - 1)^{-1} \big|_{t_1, t_2 = 0} \\
+    &= 2 ((-1)(t_1 + t_2 -2)^{-2}(t_2 - 1)^{-1} + (-1)(t_1 + t_2 -2)^{-1}(t_2 - 1)^{-2})\big|_{t_1, t_2 = 0}\\
+    &= 2 (-\frac{1}{(t_1 + t_2 -2)^2(t_2 - 1)} - \frac{1}{(t_1 + t_2 -2)(t_2 - 1)^{2}} ) \big|_{t_1, t_2 = 0}\\
+    &= 2(-\frac{1}{(0 + 0 -2)^2(0 - 1)} - \frac{1}{(0 + 0 -2)(0 - 1)^{2}}) \\
+    &= 2(\frac{1}{4} + \frac{1}{2}) \\
+    &= \frac{3}{2} \\ \\ \\
+    E(X_2^2) &= \frac{d^2}{d^2t_2} M_X(t_1, t_2) \big|_{t_1, t_2 = 0} \\
+    &= \frac{d}{dt_2} 2 (-\frac{1}{(t_1 + t_2 -2)^2(t_2 - 1)} - \frac{1}{(t_1 + t_2 -2)(t_2 - 1)^{2}} ) \big|_{t_1, t_2 = 0} \\
+    &= \frac{d}{dt_2}2 ((-1)(t_1 + t_2 -2)^{-2}(t_2 - 1)^{-1} + (-1)(t_1 + t_2 -2)^{-1}(t_2 - 1)^{-2})\big|_{t_1, t_2 = 0} \\
+    &= 2((-1)((-2) (t_1 + t_2 -2)^{-3}(t_2 - 1)^{-1} + (t_1 + t_2 -2)^{-2}(-1)(t_2 - 1)^{-2})\\ 
+    &\quad +(-1)((-1)(t_1 + t_2 -2)^{-2}(t_2-1)^{-2} + (t_1 + t_2 -2)^{-1}(-2)(t_2-1)^{-3})) \big|_{t_1, t_2 = 0}\\
+    &= 2(\frac{2}{(t_1 + t_2 -2)^{3}(t_2 - 1)} + \frac{1}{(t_1 + t_2 -2)^{2}(t_2 - 1)^{2}} + \frac{1}{(t_1 + t_2 -2)^2(t_2-1)^2} + \frac{2}{(t_1+ t_2 -2)(t_2-1)^3}) \big|_{t_1, t_2 = 0} \\
+    &= 2(\frac{2}{8} + \frac{1}{4} + \frac{1}{4} + \frac{2}{2}) \\
+    &= \frac{7}{2}
+\end{align*}
+\section*{10}
+\textbf{Gegeben:}
+\[M_{(X_1, X_2)}((t_1, t_2)) = e^{t_1-1} + e^{t_2-2} \] \\
+\textbf{Gesucht:}\\
+
+Korrelationskoeffizient zu $(X_1, X_2)$\\ \\
+\textbf{Lösung:}\\
+
+Der Korrelationskoeffizient ist gegeben durch $\frac{\sigma_{X_1 X_2}}{\sigma_{X_1} \sigma_{X_2}}$, wobei $\sigma_{X_1 X_2}$ die Kovarianz von $X_1$ und $X_2$ ist, und $\sigma_{X_1}, \sigma_{X_2}$ die jeweiligen Standardabweichungen. Zur Berechnung des Korrelationskoeffizienten müssen wir erstmal jene berechnen. \\
+
+Da die Standardabweichung die Wurzel der Varianz (also des zweiten zentralen Moments) sind, brauchen wir erstmal diese:
+\[Var(X_1) = E(X_1^2)- E(X_1)^2 = \mu'_{2, X_1} - (\mu'_{1, X_1})^2\] 
+
+Zur Berechnung der Varianz von $X_1$ und $X_2$ brauchen wir also zunächst das erste und das zweite, nichtzentrale Moment:
+
+\begin{align*}
+    \mu'_{1, X_1} &= \frac{d}{dt_1} e^{t_1-1}+e^{t_2 -2} \bigg|_{t_1, t_2= 0} \\
+    &= e^{t_1-1} \bigg|_{t_1, t_2 = 0} \\
+    &= \frac{1}{e} \\
+    \mu'_{2, X_1} &= \frac{d}{dt_1} e^{t_1-1} \bigg|_{t_1, t_2 = 0}\\
+    &= \frac{1}{e} \\
+    Var(X_1) &= \mu'_{2, X_1} - (\mu'_{1, X_1})^2 \\
+    &= \frac{1}{e} - \frac{1}{e^2}\\
+    \mu'_{1, X_2} &= \frac{d}{dt_2} e^{t_1-1}+e^{t_2 -2} \bigg|_{t_1, t_2= 0} \\
+    &= e^{t_2-2} \bigg|_{t_1, t_2 = 0} \\
+    &= \frac{1}{e^2} \\
+    \mu'_{2, X_2} &= \frac{d}{dt_2} e^{t_2-2} \bigg|_{t_1, t_2 = 0}\\
+    &= \frac{1}{e^2} \\
+    Var(X_2) &= \mu'_{2, X_2} - (\mu'_{1, X_2})^2 \\
+    &= \frac{1}{e^2} - \frac{1}{e^4}
+\end{align*} 
+
+Die Kovarianz $\sigma_{X_1, X_2}$ lässt sich berechnen durch:\[\sigma_{X_1, X_2} = E(X_1X_2) - E(X_1)E(X_2)\]
+\begin{align*}
+    E(X_1X_2)&= \frac{d^2}{dt_1 dt_2} e^{t_1-1}+e^{t_2 -2} \bigg|_{t_1, t_2 = 0} \\
+    &= \frac{d}{dt_1} e^{t_2 -2} \bigg|_{t_1, t_2 = 0} \\
+    &= 0 \bigg|_{t_1, t_2 = 0} \\
+    &= 0 
+\end{align*}
+
+Für den Korrelationskoeffizienten ergbit sich:
+\begin{align*}
+    corr(X_1, X_2) &= \frac{\sigma_{X_1 X_2}}{\sigma_{X_1} \sigma_{X_2}} \\
+    &= \frac{0 - \frac{1}{e}\cdot\frac{1}{e^1}}{\sqrt{(\frac{1}{e} - \frac{1}{e^2})(\frac{1}{e^2} - \frac{1}{e^4})}} \\
+    &=\frac{-\frac{1}{e^3}}{\sqrt{\frac{1}{e^3} - \frac{1}{e^5} - \frac{1}{e^4} + \frac{1}{e^6}}} \\
+    &=- \frac{1}{\frac{1}{e^3}\sqrt{\frac{1}{e^3} - \frac{1}{e^5} - \frac{1}{e^4} + \frac{1}{e^6}}} \\
+    &= - \frac{1}{\sqrt{\frac{1}{e^6}}\sqrt{\frac{1}{e^3} - \frac{1}{e^5} - \frac{1}{e^4} + \frac{1}{e^6}}} \\
+    &= - \frac{1}{\sqrt{\frac{1}{e^6}(\frac{1}{e^3} - \frac{1}{e^5} - \frac{1}{e^4} + \frac{1}{e^6})}} \\
+    &= - \frac{1}{\sqrt{e^{-18} - e^{-30 }-e^{-24} + e^{-36}}}\\
+    &= - \frac{1}{\sqrt{e^{-18} - e^{-30 }-e^{-24} + e^{-36}}}\\
+\end{align*}
+
+
+\section*{11}
+\textbf{Gegeben:} \\
+
+Zufallsvariable $\underline{X} = (X_1, \ldots, X_n)$ wobei $X_1, \ldots, X_n \overset{i.i.d.}{\sim} \mathcal{N}(\mu, \sigma^2)$ mit MGF: \[M_{\underline{X}}(\underline{t}) = e^{\mu t + \frac{1}{2}\sigma^2t^2}, \quad \sigma > 0\] \\ 
+\textbf{Gesucht:} \\
+
+Die Momenterzeugenden Funktionen und Verteilungen der folgenden Zufallsvariablen
+\subsection*{a)}
+\textbf{Gegeben:}
+\[Z_1 = \frac{1}{n}\sum_{i = 1}^{n}X_i\]
+\textbf{Lösung:}\\
+
+Laut \textit{Theorem 3.11 c} gilt:
+
+\[Y = \sum_{i=1}^{n}a_iX_i + b \quad  \Rightarrow \quad M_Y(t) = e^{bt} \prod_{i=1}^{n}M_{X_i}(a_i t)\]
+
+In unserem Fall ist $a_i = \frac{1}{n} ~\forall i $ und $b = 0 $. Es folgt:
+\begin{align*}
+    M_{Z_1}(t) &= e^{0 \cdot t} \prod_{i = 1}^{n} M_{X_i}(\frac{t}{n}) \\
+    &=  (e^{\mu \frac{t}{n} + \frac{1}{2}\sigma^2(\frac{t}{n})^2})^n \\
+    &= e^{n\cdot(\mu \frac{t}{n} + \frac{1}{2}\sigma^2(\frac{t}{n})^2)} \\
+    &= e^{\mu t+ \frac{\sigma^2 t^2}{2n}} 
+\end{align*}
+
+Unter Anbetracht der MGF ergibt sich für die Verteilung von $Z_1$:
+\begin{align*}
+    Z_1 \sim \mathcal{N}(\mu, \frac{\sigma^2}{n})
+\end{align*}
+\subsection*{b)}
+\textbf{Gegeben:} \\
+
+\[Z_2 = \frac{1}{9+n}(10X_1 +\sum_{i=2}^{n}X_i)\]\\
+\textbf{Lösung:} \\
+
+Hier kann man wieder das oben stehende Theorem anwenden, wobei diesmal $a_1 = \frac{10}{9+n}, ~ a_i = \frac{1}{9 +n} \forall ~ i > 1$ und wieder $b=0$
+\begin{align*}
+    M_{Z_2}(t) &= e^{0 \cdot t} \prod_{i = 1}^{n} M_{X_i}(a_i t) \\
+    &= M_{X_i}(\frac{10}{9+n}t)\cdot\prod_{i = 2}^{n} M_{X_i}(\frac{1}{9+n} t) \\
+    &= e^{\mu (\frac{10}{9+n}t) + \frac{1}{2}\sigma^2(\frac{10}{9+n}t)^2} \cdot\prod_{i = 2}^{n} e^{\mu (\frac{1}{9+n}t) + \frac{1}{2}\sigma^2(\frac{1}{9+n}t)^2} \\ 
+    &= e^{\mu (\frac{10}{9+n}t) + \frac{1}{2}\sigma^2(\frac{10}{9+n}t)^2} \cdot e^{(n-1)(\mu (\frac{1}{9+n}t) + \frac{1}{2}\sigma^2(\frac{1}{9+n}t))^2} \\
+    &= e^{\mu (\frac{10}{9+n}t) + \frac{100t^2}{2(9+n)^2}\sigma^2} \cdot e^{\mu (\frac{n-1}{9+n}t) + \frac{t^2(n-1)}{2(9+n)^2}\sigma^2} \\
+    &= e^{\mu (\frac{10}{9+n}t) + \frac{100t^2}{2(9+n)^2}\sigma^2 + \mu (\frac{n-1}{9+n}t) + \frac{t^2(n-1)}{2(9+n)^2}\sigma^2} \\
+    &= e^{\frac{\mu t}{9 +n}(10 + (n -1)) + \frac{t^2\sigma^2}{2(9+n)^2}(100 + (n -1))} \\
+    &= e^{\frac{\mu t}{9 +n}(9+n)+ \frac{t^2\sigma^2}{2(9+n)^2}(99 + n)} \\
+    &= e^{\mu t +  \frac{1}{2} t^2 \frac{\sigma^2(99 + n)}{(9+n)^2}}
+\end{align*}
+
+Dementsprechend ergibt sich für die Verteilung von $Z_2$:
+
+\[Z_2 \sim \mathcal{N}(\mu, \frac{(99 + n)}{(9+n)^2})\sigma^2\]
+\subsection*{c)}
+\textbf{Gegeben:}\\
+
+\[\underline{Y_{1}} = \underline{X}\] 
+\textbf{Lösung:}\\ 
+
+Zum einen lässt sich die MGF von $\underline{Y}_{1}$ berechnen durch:
+
+\begin{align*}
+    M_{\underline{Y}_1}(\underline{t}) &=\int_{-\infty}^{\infty}\ldots\int_{-\infty}^{\infty} e^{t_1x_1 + \ldots + t_nx_n} f(x_1, \ldots, x_n) ~ dx_1 \ldots dx_n \tag*{Wegen Unabhängigkeit}\\
+    &= \int_{-\infty}^{\infty}\ldots\int_{-\infty}^{\infty} e^{t_1x_1} \cdot \ldots \cdot e^{t_nx_n} f(x_1) \cdot \ldots \cdot f(x_n) dx_1 \ldots dx_n \\
+    &= \int_{-\infty}^{\infty} e^{t_1x_1} f(x_1) dx_1 \ldots \int_{-\infty}^{\infty} e^{t_nx_n} f(x_n) dx_n \\
+    &= e^{\mu t_1 + \frac{1}{2}\sigma^2 t_1^2} \ldots e^{\mu t_n + \frac{1}{2}\sigma^2 t_n^2} \\
+    &= e^{\sum_{i = 1}^{n}\mu t_i + \frac{1}{2}\sigma^2 t_i^2}
+\end{align*}
+
+Alternativ, da wir wissen, dass es sich um eine multivariate Normalverteilung handelt:
+
+\[M_{\underline{Y_1}}(\underline{t}) = e^{a't} + \frac{1}{2}t'Bt, ~ \text{wobei }  t = (t_1,\ldots, t_n)',~  a = (\mu, \ldots, \mu)_{n x 1} \text{ und } B = \begin{pmatrix}
+    \sigma^2& 0 & \ldots \\
+    0 &\sigma^2 & 0 \\
+    0 & 0 &\ddots 
+\end{pmatrix}_{nxn}\] 
+
+und die Dichte:
+\[f(\underline{y}) = \frac{1}{(2\pi)^{\frac{n}{2}}|B|\frac{1}{2}} e^{-\frac{1}{2}(\underline{y} - a)'B^{-1}(\underline{y}-a)} \sim \mathcal{N}(a, B)\]
+\subsection*{d)}
+\textbf{Gegeben:}\\
+
+\[\underline{Y_{2}} = (10 X_1, X_2, \ldots, X_n)\] 
+\textbf{Lösung:} \\
+
+Da wir wissen, dass $X_1 \ldots X_n$ unabhängig sind und unter Anwendung des in $a$ genannten Theorems:
+\begin{align*}
+    M_{\underline{Y_2}}(\underline{t})&= \underbrace{M_{X_1}(10t_1)} \cdot \underbrace{M_{X_2}(t_2) \cdot \ldots + M_{X_n}(t_n)} \\
+    &= e^{\mu 10 t_1 + \frac{1}{2}\sigma^2 (10t_1)^2} \cdot e^{\sum_{i = 2}^{n}\mu t_i + \frac{1}{2}(t_i)^2\sigma^2} \\
+    &= e^{\mu(10t_1 + \sum_{i=2}^{n}t_i) + \frac{\sigma^2}{2}(100t_1^2 + \sum_{i=2}^{n}t_i^2)}
+\end{align*}
+
+\section*{12}
+\textbf{Gegeben:}\\
+
+Zufallsvariable $\underline{X} = (X_1, X_2)$ hat MGF:
+\[M_{\underline{X}}(\underline{t}) = e^{\sum_{i = 1}^{2}\mu_i t_i + \frac{1}{2}\sum_{i = 1}^{2}\sum_{j = 1}^{2}\sigma_{ij}t_it_j}\]
+\subsection*{a)}
+\textbf{Gesucht:} \\
+
+Gemeinsame momenterzeugende und Dichtefunktion von $aX_1 + bX_2$ und $cX_1 + dX_2$, wobei $a,~ b, ~c$ und $d$ Konstanten sind mit $ad - bc \neq 0$   \\ \\
+\textbf{Lösung:}\\
+
+Wir wollen zunächst die ersten beiden zentralen Momente zu $X_1$ und $X_2$ finden:
+
+\begin{align*}
+        E(X_1) &= \frac{d}{dt_1} M_{\underline{X}}(\underline{t})\bigg|_{t_1, t_2 = 0} \\
+        &= e^{\sum_{i = 1}^{2}\mu_i t_i + \frac{1}{2}\sum_{i = 1}^{2}\sum_{j = 1}^{2}\sigma_{ij}t_it_j}(\mu_1 + \frac{1}{2}(\sigma_{1,1}t_1 + \sigma_{1, 2} t_2 + \sigma_{2, 1} t_2))\bigg|_{t_1, t_2 = 0} \\
+        &= \mu_1 \\
+        E(X_1^2) &= \frac{d}{dt}  e^{\sum_{i = 1}^{2}\mu_i t_i + \frac{1}{2}\sum_{i = 1}^{2}\sum_{j = 1}^{2}\sigma_{ij}t_it_j}(\mu_1 + \frac{1}{2}(\sigma_{1,1}t_1 + \sigma_{1, 2} t_2 + \sigma_{2, 1} t_2))\bigg|_{t_1, t_2 = 0} \\
+        &= \mu_1 M_{\underline{X}}(\underline{t})(\mu_1 + \frac{1}{2}(\sigma_{1,1}t_1 + \sigma_{1, 2} t_2 + \sigma_{2, 1} t_2))  \\
+        &\quad + \frac{1}{2}(M_{\underline{X}}(\underline{t})\sigma_{1,1} + M_{\underline{X}}(\underline{t}) (\mu_1 + \frac{1}{2}(\sigma_{1,1}t_1 + \sigma_{1, 2} t_2 + \sigma_{2, 1} t_2)(\sigma_{1,1}t_1 + \sigma_{1, 2} t_2 + \sigma_{2, 1} t_2))) \bigg|_{t_1, t_2 = 0} \\
+        &= \mu_1^2 + \frac{1}{2}\sigma_{1,1}
+\end{align*}
+
+\section*{13}
+\textbf{Gegeben:}\\
+
+Folge $\{X_i\}_{i = 1,2,\ldots}$von (poissonverteilten) Zufallsvariablen  mit MGF 
+\[M_{X_i}(t) = e^{i(e^t-1)}\text{ und } E(X_i) = Var(X_i) = i\]
+\textbf{Gesucht:}\\
+
+Grenzverteilung für $i \rightarrow \infty$ der standartisierten ZV
+\[Y_i = \frac{X_i - i}{\sqrt{i}}\]
+\textbf{Lösung:}\\
+
+Wir suchen zunächst die zu $Y_i$ gehörende MGF:
+
+\begin{align*}
+    M_{Y_i}(t) &= E(e^{ty_i})\\
+    &= E(e^{t \cdot \frac{x_i - i}{\sqrt{i}}})\\
+    &= E(e^{t \cdot (\frac{x_i}{\sqrt{i}}- \frac{i}{\sqrt{i}})}) \\
+    &= E(e^{t \cdot (\frac{x_i}{\sqrt{i}}- \sqrt{i})}) \\
+    &= E(e^{\frac{tx_i}{\sqrt{i}}- t\sqrt{i}} ) \\
+    &= E(e^{\frac{tx_i}{\sqrt{i}}} \cdot e^{- t\sqrt{i}}) \\
+    &= M_{X_i}(\frac{t}{\sqrt{i}}) \cdot e^{-t\sqrt{i}} \\
+    &= e^{i(e^{\frac{t}{\sqrt{i}}}-1)} \cdot e^{-t\sqrt{i}} \\
+    &= e^{i(e^{\frac{t}{\sqrt{i}}}-1)-t\sqrt{i}} \tag*{Taylorreihenentwicklung von $e^{\frac{t}{\sqrt{i}}}$}\\
+    &= e^{i(e^0 + e^0\frac{t}{\sqrt{i}}+ \frac{e^0}{2!} (\frac{t}{\sqrt{i}})^2 + \frac{e^0}{3!} (\frac{t}{\sqrt{i}})^3+ \ldots - 1) - t\sqrt{i}}  \\
+    &= e^{i(1 + \frac{t}{\sqrt{i}} + \frac{t^2}{2! i} + \frac{t^3}{3! i^{\frac{3}{2}}} \ldots - 1) -t\sqrt{i}} \\
+    &= e^{\frac{i t}{\sqrt{i}} + \frac{t^2i}{2i} + \frac{t^3i}{3!i^{\frac{3}{2}}} + \ldots - t\sqrt{i}} \\
+    &= e^{t\sqrt{i} + \frac{t^2}{2} + \frac{t^3}{3!i^{\frac{1}{2}}} + \ldots - t\sqrt{i}} \\
+    \underset{i \rightarrow \infty}{lim} \quad &= e^{\frac{t^2}{2} + 0 + 0 \ldots } \\
+    &= e^{\frac{t^2}{2}} 
+\end{align*}
+
+Unter anbetracht der MGF ergibt sich für die Grenzverteilung für $i \rightarrow \infty$:
+\[\underset{i \rightarrow \infty}{lim} Y_i \sim N(0, 1)\]
+\\ \\ \\
+\section*{14} 
+\textbf{Gegeben:} \\
+
+\begin{table}[h]
+    \centering
+    $f(x_1, x_2)= $
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    & $x_2 = 1 $ & $x_2 = 2$ & $x_2 = 5$ \\ \hline
+    $x_1 = 2$ & 0.1 & 0.1 & 0\\ \hline
+    $x_1 = 4$ & 0.1 & 0.3 & 0.1 \\ \hline
+    $x_1 = 8$ & 0 & 0.1 & 0.2 \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection*{b)}
+\textbf{Gesucht:}\\
+
+Kovarianzmatrix zu $\underline{X} = (X_1, X_2)$\\\\
+\textbf{Lösung:} \\
+
+Die Matrix beinhaltet auf der Hauptgeraden die Varianzen zu $X_1$ und $X_2$ und auf den anderen Feldern die Kovarianz. 
+
+\begin{align*}
+    E(X_1) &= \sum_{x_2 \in R(X_1)} x_1 f_1(x_1) \\
+    &= \sum_{x_1 \in \{2, 4, 8\}} x_1 f_1(x_1) \\
+    &= 2 \cdot 0.2 +  4 \cdot 0.5 + 8 \cdot 0.3 \\
+    &= 4.8 \\
+    E(X_2) &= \sum_{x_2 \in R(X_2)} x_2 f_2(x_2) \\
+    &= \sum_{x_2 \in \{1, 2, 5\}} x_2 f_2(x_2) \\
+    &= 1 \cdot 0.2 +  2 \cdot 0.5 + 5 \cdot 0.3 \\
+    &= 2.7 \\
+    Var(X_1) &= \sum_{x_1 \in \{2, 4, 8\}}(x_1 - 4.8)^2 f_1(x_1) \\
+    &= (-2.8)^2 \cdot 0.2 +  0.8^2 \cdot 0.5 + 3.2^2 \cdot 0.3 \\
+    &=4.96 \\
+    Var(X_2) &= \sum_{x_2 \in \{1, 2, 5\}}(x_2 - 2.9)^2 f_2(x_2) \\
+    &= (-1.7)^2 \cdot 0.2 + (-0.7)^2 \cdot 0.5 + 2.3^2 \cdot 0.3 \\
+    &= 2.41 \\
+    Cov(X_1, X_2) &= E(X_1X_2) - E(X)E(Y) \\
+    &= (\sum_{x_1 \in R(X_1)}\sum_{x_2 \in R(X_2)} x_1 x_2 f(x_1, x_2)) - (4.8 \cdot 2.7) \\
+    &= 2 \cdot 1 \cdot 0.1 + 2\cdot 2 \cdot 0.1 + 2\cdot 5\cdot  0 + 4 \cdot 1 \cdot 0.1 + 4\cdot 2 \cdot 0.3 + 4\cdot 5\cdot 0.1 + 8 \cdot 1 \cdot 0 + 8\cdot 2 \cdot 0.1 + 8 \cdot 5\cdot 0.2 - 12.96 \\
+    &= 2.04
+\end{align*}
+
+Die Kovarianzmatrix zu $\underline{X}$ ist also
+\[\begin{pmatrix}
+    4.96 & 2.04 \\
+    2.04 & 2.7
+\end{pmatrix}\]
+\subsection*{c)}
+\textbf{Gesucht:}\\
+
+Pdf zu $E(X_1|X_2), E(X_2|X_1)$ sowie $Var(X_1|X_2)$ und $E(X_1) = E[E(X_1|X_2)]$ sowie $Var(X_1) = Var[E(X_1|X_2)] + E[Var(X_1|X_2)]$ \\ \\
+\textbf{Lösung:}\\
+
+Zunächst die PDF zu $E(X_1|X_2), E(X_2|X_1), Var(X_1|X_2)$.
+
+\begin{align*}
+    E(X_1|X_2)&= \begin{cases*}
+        2 \cdot 0.5 + 4 \cdot 0.5  = 3 & wenn $x_2 = 1$ \\
+        2\cdot 0.2 + 4 \cdot 0.6 + 8 \cdot 0.2 = 4.4 & wenn $x_2 = 2$ \\
+        4 \cdot \frac{1}{3} + 8 \cdot \frac{2}{3} = \frac{20}{3} & wenn $x_2 = 5$       
+    \end{cases*}\\
+    E(X_2|X_1) &= \begin{cases*}
+        1 \cdot 0.5 + 2 \cdot 0.5 = 1.5 & wenn $ x_1 = 2$ \\
+        1 \cdot 0.2 + 2 \cdot 0.6 + 5 \cdot 0.2 = 2.4 & wenn $x_1 = 4$ \\
+        2 \cdot \frac{1}{3} + 5 \cdot \frac{2}{3} = 4 & wenn $x_1 = 8$ 
+    \end{cases*}\\
+    Var(X_1|X_2) &= \begin{cases*}
+        (2 - 3)^2 \cdot 0.5 + (4-3)^2 \cdot 0.5 = 1 & wenn $x_2 = 1$ \\
+        (2-4.4)^2 \cdot 0.2 + (4- 4.4)^2 \cdot 0.6 + (8-4.4)^2 \cdot 0.2 = 3.84& wenn $x_2 = 2$ \\
+        (4 - \frac{20}{3})^2 \cdot \frac{1}{3} + (8 - \frac{20}{3})^2 \cdot \frac{2}{3} \approx 3.6 & wenn $x_2 = 5$
+    \end{cases*}\\
+    f(E(X_1|X_2)) &= \begin{cases*}
+        0.2 & wenn $E(X_1|X_2) = 3$\\
+        0.5 & wenn $E(X_1|X_2) = 4.4$ \\
+        0.3 & wenn $E(X_1|X_2) = \frac{20}{3}$
+    \end{cases*} \\
+    f(E(X_2|X_1)) &= \begin{cases*}
+        0.2 & wenn $E(X_2|X_1) = 1.5$\\
+        0.5 & wenn $E(X_2|X_1) = 2.4$ \\
+        0.3 & wenn $E(X_2|X_1) = 4$
+    \end{cases*}\\
+    f(Var(X_1|X_2)) &= \begin{cases*}
+        0.2 & wenn $Var(X_1|X_2) = 1$\\
+        0.5 & wenn $Var(X_1|X_2) = 3.84$ \\
+        0.3 & wenn $Var(X_1|X_2) \approx 3.6 $
+    \end{cases*} \\
+\end{align*}
+
+Und jetzt noch $E(X_1) = E[E(X_1|X_2)]$ sowie $Var(X_1) = Var[E(X_1|X_2)] + E[Var(X_1|X_2)]$: 
+\begin{align*}
+    E(X_1) &= 4.8 \tag*{Aus b)}\\
+    E(E(X_1|X_2)) &= 3 \cdot 0.2 + 4.4 \cdot 0.5 + \frac{20}{3} \cdot 0.3 \\
+    &= 4.8\\
+    Var(X_1) &= 4.96 \tag*{Aus b)} \\
+    Var(E(X_1|X_2)) &= (3-4.8)^2 \cdot 0.2 + (4.4-4.8)^2 \cdot 0.5 + (\frac{20}{3}-4.8)^2 \cdot 0.3 \\
+    &\approx 1.77333\\
+    E(Var(X_1|X_2)) &= 1 \cdot 0.2 + 3.84 \cdot 0.5 + 3.6 \cdot 0.3\\
+    &=3.2 \\
+    Var(E(X_1|X_2)) + E(Var(X_1|X_2)) &= 1.77333 + 3.2 \\
+    &\approx 3.9733 \tag*{Könnte also in Anbetracht der Rundungen hinkomen}
+\end{align*} \\
+
+\section*{15}
+\textbf{Gegeben:} \\
+
+ZV $\underline{X} = (X_1, X_2, X_3)$ mit PDF:
+\[f(\underline{x}) = \begin{cases*}
+    \frac{36}{(1+x_1+x_2)^5(1+x_3)^4}&für $x_1, x_2, x_3 > 0$, \\ 
+    0 & sonst
+\end{cases*}
+\]
+\subsection*{a)}
+\textbf{Frage:} \\
+
+Sind die Elemente in $\underline{X}$ unabhängig?\\ \\
+\textbf{Lösung:}\\
+
+Zunächst brauchen wir die marginalen Dichten $f_1(x_1), f_2(x_2), f_3(x_3)$: 
+\begin{align*}
+    f_1(x_1) &= \int_{-\infty}^{-\infty}\int_{\infty}^{\infty} f(\underline{x}) ~dx_2 dx_3\\
+    &= \int_{0}^{\infty}\int_{0}^{\infty}\frac{36}{(1+x_1+x_2)^5(1+x_3)^4} ~dx_2 dx_3\\
+    &= \int_{0}^{\infty}\frac{36}{(1+x_3)^4}\int_{0}^{\infty}(1+x_1+x_2)^{-5} ~dx_2 dx_3 \\
+    &= \int_{0}^{\infty}\frac{36}{(1+x_3)^4} \left[-\frac{1}{4} (1+ x_1 + x_2)^{-4}\right]_0^{\infty} ~dx_3\\
+    &= \int_{0}^{\infty}\frac{36}{(1+x_3)^4} (0 + \frac{1}{4(1+x_1)^4}) dx_3\\
+    &= \frac{36}{4(1 + x_1)^4} \int_{0}^{\infty}(1+x_3)^{-4} dx_3 \\
+    &= \frac{36}{4(1 + x_1)^4} \left[-\frac{1}{3}(1+x_3)^{-3}\right]_0^{\infty} \\
+    &= \frac{36}{12(1+ x_1)^4} \\
+    &= \frac{3}{(1+ x_1)^4}\\
+    f_2(x_2) &= \int_{-\infty}^{-\infty}\int_{\infty}^{\infty} f(\underline{x}) ~dx_1 dx_3\\
+    &= \int_{0}^{\infty}\int_{0}^{\infty}\frac{36}{(1+x_1+x_2)^5(1+x_3)^4} ~dx_1 dx_3\\
+    &= \int_{0}^{\infty}\frac{36}{(1+x_3)^4}\int_{0}^{\infty}(1+x_1+x_2)^{-5} ~dx_1 dx_3 \\
+    &= \int_{0}^{\infty}\frac{36}{(1+x_3)^4} \left[-\frac{1}{4} (1+ x_1 + x_2)^{-4}\right]_0^{\infty} ~dx_3\\
+    &= \int_{0}^{\infty}\frac{36}{(1+x_3)^4} (0 + \frac{1}{4(1+x_2)^4}) dx_3\\
+    &= \frac{36}{4(1 + x_2)^4} \int_{0}^{\infty}(1+x_3)^{-4} dx_3 \\
+    &= \frac{36}{4(1 + x_2)^4} \left[-\frac{1}{3}(1+x_3)^{-3}\right]_0^{\infty} \\
+    &= \frac{36}{12(1+ x_2)^4} \\
+    &= \frac{3}{(1+ x_2)^4}\\
+    f_3(x_3) &= \int_{-\infty}^{-\infty}\int_{\infty}^{\infty} f(\underline{x}) ~dx_1 dx_3\\
+    &= \int_{0}^{\infty}\int_{0}^{\infty}\frac{36}{(1+x_1+x_2)^5(1+x_3)^4} ~dx_1 dx_2\\
+    &= \frac{36}{4(1+x_3)^4}\int_{0}^{\infty} \frac{1}{(1+x_2)^4} dx_2 \\
+    &= \frac{36}{4(1+x_3)^4}\left[-\frac{1}{3}(1 + x_2)^{-3}\right]_0^{\infty} \\
+    &= \frac{36}{4(1+x_3)^4} (0 + \frac{1}{3}) \\
+    &= \frac{36}{12(1+x_3)^4} \\
+    &= \frac{3}{(1+x_3)^4}
+\end{align*}
+
+Nun gilt es zu prüfen, ob $f(\underline{x}) = f_1(x_1) \cdot f_2(x_2) \cdot f_3(x_3)$ 
+\begin{align*}
+    f_1(x_1) \cdot f_2(x_2) \cdot f_3(x_3) &= \frac{3}{(1+x_1)^4} \cdot \frac{3}{(1+x_1)^4} \cdot \frac{3}{(1+ x_3)^4} \\
+    &=\frac{27}{(1+x_1)^4\cdot(1+x_2)^4 \cdot(1+x_3)^4} \\
+    &\neq f(\underline{x})
+\end{align*}
+
+$\Longrightarrow$  Es liegt also keine gemeinsame Unabhängigkeit vor
+\subsection*{b)}
+\textbf{Gesucht:} \\
+
+Die Kovarianzmatrix $\Sigma$ zu $\underline{X}$ \\\\
+\textbf{Lösung:} \\
+
+In der $nxn$ Kovarianzmatrix befinden sich auf der Hauptdiagonalen die Varianzen zu $X_1, X_2, X_3$ und auf den restlichen Plätzen die Kovarianzen. \\
+
+Zur Berechnung der Varianzen brauchen wir immer zunächst die jeweiligen Erwartungen:
+\begin{align*}
+    E(X_1) &= \int_{-\infty}^{\infty} x_1 f_1(x_1) dx_1 \\
+    &= \int_{0}^{\infty} \frac{3x_1}{(1+x_1)^4} dx_1 \\
+    &= \int_{0}^{\infty} \underbrace{3x_1}_{h(x_1)} \cdot \underbrace{\frac{1}{(1 + x_1)^4}}_{g'(x_1)} dx_1 \\
+    &= \left[3x_1 \frac{-1}{3(1+x_1)^3}\right]_0^{\infty} - \int_{0}^{\infty} - \frac{3}{3(1+x_1)^3} dx_1 \\
+    &= \left[\underbrace{\left(\lim_{x_1 \rightarrow \infty} 3x_1 \frac{-1}{3(1+x_1)^3} \right)}_{= 0 \text{ (L'Hopital)}} - 3 \cdot0 \frac{-1}{3(1+0)^3}\right] + \left[-\frac{1}{2(1 + x_1)^2}\right]^{\infty}_0 \\
+    &= \left[\underbrace{\left(\lim_{x_1 \rightarrow \infty} -\frac{1}{2(1+ x_1)^2}\right)}_{=0} - \frac{-1}{2(1+0)^2}\right] \\
+    &= \frac{1}{2} \\ 
+    Var(X_1) &= \int_{-\infty}^{\infty} (x_1 - E(X_1))^2 f_1(x_1) dx_1 \\ 
+    &= \int_{0}^{\infty}(x_1 - \frac{1}{2})^2 \frac{3}{(1+x_1)^4} dx_1 \\
+    &= \int_{0}^{\infty}\underbrace{(x_1^2 + \frac{1}{4}- x_1)}_{h(x_1)}\underbrace{\frac{3}{(1+ x_1)^4}}_{g'(x_1)}dx_1 \\
+    &= \left[(x_1^2 + \frac{1}{4}-  x_1)\frac{-1}{(1+x_1)^3} \right]_0^{\infty} - \int_{0}^{\infty}\underbrace{(2x_1-1)}_{h(x_1)}\underbrace{\frac{-1}{(1+x_1)^3}}_{g'(x_1)} dx_1 \\
+    &= \left[0 + \frac{1}{4}\right] - \left(\left[(2x_1 -1)\frac{1}{2(1+x_1)^2}\right]_0^{\infty} - \int_0^{\infty}2\frac{1}{2(1 + x_1)^2}dx_1\right) \\
+    &= \frac{1}{4} - \left[0 - \frac{2 \cdot 0 - 1}{2(1+ 0 )^2}\right] + \left[-\frac{1}{(1+x_y)}\right]_0^{\infty} \\
+    &= \frac{1}{4} - \frac{1}{2} + \left[0 - (-\frac{1}{(1+0)})\right] \\
+    &= -\frac{1}{4} + 1 \\
+    &= \frac{3}{4}
+\end{align*}
+
+Da $f_{1}(x_1) = f_{2}(x_2) = f_3(x_3)$ gilt $E(X_1) = E(X_2) = E(X_3) = \frac{1}{2}$ sowie $Var(X_1) = Var(X_2) = Var(X_3) = \frac{3}{4}$ \\
+
+Nun zur Berechnung der Kovarianzen.  
+
+\begin{align*}
+    \sigma_{X_1X_2} &= E(X_1X_2) - E(X_1) E(X_2) \\
+    E(X_1X_2)&= \int_{0}^{\infty} \int_{0}^{\infty} \int_{0}^{\infty} x_1 x_2 f(\underline{x}) ~dx_3 dx_2 dx_1 \\
+    &= \int_{0}^{\infty} \int_{0}^{\infty} \int_{0}^{\infty} x_1 x_2 \frac{36}{(1+x_1+x_2)^5(1+x_3)^4} ~ dx_3 dx_2 dx_1 \\
+    &= \int_{0}^{\infty} \int_{0}^{\infty} \frac{36 x_1 x_2}{(1 + x_1 + x_2)^5} \int_{0}^{\infty}\frac{1}{(1+x_3)^4} ~ dx_3 dx_2 dx_1 \\
+    &= \int_{0}^{\infty} \int_{0}^{\infty} \frac{36 x_1 x_2}{(1 + x_1 + x_2)^5} \left[\frac{-1}{3(1+x_3)^4}\right]_0^{\infty} ~ dx_2 dx_1 \\
+    &= \int_{0}^{\infty} \int_{0}^{\infty} \frac{36 x_1 x_2}{(1 + x_1 + x_2)^5} \left[0 + \frac{1}{3}\right] ~ dx_2 dx_1 \\
+    &= \int_{0}^{\infty}12x_1 \int_{0}^{\infty} \frac{\overbrace{x_2}^{h(x_2)}}{\underbrace{(1 + x_1 + x_2)^5}_{g'(x_2)}} ~ dx_2 dx_1 \\
+    &= \int_{0}^{\infty}12x_1 \left(\left[\frac{-x_2}{4(1+x_1 + x_2)^4}\right]_0^{\infty}-\int_0^{\infty}  \frac{-1}{4(1+x_1 + x_2)^4} ~ dx_2\right) ~ dx_1\\
+    &= \int_{0}^{\infty}12x_1 \left(\left[0-0\right] - \left[\frac{1}{12(1+x_1+x_2)^3}\right]_0^{\infty}\right) dx_1 \\
+    &= \int_{0}^{\infty}12x_1 \cdot \left(- \left[0 - \frac{1}{12(1 + x_1 + 0)^3}\right]\right) ~ dx_1 \\
+    &= \int_{0}^{\infty}\frac{12\overbrace{x_1}^{h(x)}}{12\underbrace{(1 + x_1)^3}_{g'(x)}} ~ dx_1 \\
+    &= \left[-\frac{x_1}{2(1+x_1)^2} \right]^{\infty}_0 - \int_{0}^{\infty}-\frac{1}{2(1+x_1)^2} ~ dx_1 \\
+    &= \left[0 - 0\right] - \left[\frac{1}{2(1 + x_1)}\right]_0^{\infty} \\
+    &= -\left[0 - \frac{1}{2(1+0)} \right] \\
+    &= \frac{1}{2}\\
+    \sigma_{1,2} &= E(X_1X_2) - E(X_1)E(X_2) \\
+    &= \frac{1}{2} - \left(\frac{1}{2}\cdot \frac{1}{2}\right) \\
+    &= \frac{1}{4} \\
+    E(X_1X_3)&= \int_{0}^{\infty} \int_{0}^{\infty} \int_{0}^{\infty} x_1 x_3 f(\underline{x}) ~dx_2 dx_1 dx_3  \\
+    &= \int_{0}^{\infty} \int_{0}^{\infty} \int_{0}^{\infty} x_1 x_3 \frac{36}{(1+x_1+x_2)^5(1+x_3)^4} ~ dx_2 dx_1 dx_3 \\
+    &= \int_{0}^{\infty} \int_{0}^{\infty} \frac{9x_1x_3}{(x_1 + 1)^4(x_3 + 1)^4} ~ dx_1 dx_3 \\
+    &= 9 \int_{0}^{\infty}\frac{x_3}{(1+x_3)^4} dx_3 \int_{0}^{\infty}\frac{x_1}{(1+x_1)^4} dx_1  \\
+    &= 9 \left(\left[\frac{x_3}{3(1+x_3)^3}\right]_0^{\infty} - \int_0^{\infty}\frac{-1}{3(1+x_3)^3} dx_3\right) \left(\left[\frac{x_1}{3(1+x_1)^3}\right]_0^{\infty} - \int_0^{\infty}\frac{-1}{3(1+x_1)^3} dx_1\right) \\
+    &= 9 \left(0 - \left[\frac{1}{6(1 + x_3)^2}\right]_0^{\infty}\right)\left(0 - \left[\frac{1}{6(1 + x_1)^2}\right]_0^{\infty}\right)
+    &= 9 \left(-\left[0 - \frac{1}{6}\right]\right)\left(-\left[0 - \frac{1}{6}\right]\right) \\
+    &= \frac{9}{36} = \frac{1}{4}\\
+    \sigma_{1,3} &= E(X_1, X_3) - E(X_1)E(X_2) \\
+    &= \frac{1}{4} - \frac{1}{4} 
+    &= 0
+    \end{align*}
+
+    $\Longrightarrow $ Es gilt $Cov(X_1X_3) = Cov(X_2X_3) = 0$, da die Dichtefunktion \textit{symmetrisch} in $x_1$ und $x_2$ ist. \\
+
+
+    Das ergibt für die Kovarianzmatrix: 
+    \[\Sigma = \begin{pmatrix}
+        \frac{3}{4} & \frac{1}{4} & 0 \\
+        \frac{1}{4} & \frac{3}{4} & 0 \\
+        0 & 0 & \frac{3}{4}
+    \end{pmatrix}\]
+
+    \subsection*{c)}
+    \textbf{Gesucht:} \\
+
+    $E(X_1X_3)$, $E(X_1|X_3)$ und $Var(X_1|X_3)$ \\ \\
+    \textbf{Lösung: }\\ 
+
+    $E(X_1X_3)$ haben wir schon in $b)$ berechnet \\
+
+    Da $X_1$ und $X_3$ unabhängig sind, wie sich dadurch zeigt, dass $\sigma_{1, 2} = 0$, gilt $E(X_1|X_3) = E(X_1)$ und $Var(X_1|X_3) = Var(X_1)$.
+    \subsection*{d)}
+    \textbf{Gesucht:} \\
+
+    Die Regressionsgeraden für $X_1$ und $X_3$\\ \\
+    \textbf{Lösung:}\\
+
+    Die Regressionsgerade für $X_1$ ist gegeben durch $E(X_1|X_2, X_3)$:
+
+    \begin{align*}
+        E(X_1|X_2, X_3) &= \int_{-\infty}^{\infty} x_1 \frac{f(\underline{x})}{f_2(x_2)f_3(x_3)} dx_1 \\
+        &= \int_{0}^{\infty} x_1 \frac{\frac{36}{(1+ x_1+ x_2)^5(1+x_3)^4}}{\frac{3}{(1+x_2)^4}\frac{3}{(1+x_3)^4}} \\
+        &= \int_{0}^{\infty} \frac{x_1 36(1+x_2)^4(1+x_3)^4}{9(1+ x_1+x_2)^5(1+x_3)^4} dx_1 \\
+        &= 4 (1+x_2)^4 \int_{0}^{\infty} \frac{x_1}{(1+x_1+x_2)^5} dx_1 \\
+        &= 4 (1+x_2)^4\left( \left[x_1 \frac{-1}{4(1+x_1 + x_2)^4}\right]_0^{\infty} - \int_{0}^{\infty} \frac{-1}{4(1+x_1 + x_2)^4} dx_1 \right) \\
+        &= 4 (1+x_2)^4 \left(\left[0 + \frac{1}{4(1+ x_2)^4}\right] - \left[\frac{1}{12(1 + x_1 + x_2)^3}\right]_0^{\infty}\right) \\
+        &= 4 (1+x_2)^4 \left(\frac{1}{4(x_2)^4} + \frac{1}{12(1+ x_2)^3}\right) \\
+        &= \frac{4(1+ x_2)^4}{4(1+ x_2)^4} + \frac{4(1+ x_2)^4}{12(1+ x_2)^3} \\
+        &= \frac{1}{3} + \frac{1}{3}x_2 
+    \end{align*}
+\end{document}

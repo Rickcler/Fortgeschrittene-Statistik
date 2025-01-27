@@ -1,0 +1,168 @@
+\documentclass{article}
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Allow align environments to break across pages
+\allowdisplaybreaks[4]
+
+% Begin document
+\begin{document}
+\title{Übung 4 Lösungen}
+\author{Victor Minig}
+\date{\today}
+\maketitle
+
+\section*{1}
+\textbf{Gegeben:}\\
+
+Die Dichte einer hypergeometrischen Verteilung: 
+\[f(x; M, K, n) = \frac{\binom{K}{x} \binom{M-K}{n-x}}{\binom{M}{n}}I_{\{0,1, \ldots, n\}}(x)\] 
+
+Mit $ M \in \mathbb{N}, ~ K = 0,1, \ldots, M$ und $n = 1,2,\ldots, M$\\\\
+\textbf{Gesucht:} \\
+
+Erwartungswert $E(X)$ und Varianz $Var(X)$\\\\
+\textbf{Lösung:}\\
+
+Da $X$ diskret ist:
+    \begin{align*}
+        E(X) &= \sum_{x \in R(X)} x f(x) \\
+        &= \sum_{x = 0}^{n} x \frac{\binom{K}{x} \binom{M-K}{n-x}}{\binom{M}{n}} \\
+        &=  \\
+        Var(X) &= (\sum_{x \in}^{R} x^2 f(x)) - E(X)^2 \\
+        &= (\sum_{x = 0}^n x^2 \frac{\binom{K}{x} \binom{M-K}{n-x}}{\binom{M}{n}} ) -  (\frac{nK}{M})^2 \\
+        &= (\sum_{x = 1}^n x^2 \frac{\binom{K}{x} \binom{M-K}{n-x}}{\binom{M}{n}} ) -  (\frac{nK}{M})^2 \\
+        &= (\sum_{x = 1}^n x^2 \frac{\frac{K}{x}\binom{K-1}{x-1} \binom{M-K}{n-x}}{\binom{M}{n}} ) -  (\frac{nK}{M})^2 \\
+        &= (K\sum_{x = 1}^n x \frac{\binom{K-1}{x-1} \binom{M-K}{n-x}}{\binom{M}{n}}) - (\frac{nK}{M})^2 \\
+        \text{Setze } y = x-1 \qquad &= (K\sum_{y = 0}^{n-1} (y +1)\frac{\binom{K-1}{y} \binom{M-K}{n-(y+1)}}{\binom{M}{n}}) - (\frac{nK}{M})^2 \\
+        &= \left[K \left(\sum_{y = 0}^{n-1}y \frac{\binom{K-1}{y} \binom{M-K}{n-(y+1)}}{\binom{M}{n}} + \frac{\binom{K-1}{y} \binom{M-K}{n-(y+1)}}{\binom{M}{n}} \right)\right] - \left(\frac{nK}{M}\right)^2 \\
+        &= \left[K \left(\sum_{y = 1}^{n-1}y \frac{\frac{K-1}{y}\binom{K-2}{y-1} \binom{M-K}{n-(y+1)}}{\binom{M}{n}} + \sum_{y = 0}^{n-1}\frac{\binom{K-1}{y} \binom{M-K}{n-(y+1)}}{\binom{M}{n}} \right)\right] - \left(\frac{nK}{M}\right)^2 \\
+        &= \left[K \left((K-1)\sum_{y = 1}^{n-1} \frac{\binom{K-2}{y-1} \binom{M-K}{n-(y+1)}}{\binom{M}{n}} + \sum_{y = 0}^{n-1}\frac{\binom{K-1}{y} \binom{M-K}{n-(y+1)}}{\binom{M}{n}} \right)\right] - \left(\frac{nK}{M}\right)^2\\
+        \text{Setze } z = y-1 \qquad&= \left[K \left((K-1)\sum_{z = 0}^{n-2} \frac{\binom{K-2}{z} \binom{M -2 -K + 2}{n-2-(z+ 2) + 2}}{\frac{M}{n} \frac{M-1}{n-1}\binom{M-2}{n-2}} + \sum_{y = 0}^{n-1}\frac{\binom{K-1}{y} \binom{M - 1 - K + 1}{n - 1 - (y+1 ) + 1}}{\frac{M}{n}\binom{M-1}{n-1}} \right)\right] - \left(\frac{nK}{M}\right)^2 \\
+        &= \left[K \left((K-1)\frac{n}{M}\frac{n-1}{M-1}\underbrace{\sum_{z = 0}^{n-2} \frac{\binom{K-2}{z} \binom{(M -2) - (K - 2)}{(n-2)- z}}{\binom{M-2}{n-2}}}_{=1, \text{ da } Z \sim Hypergeom(M-2, K-2, n-2)} + \frac{n}{M} \underbrace{\sum_{y = 0}^{n-1}\frac{\binom{K-1}{y} \binom{(M - 1) - (K - 1)}{(n - 1) - y+}}{\binom{M-1}{n-1}}}_{=1, \text{ da } Y \sim Hypergeom(M-1, K-1, n-1)} \right)\right]\\
+        &\quad- \left(\frac{nK}{M}\right)^2 \\
+        &= K\left((K-1)\frac{n}{M} \frac{n-1}{M-1} + \frac{n}{M} \right) - \left(\frac{nK}{M}\right)^2 \\
+        &= (K-1)\frac{nK}{M}\frac{n-1}{M-1} + \frac{nK}{M} - \left(\frac{nK}{M}\right)^2\\
+        &= \frac{nK}{M}\left((K-1)\frac{n-1}{M-1}+ 1 - \frac{nK}{M}\right) \\
+        &= \frac{nK}{M}\left(\frac{(K-1)(n-1)M}{M(M-1)} + \frac{M(M-1)}{M(M-1)} - \frac{nK(M-1)}{M(M-1)}\right) \\
+        &= \frac{nK}{M}\left(\frac{KnM - nM - KM + M + M^2 - M - nKM + nK}{M(M-1)}\right) \\
+        &= \frac{nK}{M}\left(\frac{M^2 - nM - KM + nk}{M(M-1)}\right) \\
+        &= \frac{nK}{M}\left(\frac{(M-n)(M-k)}{M(M-1)}\right)
+    \end{align*}
+
+
+\section*{2} 
+\textbf{Gegeben:}\\
+
+Dichte einer Betaverteilung: 
+\[f(x; \alpha, \beta) = \frac{1}{B(\alpha, \beta)}x^{\alpha - 1} (1-x)^{\beta - 1}I_{(0,1)}(x), \qquad \alpha, \beta > 0\]
+
+Wobei B die Betafunktion ist:
+
+\[B(\alpha, \beta) = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)}, \qquad \Gamma(z) = \int_0^{\infty}t^{z-1}e^t ~dt\qquad \text{(Gammafunktion)}\]
+\textbf{Gesucht:}\\
+
+Erwartungswert $E(X)$ und Varianz $Var(X)$\\\\
+\textbf{Lösung:} \\
+
+\begin{align*}
+    E(X) &= \int_{-\infty}^{\infty} x f(x; \alpha, \beta) dx \\
+    &= \int_{0}^{1} x \frac{1}{B(\alpha, \beta)}x^{\alpha - 1} (1-x)^{\beta - 1} dx \\
+    &= \frac{1}{B(\alpha, \beta)} \int_0^1 x^{\alpha} (1-x)^{\beta -1} dx \\    
+    &= \frac{1}{B(\alpha, \beta)} \int_{0}^{1} \frac{B(\alpha +1, \beta)}{B(\alpha +1, \beta)} x^{(\alpha + 1) - 1}(1-x)^{\beta - 1} dx \\
+    &= \frac{1}{B(\alpha, \beta)} B(\alpha + 1, \beta) \underbrace{\int_{0}^{1} \frac{1}{B(\alpha + 1, \beta)} x^{(\alpha+1)-1} (1-x)^{\beta -1} dx}_{= 1 \text{ für } X \sim Beta(\alpha + 1, \beta)} \\
+    &= \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}\frac{\Gamma(\alpha + 1)\Gamma(\beta)}{\Gamma(\alpha + 1 + \beta)} \\
+    &= \frac{\Gamma(\alpha + \beta) \alpha \Gamma(\alpha)\Gamma(\beta) }{\Gamma(\alpha)\Gamma(\beta)(\alpha+\beta)\Gamma(\alpha + \beta)} \\
+    &= \frac{\alpha }{\alpha + \beta} \\
+    Var(X) &= \left(\int_{-\infty}^{\infty} x^2 f(x; \alpha, \beta) dx\right) - E(X)^2 \\
+    &= \left(\int_{0}^{1} x^2 \frac{1}{B(\alpha, \beta)}x^{\alpha - 1} (1-x)^{\beta - 1} dx\right) - \left(\frac{\alpha}{\alpha + \beta}\right)^2 \\
+    &= \left(\frac{1}{B(\alpha, \beta)} \int_{0}^{1} x^{\alpha + 1} (1-x)^{\beta - 1} dx\right) - \left(\frac{\alpha}{\alpha + \beta}\right)^2 \\
+    &= \left(\frac{1}{B(\alpha, \beta)} B(\alpha + 2, \beta) \underbrace{\int_{0}^{1} \frac{1}{B(\alpha +2, \beta)} x^{(\alpha + 2)-1} (1-x)^{\beta - 1} dx}_{= 1 \text{ für } X \sim Beta(\alpha + 2, \beta)}\right) - \left(\frac{\alpha}{\alpha + \beta}\right)^2 \\
+    &= \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)}\frac{\Gamma(\alpha + 2)\Gamma(\beta)}{\Gamma(\alpha + 2 + \beta)} - \left(\frac{\alpha}{\alpha + \beta}\right)^2 \\
+    &= \frac{\Gamma(\alpha + \beta) (\alpha + 1 ) \alpha \Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha)\Gamma(\beta)(\alpha+\beta +1) (\alpha + \beta)\Gamma(\alpha + \beta)} - \left(\frac{\alpha}{\alpha + \beta}\right)^2 \\
+    &= \frac{\alpha^2 + \alpha}{(\alpha + \beta) (\alpha + \beta + 1)} \\
+    &= \frac{\alpha}{\alpha + \beta}\left(\frac{\alpha + 1}{\alpha + \beta + 1} - \frac{\alpha}{\alpha + \beta}\right) \\
+    &= \frac{\alpha}{\alpha + \beta} \left(\frac{(\alpha + 1)(\alpha + \beta)- \alpha (\alpha + \beta + 1)}{(\alpha + \beta + 1)(\alpha + \beta)}\right) \\
+    &= \frac{\alpha}{\alpha + \beta} \left(\frac{\alpha^2 + \alpha \beta + \alpha + \beta - \alpha^2 - \alpha \beta - \alpha}{(\alpha + \beta + 1)(\alpha + \beta)}\right) \\
+    &= \frac{\alpha}{\alpha + \beta}\frac{\beta}{(\alpha + \beta + 1)(\alpha + \beta)} \\
+    &= \frac{\alpha \beta}{(\alpha + \beta + 1)(\alpha + \beta)^2}
+\end{align*}
+
+\section*{3}
+\textbf{Gegeben:} \\
+
+Die Dichte einer Poissonverteilung:
+\[f(x;\Theta)= \frac{e^{-\Theta}\Theta^{x}}{x!} I{\{0,1,...\}}(x), \qquad \Theta > 0\] 
+
+Wobei $\Theta$ einer Gammaverteilung mit der Dichte:
+\[g(\Theta; r, \lambda) = \frac{\lambda^r}{\Gamma(r)}\Theta^{r-1} e^{-\lambda\Theta}I_{0, \infty}(\Theta), \qquad r, \lambda > 0\]
+
+folgt.\\\\
+\textbf{Zu Zeigen:}\\
+
+Die Mischung von Poissonverteilungen 
+\[\int_0^{\infty} f(x; \Theta) \cdot g(\Theta; r, \lambda)d\Theta\]
+
+folgt einer negativ Binomialverteilung mit den Parametern $r$ und $p = \frac{\lambda}{\lambda + 1}$ \\ \\
+\textbf{Lösung:}
+
+\begin{align*}
+    \int_{0}^{\infty} f(x; \Theta) \cdot g(\Theta; r, \lambda) d\Theta &= \int_{0}^{\infty}\frac{e^{-\Theta}\Theta^{x}}{x!} I_{\{0,1,...\}}(x) \cdot \frac{\lambda^r}{\Gamma(r)}\Theta^{r-1} e^{-\lambda\Theta} d\Theta\\
+    &= \frac{\lambda^r }{\Gamma(r)x!} I_{\{0,1,...\}}(x) \int_{0}^{\infty} e^{-\Theta}\Theta^{x} \Theta^{r-1}e^{-\lambda \Theta} d \Theta \\
+    &= \frac{\lambda^r }{\Gamma(r)x!} I_{\{0,1,...\}}(x) \int_{0}^{\infty} \Theta^{(x+r)-1} e^{-(1+ \lambda)\Theta} d\Theta \\
+    &= \frac{\lambda^r}{\Gamma(r)x!} I_{\{0,1,...\}}(x) \int_{0}^{\infty} \frac{\Gamma(r+x)}{(\lambda + 1)^{r+x}}\frac{(\lambda + 1)^{r+x}}{\Gamma(r+x)} \Theta^{(x+r)-1} e^{-(1+ \lambda)\Theta} d\Theta \\
+    &= \frac{\lambda^r}{\Gamma(r)x!} I_{\{0,1,...\}}(x) \frac{\Gamma(r+x)}{(\lambda + 1)^{r+x}} \underbrace{\int_{0}^{\infty}\underbrace{\frac{(\lambda + 1)^{r+x}}{\Gamma(r+x)} \Theta^{(x+r)-1} e^{-(1+ \lambda)\Theta}}_{\Theta \sim \Gamma(r+x, \lambda +1)} d \Theta}_{= 1} \\
+    &= \frac{\lambda^r \Gamma(r+x)}{\Gamma(r)x! (\lambda+1)^{r+x}} I_{\{0,1,...\}}(x) \\
+    &= \frac{\lambda^r \Gamma(r + x)}{\Gamma(r) x! (\lambda + 1)^{r} (\lambda + 1)^{x}} I_{\{0,1,...\}}(x) \\
+    &= \frac{\Gamma(r + x)}{\Gamma(r)x!(\lambda+1)^x} \left(\frac{\lambda}{\lambda+1}\right)^r I_{\{0,1,...\}}(x) \\
+    &= \frac{\Gamma(r + x)}{\Gamma(r)x!(\lambda+1)^x} \left(\frac{\lambda}{\lambda + 1}\right)^r I_{\{0,1,...\}}(x) \\
+\end{align*}
+
+\section*{4}
+\subsection*{a)}
+\textbf{Gegeben:}\\
+
+Die Dichte der Normalverteilung ist:
+\[f(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi }\sigma} e^{-(x-\mu)^2/(2\sigma^2)}\]
+\textbf{Zu Zeigen:}\\
+
+\[A = \int_{-\infty}^{\infty}f(x; \mu, \sigma)dx = 1\] 
+\textbf{Lösung:} \\
+
+Wir zeigen, dass $A^2 = 1$: 
+\begin{align*}
+    A^2 &= \frac{1}{2\pi \sigma^2} \int_{-\infty}^{\infty} e^{-(x-\mu)^2/(2\sigma^2)} dx \int_{-\infty}^{\infty} e^{-(x-\mu)^2/(2\sigma^2)} dx \\ 
+\end{align*}
+\subsection*{d)}
+\textbf{Zu Zeigen:}\\
+
+Die momenterzeugende Funktion einer standardnormalverteilten ZV ist \[M(t) = e^{\frac{t^2}{2}}\]
+\textbf{Lösung:}\\
+
+\begin{align*}
+    M_X(t) &= \int_{-\infty}^{\infty} e^{tx}f(x) dx \\
+    &= \int_{-\infty}^{\infty} e^{tx} \frac{1}{\sqrt{2\pi} \cdot 1} e^{\left(-\frac{1}{2}\right)\left(\frac{x- 0}{1}\right)^2} dx
+    &= 
+\end{align*}
+\end{document}

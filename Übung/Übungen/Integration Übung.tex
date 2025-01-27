@@ -1,0 +1,59 @@
+\documentclass{article}
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Allow align environments to break across pages
+\allowdisplaybreaks[4]
+
+% Begin document
+\begin{document}
+\title{Übung Integrieren}
+\author{Victor Minig}
+\date{\today}
+\maketitle
+
+\section*{Substitutionsregel}
+\subsection*{a) Leicht}
+\begin{enumerate}[label=\roman{enumi}]
+    \item $\qquad\int 2x  e^{x^2}dx $   \\
+        \begin{align*}
+            \text{Setze } &u = x^2 \\
+            \Rightarrow ~ &\frac{du}{dx} = 2x \\
+            \Rightarrow ~ &du = 2x dx \\
+            \text{Einsetzen: }&\int 2x e^{x^2} dx = \int e^u du \\
+            \int &e^{u}du = e^{u}\\ 
+            \text{Wieder einsetzen: }&e^{u} = e^{x^2} 
+        \end{align*}
+    \item $\qquad \int (3x^2 + 1)^5 \cdot 6x  ~ dx$ 
+        \begin{align*}
+            \text{Sete } & u = 3x^2 \\
+            \Rightarrow ~ & \frac{du}{dx} = 6x \\
+            \Rightarrow ~ & du = 6x dx \\
+            \text{Einsetzen: }&\int (3x^2 +1)^5 \cdot 6x dx = \int (u + 1)^5 du \\
+            \int &(u + 1)^5 du = \frac{1}{6}(u+1)^6 \\
+            \text{Wieder einsetzen: }&\frac{1}{6}(u+1)^6 = \frac{1}{6}(3x^2+1)^6
+        \end{align*}
+\end{enumerate}
+
+\end{document}

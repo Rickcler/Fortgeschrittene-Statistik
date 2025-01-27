@@ -1,0 +1,379 @@
+\documentclass{article}
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Begin document
+\begin{document}
+\title{Übung 1 Lösungen}
+\author{Victor Minig}
+\date{\today}
+\maketitle
+
+\section*{1.}
+\textbf{Gegeben:} \\
+
+$M = 3$ verschiedene Kugeln die mit den Zahlen $1$ bis $3$ versehen sind. Es werden $n=2$ Kugeln gezogen. 
+\subsection*{   a)} 
+
+    Anzahl der \textit{Elementareignisse L} des \textit{Stichprobenraums S} beim Ziehen "mit Zurücklegen":
+
+\begin{align*}
+    &\{(1,1), (1,2),(1,3), (2,1), (2,2), (2,3), (3,1), (3,2), (3,3)\} \\
+    & \Longrightarrow 9 ~ \text{Ergebnisse}
+\end{align*}
+
+und "ohne Zurücklegen":
+\begin{align*}
+    &\{(1,2),(1,3), (2,1), (2,3), (3,1), (3,2)\} \\
+    & \Longrightarrow 6 ~ \text{Ergebnisse}
+\end{align*}
+\subsection*{   b)}
+    Anzahl der Teilmengen des Stichprobenraums beim "Ziehen mit Zurücklegen"
+\[
+    2^{9} =  512
+\]
+
+\section*{2.}
+\textbf{Gegeben:} \\
+
+Ein Mengenkörper $\mathcal{K}$ ist durch die Eigenschaften definiert: 
+\begin{enumerate}
+    \item $A \in \mathcal{K} \Rightarrow \bar{A} \in \mathcal{K}$
+    \item  $A \in \mathcal{K}$ und $B \in \mathcal{K} \Rightarrow A \cup B \in \mathcal{K}$
+\end{enumerate}
+
+Die Ergebnismenge $S = \{(i,j) : i, j = 1,2, \ldots, 6\}$ ist der Stichprobenraum des Experiments: Zweimaliges Ausspielen eines Würfels. $A_{k} ~ (k= 2, \ldots, 12)$ sei das Ereignnis: Die Augensume beider Ausspielungen ist kleiner oder gleich k und $B_{k}(k = 2, \ldots, 12)$ das Ereignis: Die Augensumme beider Ausspielungen ist größer als $k$ 
+\\
+Welche Teilmengen der Potenzmenge von $S$ bilden einen Mengenkörper?
+
+\subsection*{a)}
+\begin{align*}
+    &\mathcal{K}_{1} = \{\emptyset, A_{2}, B_{2}, S\} \\
+    &\Rightarrow \text{Ist Mengenkörper, da } \\
+    & \qquad A_{2} = \bar{B_{2}},~  B = \bar{A_{2}},~ \emptyset = \bar{S},~ S = \bar{\emptyset}\\
+    &\text{und} \\
+    & \qquad A_{2} \cup B_{2} = S,~ A_{2} \cup S = S,~ B_{2} \cup S = S,~ A_{2} \cup \emptyset = A_{2},~ B_{2} \cup \emptyset = B_{2},~ S \cup \emptyset = S
+\end{align*}
+\subsection*{b)}
+\begin{align*}
+    &\mathcal{K}_{2} = \{A_{12}, B_{12}\} \\
+    &\Rightarrow \text{Ist Mengenkörper, da } \\
+    &\text{und} \\
+    & \qquad \bar{A}_{12} = B_{12}, \bar{B}_{12} = A_{12}\\
+    &\qquad A_{12} \cup B_{12} = A_{12} = S
+\end{align*}
+\subsection*{c)}
+\begin{align*}
+    &\mathcal{K}_{3} = \{A_{11}, B_{11}\} \\
+    &\Rightarrow \text{Ist kein Mengenkörper, da  zwar} \\
+    & \qquad \bar{A}_{11} = B_{11}, \bar{B}_{11} = A_{11}\\
+    &\text{aber} \\
+    &\qquad A_{11} \cup B_{11} = S \notin \mathcal{K}_{3}
+\end{align*}
+\subsection*{d)}
+\begin{align*}
+    &\mathcal{K}_{4} = \{A_{k}, B_{k}: k = 2, \ldots, 12 \} \\
+    &\Rightarrow \text{Ist kein Mengenkörper, da  zwar} \\
+    & \qquad \bar{A}_{k} = B_{k} \in \mathcal{K}_{4} \text{ und } \bar{B}_{k} = A_{k} \in \mathcal{K}_{4} \qquad \forall k \in \{ 1,\ldots,12\}\\
+    &\text{aber} \\
+    &\qquad \text{verschiedene Teilmengen nicht enthalten sind, wie z.B. } A_{2} \cup B_{11} = \{2, 12\} \notin \mathcal{K}_{4} 
+\end{align*}
+\section*{3. }
+\textbf{Gegeben:}\\ 
+
+$S = \{1,2,3\}$ Gesucht sind sämtliche nicht leere Teilmengen der Potenzmenge von $S$ die einen Mengenkörper bilden. 
+
+\begin{align*}
+    \{(1,2,3), \emptyset, (1), (2,3), (2), (1,3), (3), (1,2)\}\\
+    \{(1,2,3), \emptyset, (1), (2,3)\} \\
+    \{(1,2,3), \emptyset, (2), (1,3)\} \\
+    \{(1,2,3), \emptyset, (3), (1,2)\} \\
+    \{(1,2,3), \emptyset\}
+\end{align*}
+
+\section*{4. } 
+
+
+Für jede der Folgenden Kombinationen von Stichprobenraum S, Ereignisraum $\mathcal{Y}$ und Mengenfunktion ist zu überprüfen,
+ob die Funktion auch eine Wahrscheinlichkeitsmengenfunktion ist. \\
+
+Definition einer Wahrscheinlichkeitsmengenfunktion P(A):
+\begin{enumerate}[label=\roman*.]
+    \item $\text{For } A \subset S, P(A) \geq 0 $
+    \item $P(S) = 1$
+    \item Let $I$ be a finite or countably infite index set of positive integers, and let $\{A_{i}: i \in I\}$ be a collection \\
+     of disjoint events contained in $S$. Then, $P(\cup_{i\in I}A_{i}) = \sum_{i \in I} P(A_{i})$
+\end{enumerate}
+
+\subsection*{a)}
+\textbf{Gegeben:}
+
+
+\begin{enumerate}
+    \item $S = \{1,2,3,4,5,6,7,8\}$ 
+    \item $\mathcal{Y} = \{A: A \subset S\}$ 
+    \item $P(A) = \sum_{x\in A} x / 36$ für $A \in \mathcal{Y}$
+\end{enumerate}
+\textbf{Lösung:}
+
+
+\begin{enumerate}[label=zu \roman*.]
+    \item Da $S$ definiert ist als eine Menge mit ausschließlich positiven Zahlen und und für jedes Event $A$ gilt, dass $A \subset S$, folgt dass \[P(A) = \sum_{x\in A} x / 36 \geq 0 \text{ für }A \in \mathcal{Y}\]
+    \item $P(S) = \sum_{x \in S} x/36 = \sum_{1}^{8}x/36 = 1$
+    \item If $I$ is a finite or countably infite index set of positive integers and $\{A_{i}: i \in I\}$ is a collection of disjoint events contained in S then it holds that \[P(\cup_{i\in I}A_{i}) = \sum_{x_{A_{i}} \in \cup_{i\in I}A_{i}}x_{A_{i}}/36 \overset{\text{Kommutativität}}{=} \sum_{x \in A_{1}} x/36 + \sum_{x \in A_{2}} x/36 + \ldots = \sum_{i\in I}P(A_{i})\]  
+\end{enumerate}
+
+$\Longrightarrow$ Dementsprechend ist $P$ eine Wahrscheinlichkeitsmengenfunktion
+
+\subsection*{b)}
+\textbf{Gegeben:}
+
+
+\begin{enumerate}
+    \item $S = [0,\infty)$ 
+    \item $\mathcal{Y} = \{A: A \text{ ist ein Telinterval von  } S $ oder eine beliebige Menge gebildet aus Vereinigungen, Schnittmengen, oder Komplementmengen dieser Teilintervalle\}
+    \item $P(A) = \int_{x\in A} e^{-x} dx$ für $A \in \mathcal{Y}$
+\end{enumerate}
+\textbf{Lösung:}
+
+
+\begin{enumerate}[label=zu \roman*.]
+    \item Für beliebiges $A \in \mathcal{Y}$ gilt, dass es direkt ein Teilintervall von $S$ ist, oder eine Menge, die sich aus Schnittmengen, Vereinigungen und Komplemntmengen eben dieser Teilintervalle zusammensetzt. Für jedes einzelne Teilintervall $(a, b) \text{ mit } 0 \leq a \leq b < \infty$ gilt: \[P((a,b))= \int_{a}^{b}e^{-x}dx = [-e^{-x}]^{b}_{a} = -e^{-b} -(-e^{-a})=-e^{-b} + e^{-a} \geq 0\] Da für jedes einzelne Interval $a,b$ gilt, dass $P((a,b))\geq 0 $ gilt dies automatisch auch für alle möglichen Vereinigungen, Schnittmengen und Komplementmengen.
+    \item $P(S) = P([0,\infty)) = \int_{0}^{\infty} e^{-x} dx  = [-e^{-x}]_{0}^{\infty} = -e^{-\infty} -(-e^{0}) = 0 + 1 = 1$
+    \item If $I$ is a finite or countably infite index set of positive integers and $\{A_{i}: i \in I\}$ is a collection of disjoint events contained in S then it holds that \[P(\cup_{i \in I}A_{i}) = \int_{x\cup_{i \in I}A_{i}} e^{-x} dx \overset{Lebesgue Integral}{=} \int_{x \in A_{1}} e^{-x} dx + \int_{x \in A_{2}} e^{-x} dx + \ldots = \sum_{i \in I} \int_{x \in A_{i}} e^{-x} dx = \sum_{i \in I} P(A_{i})\]   
+\end{enumerate}
+
+$\Longrightarrow$ Dementsprechend ist $P$ eine Wahrscheinlichkeitsmengenfunktion
+
+\subsection*{c)}
+\textbf{Gegeben:}
+
+
+\begin{enumerate}
+    \item $S = \{x: x \text{ ist eine positive ganze Zahl}\}$ 
+    \item $\mathcal{Y} = \{A: A \subset S\}$
+    \item $P(A) = \sum_{x \in A} x^{2}/10^{5}$
+\end{enumerate}
+\textbf{Lösung:}
+
+
+\begin{enumerate}[label=zu \roman*.]
+    \item Da jede Ereignis $A$ nur aus positiven ganzen Zahlen bestehen kann, und $x^{2} / 10^{5} > 0 ~ \forall x \in \mathbb{N}$, gilt \[ P(A) \geq 0 \qquad \forall A\in \mathcal{Y}\]
+    \item Da $10^{5} \in S$, aber für $A = \{10^{5}\} \subset S$ gilt, dass $P(A) = (10^{5})^{2}/ 10^{5} = 10^{5} > 1$ muss gelten \[P(S) \neq 1\] 
+\end{enumerate}
+
+$\Longrightarrow$ Dementsprechend ist $P$ keine Wahrscheinlichkeitsmengenfunktion
+
+\section*{5.}
+
+\textbf{Gegeben:} \\
+
+$P(\cdot)$ ist eine Wahrscheinlichkeitsmengenfunktion für den Ereignisraum $\mathcal{Y}$ mit $A_{i} \in \mathcal{Y} (i = 1, \ldots , r)$. 
+\subsection*{a)}
+\textbf{Zu zeigen:}\\ 
+
+$P(A_{1} - A_{2}) = P(A_{1}) - P(A_{1} \cap A_{2})$\\ \\
+\textbf{Lösung:}\\
+
+Eine andere Schreibweise für $A_{1} - A_{2} \text{ ist } A_{1} \cap \bar{A}_{2}$. Es folgt:  \[P(A_{1} - A_{2}) = \overbrace{P(A_{1} \cap \bar{A}_{2}) + P(A_{1}\cap A_{2})}^{\qquad ~ ~P(A)\quad \text{Theorem 4}} - P(A_{1}\cap A_{2}) = P(A)- P(A_{1}\cap A_{2})\]
+\subsection*{b)}
+\textbf{Zu zeigen: }\\
+
+$A_{i} \cap A_{j} = \emptyset \Rightarrow P(\cup_{i=1}^{r} A_{i}) = \sum_{i = 1}^{r} P(A_{i}) \qquad \forall i\neq j$ \\ \\
+\textbf{Lösung:} \\
+
+Komische Induktionsaufgabe. Wann anders anschauen
+\subsection*{c)}
+\textbf{Zu zeigen: }\\
+
+$P([A_{1} \cup A_{2}] - [A_{1}\cap A_{2}]) = P(A_{1}) + P(A_{2}) - 2P(A_{1}\cap A_{2})$ \\ \\
+\textbf{Lösung:} 
+\begin{align*}
+    P([A_{1} \cup A_{2}] - [A_{1}\cap A_{2}]) &= P([A_{1} \cup A_{2}] \cap \overline{[A_{1} \cap A_{2}]}) \tag*{$(A\cup B ) \cap C = (A\cap C) \cup (B \cap C)$}\\
+    &=P([A_{1}\cap \overline{[A_{1} \cap A_{2}]}] \cup [A_{2}\cap \overline{[A_{1} \cap A_{2}]}] ) \tag*{$A \cap \overline{A\cap B}= A \cap \overline{B}$}\\
+    &= P([A_{1}\cap \overline{A}_{2}] \cup [A_{2}\cap \overline{A}_{1}]) \tag*{$[A_{1}\cap \overline{A}_{2}] \cap [A_{2}\cap \overline{A}_{1}] = \emptyset$} \\
+    &= P([A_{1}\cap \overline{A}_{2}]) + P([A_{2}\cap \overline{A}_{1}]) \tag*{A = A + B - B}\\
+    &= \overbrace{P([A_{1}\cap \overline{A}_{2}]) + P([A_{1}\cap A_{2}])}^{P(A_{1})} - P([A_{1}\cap A_{2}]) + \overbrace{P([A_{2}\cap \overline{A}_{1}]) + P([A_{1}\cap A_{2}])}^{P(A_{2})} - P([A_{1}\cap A_{2}]) \\
+    &= P(A_{1}) + P(A_{2}) - 2P(A_{1}\cap A_{2})
+\end{align*}
+
+\section*{6.}
+
+\textbf{Gegeben:} \\
+
+$A, B, C$ sind Elemente des Ereignisraums $\mathcal{Y}$ und $P(\cdot)$ eine entsprechende Wahrscheinlichkeitsmengenfunktion.
+
+\subsection*{a)}
+
+\textbf{Zu zeigen: } \\
+
+$P(A) \leq P(B) \Rightarrow P(\overline{B}) \leq P(\overline{A})$   \\ \\
+\textbf{Lösung:} \\
+
+Da für jedes Element $A \in \mathcal{Y}$ gilt, dass $A \cup \overline{A} = S$, und da desweiteren gilt, dass $A \cap \overline{A} = \emptyset$, folgt, dass $P(S) = 1 = P(A) + P(\overline{A})$ und damit $P(\overline{A}) = 1 - P(A)$. Daraus folgt:   
+\begin{align*}
+    P(A) &\leq P(B) \\
+    \Rightarrow  1-P(\overline{A}) &\leq 1 - P(\overline{B}) \tag*{$-1$}\\
+    \Rightarrow -P(\overline{A}) &\leq - P(\overline{B}) \tag*{$\cdot (-1)$; Dreht das Ungleichunssymbol um} \\
+    \Rightarrow P(\overline{A}) &\geq P(\overline{B})  
+\end{align*}
+
+\subsection*{a)}
+
+\textbf{Zu zeigen: } \\
+
+$A \subset B \Rightarrow \overline{B} \subset \overline{A}$ \\ \\
+\textbf{Lösung:} \\
+
+Da $A \subset B$ und $A \cup \overline{A} = \mathcal{Y}$  gilt, dass $\mathcal{Y} - B = \overline{B} $
+
+
+\section*{7.}
+\textbf{Gegeben:}
+
+$P(A) = 3/4$ und $P(B) = 3/8$
+
+\subsection*{a)}
+
+
+\textbf{Zu zeigen:} \\
+
+$P(A \cup B) \geq 3/4$ \\ \\
+\textbf{Lösung:}  
+
+\begin{align*}
+    P(A \cup B) &= P(A \cup (\overline{A} \cap B)) \tag*{Mengen haben keine Schnittmenge}\\
+    &=b P(A) + P(\overline{A} \cap B) \\
+    &= 3/4 + P(\overline{A} \cap B) \tag*{$ \overline{A}\cap B  \subset S \Rightarrow P(\overline{A}\cap B) \geq 0$} \\
+    &\geq 3/4
+\end{align*}
+
+
+\subsection*{b)}
+
+
+\textbf{Zu zeigen:} \\
+
+$1/8 \leq P(A\cap B) \leq 3/8$ \\ \\
+\textbf{Lösung:}  \\
+
+Da $P(S) =1$ und $P(A) + P(B) = 3/4 + 3/8 = 9/8 > 1$ muss $P(A\cap B) \geq 9/8 - 1 = 1/8$ sein \\
+
+Außerdem, da $P(B) \geq P(A \cap B )$ sein muss (da $A \cap B \subset ((A \cap B) \cup (\overline{A} \cap B)) = B $), gilt $P(A\cap B) \leq 3/8$
+
+\section*{8}
+
+\textbf{Gegeben:}\\
+
+Urne mit $M$ Kugeln, $n$ Ziehungen mit Zurücklegen. \\ \\
+\textbf{Gesucht:} \\
+
+$P(A)$ wobei $A$: Mindestens eine Kugel wird mehr als einmal gezogen. \\ \\
+\textbf{Lösung:} \\ 
+
+$P(A) = 1 - P(\overline{A})$ wobei $\overline{A}$: alle Kugeln sind unterschiedlich. Bei $M$ Kugeln 
+
+\section*{9}
+
+
+\textbf{Gesucht:} \\
+
+
+$P(A)$ wobei $A$:  2 Asse us einem Kartenspeil mit 52 Karten ziehen (ohne Zurücklegen)
+\textbf{Lösung:} \\
+
+Die Wahrscheinlichkeit ein Ass aus einem Kartenspiel mit 52 Karten zu ziehen beträgt $4/52$ und die Wahrscheinlichkeit aus dem daraus resultierenden, nur noch 51 Karten umfassenden Kartendeck ein Ass zu ziehen beträgt $3/51$. Insofern gilt: \[ P(A) = 4/52 \cdot 3/51 = 12/2652= 3/663\]
+ 
+
+\section*{10}
+
+
+\textbf{Gegeben:} \\
+
+$5$ Urnen, nummeriert von $1$ bis $5$. Jede Urne enthält $10$ Kugeln. Die Urne $i ~ (i = 1,...,5)$ enthält $i$ schwarze 10 - $i$ rote Kugeln. Das Zufallsexperiment ist, das zuerst zufällig eine Urne ausgewählt wird und dann eine Kugel
+\subsection{a)}
+
+\textbf{Gesucht:} \\
+
+$P(S)$ wobei $S$: Eine schwarze Kugel wird gezogen:\\ \\
+\textbf{Lösung:} \\
+
+Jede Urne $U_{i}$ hat eine Chance von $P(U_{i})=1/5$ genommen zu werden. Wenn $S$ das Ereignis ist ist eine schwarze Kugel zu ziehen lässt es sich berechnen durch 
+\begin{align*}
+    P(S) &= \sum_{i = 1}^{5} P(S \cap U_{i}) \\
+    &= \sum_{i =1}^{5} P(U_{i}) \cdot P(S|U_{i}) \\
+    &= \sum_{i = 1}^{5} 1/5 \cdot i/10 \\
+    &= 1/5 \cdot \sum_{i = 1}^{5} i/10 \\ 
+    &= 1/5 \cdot 15/10 \\
+    &= 3/10
+\end{align*}  
+
+\subsection*{b)}
+
+\textbf{Gesucht:}\\
+
+Unter der Gegebenheit, dass eine schwarze Kugel gezogen wurde, wie groß ist die Wahrscheinlichkeit das jene aus Urne 5 stammt.\\ \\
+
+\textbf{Lösung:}\\ 
+
+Gesucht ist also $P(U_{5}|S)$. Laut Bayes lässt sich für zwei Ereignisse $A,~B$ die bedingte Wahrscheinlichkeit $P(A|B)$ berechnen durch $P(A|B) = \frac{P(B|A)\cdot P(A)}{P(B)}$. Es folgt:
+\begin{align*}
+    P(U_{5}|S) &= \frac{P(S|U_{5})\cdot P(U_{5})}{P(S)}& \\
+    &= \frac{(1/2) \cdot (1/5)}{3/10}&= 1/3
+\end{align*}
+
+
+\section*{16}
+
+\textbf{Gegeben:} \\
+
+$P(A_{i} = 0.1)$ für $i = 1, \ldots, 10$ \\ \\
+
+\textbf{Gesucht:} \\
+
+$P(\cap_{i=1}^{n})$ wenn ...\\
+
+\subsection*{a)}
+
+\textbf{Gegeben:} \\
+
+Die $A_{i}$'s unabhängig sind \\ \\
+\textbf{Lösung:} \\
+
+Wenn die $A_{i}$'s unabhängig sind gilt: 
+
+\begin{align*}
+    P(\cap_{i=1}^{1}A_{i}) &= \prod_{i =1}^{10} P(A_{i}) \\
+    &= \prod_{i =1}^{10} 0.1 \\
+    &= 0.1^{10}
+\end{align*}
+
+\subsection*{b)}
+
+\textbf{Gegeben:} \\
+
+Die $A_{i}$'s disjunkt sind \\ \\
+\textbf{Lösung:} \\
+
+Wenn die $A_{i}$'s unabhängig sind gilt  $\cap_{i=1}^{1}A_{i} = \emptyset$. Dementsprechend: \[P(\cap_{i=1}^{1}A_{i}) = 0\]
+\\ \\ \\
+\subsection*{c)}
+
+\textbf{Gegeben:} \\
+
+$P(A_{i}|\cap_{j=1}^{i-1}) = 0.2 $ für $i = 2, \ldots, 10$ \\ \\
+\textbf{Lösung:} \\
+
+Für $i = 10$ gilt $P(A_{10}| \cap_{j=1}^{9}) = 0.2$
+
+
+\end{document}

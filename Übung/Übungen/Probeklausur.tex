@@ -1,0 +1,201 @@
+\documentclass{article}
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Allow align environments to break across pages
+\allowdisplaybreaks[4]
+
+% Begin document
+\begin{document}
+\title{Probeklaur}
+\author{Victor Minig}
+\date{\today}
+\maketitle
+
+\section*{A)}
+\textbf{Gegeben:}
+
+\[f(x,y) = ke^{-x-2y}I_{(0,\infty)(x)I_{0, \infty}}(y)\]
+\subsection*{a1}
+\textbf{Gesucht:}\\
+
+Der Wert für $k$ wo $f(x,y)$ tatsächlich eine PDF ist.\\\\
+\textbf{Lösung:} \\
+
+Wir suchen also $k$, sodass $\int_{-\infty}^{\infty} f(x,y) dx dy= 1$.
+
+\begin{align*}
+    \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(x,y) dx dy &= \int_{0}^{\infty} \int_{0}^{\infty} ke^{-x-2y} dx dy \\
+    &= k \int_{0}^{\infty} \left[-e^{-x-2y}\right]_0^{\infty} dy \\
+    &= k \int_{0}^{\infty} \left[0 - (-e^{-2y}) \right] dy \\
+    &= k \left[-\frac{1}{2}e^{-2y}\right]_0^{\infty} \\
+    &= k \left[0- (-\frac{1}{2}e^{0})\right] \\
+    &= k\frac{1}{2} \\ \\
+    k \frac{1}{2} &\overset{!}{=} 1 \\
+    \Rightarrow k &= 2  
+\end{align*}
+
+\subsection*{a2}
+\textbf{Gesucht:} \\ 
+
+Die gemeinsame Ferteilungsfunktion $F(X, Y)$\\
+\textbf{Lösung:} \\
+
+\begin{align*}
+    F(X,Y) = \int_{0}^{b_y} \int_{0}^{b_x} f(x,y) dx dy 
+    &=\int_{0}^{b_y} \int_{0}^{b_x} 2e^{-x-2y} dx dy \\ 
+    &= \int_{0}^{b_y} \left[-e^{-x-2y}\right]_0^{b_x} dy \\
+    &= \int_{0}^{b_y} \left[-e^{-x-2y}\right]_0^{b_x} dy\\
+    &= \int_{0}^{b_y}  -e^{-b_x-2y} + e^{-2y} dy \\
+    &= \left[\frac{1}{2} e^{-b_x-2 y}- \frac{1}{2}e^{-2y}\right]_0^{b_y} \\
+    &= \frac{1}{2} e^{-b_x - 2b_y} - \frac{1}{2} e^{2b_y} - \frac{1}{2} e^{-bx} + \frac{1}{2}  \\
+    &= \frac{1}{2} (e^{-b_x - 2b_y} -e^{-2by} - e^{b_x} + 1) \\
+\end{align*}
+
+\subsection*{c)}
+\textbf{Gesucht:} \\
+
+Marginalen Dichten von $X$ und $Y$ \\\\
+\textbf{Lösung}:
+
+\begin{align*}
+    f_y(y) &= \int_{-\infty}^{\infty} f(x,y) dx \\
+    &= \int_{-\infty}^{\infty} 2e^{-x-2y} dx \\
+    &= \left[-2e^{-x-2y}\right]_0^{\infty} dx \\
+    &= 0 - (- 2 e^{-2y}) I_{0, \infty} \\
+    &= 2 e^{-2y} I_{0, \infty} \\
+    f_x(x) &= \int_{-\infty}^{\infty} f(x,y) dy \\
+    &= e^{-x} I_{0 \infty}(x) 
+\end{align*}
+\subsection*{d} 
+\textbf{Gesucht:}
+
+$E(XY)$ \\\\
+\textbf{Lösung:}\\
+
+\begin{align*}
+    E(XY) &= 2 \int_{0}^{\infty}\int_{0}^{\infty} xy e^{-x-2y} dxdy \\
+    &= 2\int_{0}^{\infty} [-xe^{-x-2y}]_0^{\infty} - \int_{0}^{\infty} -e^{-x-2y} dxdy \\
+    &= 2\int_{0}^{\infty} \left[0 + 0\right] -\left[e^{-x-2y}\right]_0^{\infty} dy \\
+    &= 2\int_{0}^{\infty}-  \left[ 0- e^{-0-2y}\right] dy \\
+    &= 2\left[-\frac{1}{2}e^{2y}\right]_0^{\infty}\\
+    &= 2(0 + \frac{1}{2} e^{2\cdot 0}) \\
+    &= 2 \cdot \frac{1}{2} \\
+    &= 1
+\end{align*}
+\subsection*{e)}
+\textbf{Gesucht:} \\
+
+Die bedingte Dichte $f(x|y)$\\\\
+\textbf{Lösung:}\\
+\begin{align*}
+    f(x|y) &= \frac{f(x,y)}{f_y(y)} \\
+    &=\frac{2e^{-x-2y}}{2e^{-2y}} \\
+    &= \frac{e^{-x} e^{-2y}}{e^{-2y}} \\
+    &= e^{-x}
+\end{align*}
+
+\subsection*{f)}
+\textbf{Gesucht:} \\
+
+Die Wahrscheinlichkeit für $P(x< \frac{1}{2}y, 0 < y < 2)$\\\\
+\textbf{Lösung:}
+\begin{align*}
+    P(x < \frac{1}{2}y, 0 < y < 2) &= \int_{0}^{2} \int_0^{\frac{1}{2}y} f(x,y) dx dy \\
+    &= \int_{0}^{2} \left[-2e^{-x-2y}\right]^{\frac{1}{2}y}_0 dy \\
+    &= \int_{0}^{2} \left[-2e^{-\frac{1}{2}y - 2y} + 2e^{-2y}\right] dy \\
+    &= \left[e^{-\frac{1}{2}y - 2y} - e^{-2y}\right]_0^{2} \\
+    &= e^{-1 - 4} - e^{-4} - 1 + 1 \\
+    &= e^{-5} -e^{-4}
+\end{align*}
+
+\subsection*{g)}
+\textbf{Frage:}\\
+
+Sind $X$ und $Y$ stochastisch unabhängig?\\\\
+\textbf{Lösung:} \\
+
+Ja, da $f(x|y) = f_x(x)$
+\section*{2}
+\textbf{Gegeben:} \\
+\[f(x) = \frac{1}{b-a}I{[a,b]}(x)\qquad \text{mit }\{(a,b): -\infty < a < b < \infty\}.\]
+\subsection*{a)}
+\textbf{Zu Zeigen:}\\
+
+Die nichtzentralen Momente sind gegeben durch: 
+\[\mu_r'= \frac{b^{r+1}- a^{r+1}}{(b-a)}(r+1)\qquad r=1,2 \ldots\]
+\textbf{Lösung:}\\
+
+\textbf{Induktionsanfang:} \\
+
+\begin{align*}
+    \text{Für } r = 1\qquad \mu_r' &= \int_{-\infty}^{\infty} x f(x) dx \\
+    &= \int_{a}^{b} \frac{x}{a - b} dx \\
+    &= \left[\frac{x^2}{2(a-b)}\right]_a^b \\
+    &= \frac{b^2}{2 (a-b)} - \frac{a^2}{2 (a-b)} \\
+    &= \frac{b^{r+1} - a^{r+1}}{(b-a) (r+1)}
+\end{align*}
+
+\textbf{Intduktionsvoraussetzung:}\\
+
+\[\mu_r' = \int_{-\infty}^{\infty}xf(x)dx = \frac{b^{r+1} - a^{r+1}}{(b-a) (r+1)}  \qquad \text{für ein } r \in \mathbb{N}  \]
+
+\textbf{Induktionsschritt:}
+\begin{align*}
+    \mu_{r+1}' &= \int_{a}^{b} x^{r+1} f(x) dx \\
+    &= \left[\frac{x^{(r+1)+1}}{(r+1)+1(b-a)}\right]_a^b \\
+    &= \frac{b^{(r+1)+1}}{((r+1)+1)(b-a)} - \frac{a^{(r+1)+1}}{(r+1)+1(b-a)} \\
+    &= \frac{b^{(r+1)+1}- a^{(r+1)+1}}{((r+1)+1)(b-a)}
+\end{align*}
+$\Longrightarrow$ Es gilt also für alle $\forall n \in \mathbb{N}$
+\subsection*{b)}
+\textbf{Frage:} \\
+
+Ist die gegebene Dichte ein Mitglied der Eponentialfamilie?
+\textbf{Lösung:} \\
+
+Nein, da kein $\Theta$ existiert, sodass: \[f(x;\Theta) = \frac{1}{\Theta}e^{-\frac{x}{\Theta}}I_{(0, \infty)} = \frac{1}{b-a} I_{[a,b]}(x)\]
+
+\section*{3} 
+\textbf{Gegeben:} \\
+
+X eine bivariat Normalverteilte ZV $\mathcal{N}(\bf{\mu}, \bf{\Sigma})$ mit \[ \bf{\mu} = \begin{pmatrix}
+    4 \\
+    9
+\end{pmatrix} \qquad \text{und} \qquad \bf{\Sigma} = \begin{pmatrix}
+    3&1\\
+    1&2
+\end{pmatrix}\]
+\textbf{Gesucht:}\\
+
+Regressionsfunktion von $X_1$ auf $X_2$ und $E(X_1|x_2 = 1)$ \\\\
+\textbf{Lösung:} \\
+
+Die Regressionsfunktion lässt sich in unserem Fall darstellen durch $E(X_1|X_2)$ 
+\begin{align*}
+    E(X_1|X_2) &= \int_{-\infty}^{\infty} x_1 \frac{f(\bf{x})}{f_{x_2}(x_2)}  dx_1\\
+    &= 
+\end{align*}
+
+\end{document}

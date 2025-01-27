@@ -1,0 +1,103 @@
+\documentclass{article}
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Allow align environments to break across pages
+\allowdisplaybreaks[4]
+
+% Begin document
+\begin{document}
+\title{Probeklaur}
+\author{Victor Minig}
+\date{\today}
+\maketitle
+
+\section*{1)}
+\textbf{Gegeben:}
+
+$X_1, X_2$ sind i.i.d. verteilt mit 
+
+\[f(x_i) = e^{-x_i}, \quad i = 1,2\]
+
+\subsection*{a)}
+\textbf{Gesucht:}
+
+Gemeinsame Dichte\\\\
+\textbf{Lösung:}\\
+
+Da unabhängig:
+
+\begin{align*}
+    f(x_1, x_2) &= f_1(x_1) \cdot f_2(x_2) \\
+    &= e^{-x_1} \cdot e^{-x_2} I_{(0, \infty)}(x_1)I_{(0, \infty)}(x_2)
+\end{align*}
+\subsection*{b)}
+\textbf{Gesucht:}\\
+
+Gemeinsame Verteilung \\\\
+\textbf{Lösung:}\\
+
+\begin{align*}
+    F(b_1, b_2) &= \int_{-\infty}^{b_1} \int_{-\infty}^{b_2} f(x_1, x_2) dx_2 dx_1 \\
+    &= \int_{0}^{b_1} \int_{0}^{b_2} e^{-x_1-x_2} dx_2 dx_1 \\
+    &= \int_{0}^{b_1} \left[-e^{-x_1-x_2}\right]_0^{b_2} dx_1 \\
+    &= \int_{0}^{b_1} \left[-e^{-x_1 -b_2} + e^{-x_1}\right] dx_1 \\
+    &= \left[e^{-x_1-b_2} - e^{-x_1}\right]_0^{\infty} \\
+    &= e^{-b_1-b_2} - e^{b_2} - e^{b_1} + 1 
+\end{align*}
+\subsection*{c)}
+\textbf{Gesucht:}\\
+
+$E(X_1X_2)$\\\\
+\textbf{Lösung:}\\
+\begin{align*}
+    E(X_1X_2) &= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}x_1 x_2 f(x_1, x_2) dx_1 dx_2 \\
+    &= \int_{0}^{\infty} x_2 e^{-x_2}\int_{0}^{\infty}x_1 e^{-x_1} dx_1 dx_2 \\
+    &= \int_{0}^{\infty} x_2 e^{-x_2} (\left[-e^{-x_1}x_1\right]_0^{\infty} - \int_{0}^{\infty} e^{-x_1}) dx_2 \\
+    &= \int_{0}^{\infty} x_2 e^{-x_2} \left((0 - 0 ) - \left[0-1\right]\right) dx_2\\
+    &= 1
+\end{align*}
+\subsection*{d)}
+\textbf{Gesucht:} \\
+\[P(x_1< \frac{1}{2}x_2, 0 < x_2 <2)\]
+\textbf{Lösung:} \\
+\begin{align*}
+    P(x_1< \frac{1}{2}x_2, 0 < x_2 <2) &=\int_{0}^{2} \int_{0}^{\frac{1}{2} x_2} e^{-x_1-x_2}dx_1 dx_2 \\
+    &= \int_{0}^{2}e^{-x_2} \left[-e^{-\frac{1}{2}x_2} + 1\right] dx_2\\
+    &= \left[\frac{1}{2}e^{-x_2-\frac{1}{2}x_2} -e^{-x_2}\right]_0^2 \\
+    &= \frac{1}{2}e^{-2 - 1} + e^{-2}+ 1 - 1 \\
+    &= \frac{1}{2}e^{-2 - 1} + e^{-2}
+\end{align*}
+
+\subsection*{e)}
+\textbf{Gesucht:}\\
+
+Verteilungen von $S = X_1 + X_2$ und $D= X_1 - X_2$
+\begin{align*}
+    \quad
+\end{align*}
+
+\section*{2}
+\subsection*{a)}
+\end{document}
