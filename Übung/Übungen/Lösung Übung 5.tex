@@ -1,0 +1,234 @@
+\documentclass{article}
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+
+% Math and symbols packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{cancel}
+% Formatting and layout
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+% Allow align environments to break across pages
+\allowdisplaybreaks[4]
+
+% Begin document
+\begin{document}
+\title{Übung 4 Lösungen}
+\author{Victor Minig}
+\date{\today}
+\maketitle
+
+\section*{1}
+
+\textbf{Gegeben:} \\
+
+Eine Folge von Funktionen
+\[f_n(x) = \begin{cases}
+    4n^2x &\text{für } 0 \leq x < \frac{1}{2n},\\
+    -4n^2x + 4n &\text{für } \frac{1}{2n} \leq x \leq \frac{1}{n}, \\
+    0 &\text{sonst.} 
+\end{cases}\]
+
+mit $x\in\mathbb{R}$ 
+\textbf{Frage:}\\
+
+Konvergiert die Folge punktweise gegen $f(x) = 0$? \\ \\
+\textbf{Lösung:}\\
+
+\section*{2}
+\textbf{Gegeben:}\\
+
+$Y_n$ folgt für $n \in \mathbb{N}$ einer Normalverteilung mit $\mathcal{N}(\mu, \frac{\sigma^2 + \sqrt{n}}{n+1})$ \\ \\
+\textbf{Zu Zeigen:}\\
+
+$Y_n$ konvergiert in Wahrscheinlichkeit gegen $\mu$\\ \\
+\textbf{Lösung:}\\
+
+Die Aussage bedeutet mathematisch:
+\[\lim_{n\rightarrow \infty}P(|y_n - \mu|< \epsilon) = 1 \quad \forall ~\epsilon > 0\]
+
+Für den Beweis brauchen wir die Chebychev Ungleichung:
+\[P(|X - \mu| \geq \epsilon) \leq \frac{\sigma^2}{\epsilon^2} \qquad \sigma = Var(X),~ \mu = E(X) \]
+
+In unserem Fall:
+
+\begin{align*}
+    \lim_{n \rightarrow \infty}P(|Y_n - \mu| \geq \epsilon) &\leq \lim_{n \rightarrow \infty}\frac{\frac{\sigma^2 + \sqrt{n}}{n+1}}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{\sigma^2 + \sqrt{n}}{(n + 1) \epsilon^2 } \tag*{L'Hopital }  \\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{2}n^{-\frac{1}{2}}}{\epsilon^2} \\
+    &= 0 \\ \\
+    \lim_{n \rightarrow \infty}P(|Y_n - \mu| \geq \epsilon) \leq 0 ~ &\Longrightarrow ~ \lim_{n \rightarrow \infty}P(|Y_n - \mu| \geq \epsilon) = 0 
+\end{align*}
+
+Damit ist gezeigt, dass $Y_n$ gegen $\mu$ konvergiert.
+\section*{3}
+\textbf{Gegeben:} \\
+
+Eine Folge von ZVs mit Dichten:
+\[f_n(x)= \begin{cases}
+    \frac{2n}{-1}&\text{für } x=1,\\
+    \frac{1}{3} &\text{für } x = 1 + \frac{1}{n+1},\\
+    \frac{1}{3n} &\text{für } x = 2, \\
+    0 &\text{sonst}.  
+\end{cases}\]
+\textbf{Zu Zeigen:}\\
+
+\[X_n \overset{P}{\rightarrow} 1 \Leftrightarrow \lim_{n \rightarrow \infty} P(|X_n - 1| < \epsilon) = 1 \quad \forall ~ \epsilon>0 \] 
+\textbf{Lösung:} \\
+
+Diesmal nutzen die Markov Ungleichung:
+\[P(Y \geq a) \leq \frac{E(Y)}{a} \quad \forall a > 0\]
+
+Wir setzten für $Y ~ X_n - 1$ ein 
+\begin{align*}
+    \lim_{n \rightarrow \infty}P(|X_n-1| \geq \epsilon) &\leq \lim_{n \rightarrow \infty} \frac{E(|X_n -1|)}{\epsilon} \\
+    &= \lim_{n \rightarrow \infty} \frac{\sum_{x \in R(x)}(|X_n - 1|) f(x)}{\epsilon} \tag*{Ab hier fällt Betrag weg weil eh positiv (oder Null)}\\
+    &= \lim_{n \rightarrow \infty} \frac{\overbrace{(1 - 1)}^{=0}\frac{2n}{-1} + \overbrace{(1+ \frac{1}{n+1} - 1)}^{= 0 ~(\text{für } n \rightarrow\infty)} \frac{1}{3} + (2-1)\overbrace{\frac{1}{3n}}^{= 0 ~(\text{für }n \rightarrow\infty)}}{\epsilon} \\
+    &= \frac{0}{\epsilon} \\
+    &= 0
+\end{align*} 
+
+\[\lim_{n \rightarrow \infty}P(|X_n-1|\geq \epsilon) = 0 ~\Rightarrow~\lim_{n \rightarrow \infty}P(|X_n-1|< \epsilon) =1\] 
+\section*{4} 
+\textbf{Gegeben:}\\
+
+$X_n$ mit Verteilungsfunktion:
+\[F_n(x) = \begin{cases}
+    0 &\text{für } x < -n, \\
+    \frac{1}{2} &\text{für } -n \leq x < n,\\
+    1 &\text{für} x \geq n.
+\end{cases}\]
+\textbf{Frage:}\\
+
+Konvergiert die Folge gegen eine Zufallsvariable $X$?\\ \\
+\textbf{Lösung:}\\
+
+Da $\lim_{n \rightarrow \infty} F_n(x)$ immer $\frac{1}{2}$ ist (denn für $n \rightarrow \infty$ gilt immer $-n \leq x < n$) konvergiert die Folge nicht in Verteilung gegen eine Zufallsvariable (die Verteilungsfunktion einer Zufallsvariable müsste irgendwann 1 werden)
+\section*{5}
+\textbf{Gegeben:}\\
+
+\{$X_n$\} eine Folge mit $E(X_n) = \mu_n$. Außerdem:
+\[Y_n= \frac{1}{n}\sum_{i=1}^{n} (X_i - \mu_i)\]
+\subsection*{a)}
+\textbf{Zu Zeigen:}\\
+
+Unter der Annahme, dass $X_n$ bernoulliverteilt ist mit Parameter $p_n$ soll gezeigt werden: 
+\[Y_n \overset{p}{\longrightarrow}0\]
+\textbf{Lösung:}\\
+
+Wir brauchen hier Tschebychev, da Y größer und kleiner 0 sein kann. Dafür berechnen wir zunächst $E(Y_n)$
+\begin{align*}
+    E(Y_n)&= E(\frac{1}{n} \sum_{i = 1}^{n} (X_i - \mu_i)) \\
+    &= \frac{1}{n}E(\sum_{i = 1}^{n}X_i - \sum_{i = 1}^{n}\mu_i)\\
+    &= \frac{1}{n}(E(\sum_{i=1}^{n}X_i) - E(\sum_{i=1}^{\infty}\mu_i))\\
+    &= \frac{1}{n}(\sum_{i = 1}^{n}E(X_i) - \sum_{i=1}^{n} \mu_i) \\
+    &= \frac{1}{n}(\sum_{i = 1}^{n}\mu_i - \sum_{i=1}^{n} \mu_i) \\
+    &= \frac{1}{n}\cdot 0 \\
+    &= 0
+\end{align*}
+
+Nun zum Beweis durch die Tschebychev Ungleichung
+\begin{align*}
+    \lim_{n \rightarrow \infty}P(|Y_n - 0| \geq \epsilon) &\leq \lim_{n \rightarrow \infty} \frac{Var(Y_n)}{\epsilon^2}\\    
+    &= \lim_{n \rightarrow \infty} \frac{E((Y_n - \overbrace{E(Y_n)}^{=0})^2)}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{E(Y_n^2)}{\epsilon} \\
+    &= \lim_{n \rightarrow \infty} \frac{E((\frac{1}{n}\sum_{i=1}^{n} (X_i - \mu_i))^2)}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{n}^2 E((\sum_{i=1}^{n} (X_i - \mu_i))^2)}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{n}^2 E((\sum_{i=1}^{n} (X_i - \mu_i))(\sum_{i=1}^{n} (X_i - \mu_i)))}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{n}^2 E((\sum_{i=1}^{n}X_i - \sum_{i=1}^{n}\mu_i))((\sum_{i=1}^{n}X_i - \sum_{i=1}^{n}\mu_i))}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{n}^2 E(\sum_{i=1}^{n}X_i\sum_{i=1}^{n}X_i + \sum_{i=1}^{n}\mu_i\sum_{i=1}^{n}\mu_i - 2(\sum_{i=1}^{n}\mu_i\sum_{i=1}^{n}X_i))}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{n}^2 (E(\sum_{i=1}^{n}X_i\sum_{i=1}^{n}X_i) + E(\sum_{i=1}^{n}\mu_i\sum_{i=1}^{n}\mu_i) - 2E(\sum_{i=1}^{n}\mu_i\sum_{i=1}^{n}X_i))}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{n}^2 (\sum_{i=1}^{n}\mu_i\sum_{i=1}^{n}\mu_i + E(\sum_{i=1}^{n}X_i\sum_{i=1}^{n}X_i)  - 2E(\sum_{i=1}^{n}\mu_i\sum_{i=1}^{n}X_i))}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{n}^2 (\sum_{i=1}^{n}\sum_{j=1}^{n}\mu_i\mu_j + E(\sum_{i=1}^{n}\sum_{j=1}^{n}X_iX_j)  - 2E(\sum_{i=1}^{n}\sum_{j=1}^{n}\mu_iX_i))}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{n}^2 (\sum_{i=1}^{n}\sum_{j=1}^{n}\mu_i\mu_j + \sum_{i=1}^{n}\sum_{j=1}^{n}E(X_iX_j)  - 2(\sum_{i=1}^{n}\sum_{j=1}^{n}\mu_iE(X_j)))}{\epsilon^2} \tag*{Wegen Unabhängigkeit}\\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{n}^2 (\sum_{i=1}^{n}\sum_{j=1}^{n}\mu_i\mu_j + \sum_{i=1}^{n}\sum_{j=1}^{n}E(X_i) E(X_j)  - 2(\sum_{i=1}^{n}\sum_{j=1}^{n}\mu_i\mu_j))}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{n}^2 (\sum_{i=1}^{n}\sum_{j=1}^{n}\mu_i\mu_j + \sum_{i=1}^{n}\sum_{j=1}^{n}\mu_i \mu_j  - 2(\sum_{i=1}^{n}\sum_{j=1}^{n}\mu_i\mu_j))}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{\frac{1}{n}^2 (0)}{\epsilon} \\
+    &=0
+\end{align*}
+
+\section*{6}
+\textbf{Gegeben:}\\
+
+Ein Wahrscheinlichkeitsraum $\{S, Y, P\}$ und $A$ ein Ereignis in $S$. $N_A$ drückt aus wie häufig $A$ bei $n$ unabhängigen Wiederholungen eintritt.\\\\\\  
+\textbf{Zu Zeigen:}\\
+
+Die relative Häufigkeit $\frac{N_A}{n}$ konvergiert in Wahrscheinlichkeit gegen $P(A)$, also:
+\[\lim_{n \rightarrow \infty} P(|\frac{N_A}{n}- P(A)| \geq \epsilon) = 0 \quad \forall~ \epsilon > 0\]
+\textbf{Lösung:}\\
+
+Da es sich eine einfache relative Häufigkeit handelt, können wir schließen, dass $N_A\sim \text{Bin}(n, P(A))$. 
+
+\begin{align*}
+    \lim_{n \rightarrow \infty}P(|\frac{N_A}{n} - P(A) |\geq \epsilon) &\leq \lim_{n \rightarrow \infty}\frac{Var(\frac{N_A}{n} - P(A))}{\epsilon^2} \\
+    &=\lim_{n \rightarrow \infty} \frac{Var(\frac{N_A}{n})}{\epsilon^2} \\
+    &=\lim_{n \rightarrow \infty} \frac{\frac{1}{n^2}Var(N_A)}{\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{nP(A)(1-P(A))}{n^2\epsilon^2} \\
+    &= \lim_{n \rightarrow \infty} \frac{P(A)(1-P(A))}{n\epsilon^2} \\
+    &= 0 \\ \\
+    \Longrightarrow \quad & P(|\frac{N_A}{n} - P(A) |\geq \epsilon) = 0 \quad \Leftrightarrow \quad \frac{N_A}{n} \overset{p}{\longrightarrow} P(A) 
+\end{align*}
+
+\section*{7}
+\textbf{Gegeben:}\\
+
+Eine Folge von ZVs $\{X_n\}$:
+\[X_i \sim \mathcal{N}(1, 1 + \frac{1}{i}) \quad \text{und} \quad \sigma_{ij} = \rho^{|j-i|}, \quad \rho \in (0,1), \quad i \neq j\]
+\textbf{Zu Zeigen:}\\
+\[\frac{\sum_{i = 1}^{n}X_i}{n} \overset{p}{\longrightarrow} 1.\]
+\textbf{Lösung:}\\
+
+Da die ZVs nicht unabhängig sind, folgt der Beweis durch:
+\[E\left[\frac{(\overline{X}_n - \overline{\mu}_n)^2}{1+ (\overline{X}_n - \overline{\mu}_n)^2}\right] \longrightarrow 0.\] 
+\begin{align*}
+    \lim_{n \longrightarrow \infty} E\left[\frac{(\overline{X}_n - \overline{\mu}_n)^2}{1+ (\overline{X}_n - \overline{\mu}_n)^2}\right] &= \lim_{n \longrightarrow \infty} E\left[\frac{\overline{X}_n^2 + \overline{\mu}_n^2- 2\overline{X}_n\overline{\mu}}{1+ (\overline{X}_n^2 + \overline{\mu}_n^2- 2\overline{X}_n\overline{\mu})}\right] \\
+    &= \lim_{n \longrightarrow \infty} E\left[\frac{(\frac{1}{n}\sum_{1}^{n} X_n)^2+ (\frac{1}{n}\sum_{1}^{n} \mu_n)^2 - 2((\frac{1}{n}\sum_{1}^{n} X_n) (\frac{1}{n}\sum_{1}^{n} \mu_n))}{1+ (\frac{1}{n}\sum_{1}^{n} X_n)^2+ (\frac{1}{n}\sum_{1}^{n} \mu_n)^2 - 2((\frac{1}{n}\sum_{1}^{n} X_n) (\frac{1}{n}\sum_{1}^{n} \mu_n))}\right] \\
+    &= \lim_{n \longrightarrow \infty} E\left[\frac{(\frac{1}{n}\sum_{1}^{n} X_n)^2+ 1 -2(\frac{1}{n}\sum_{1}^{n} X_n)}{1+(\frac{1}{n}\sum_{1}^{n} X_n)^2+ 1 -2(\frac{1}{n}\sum_{1}^{n} X_n)}\right]
+\end{align*}
+\section*{8}
+\textbf{Gegeben:}\\
+
+Ein idealer Würfel wird $n$ mal geworfen. Die Zufallsvariable $X_i$ gebe die Augenzahl des $i$-ten Wurfs an. \\\\
+\textbf{Gesucht:}\\
+
+Die Wahrscheinlichkeit, dass sich bei 200 Würfen eine mittlere Augenzahl von höchstens $3.6$ ergibt
+\textbf{Lösung:}\\
+
+Wir suchen also die Wahrscheinlichkeit $P(\overline{X} \leq 3.6)$ \\
+
+Es gilt, dass $X_i \sim \text{Uniform}(6) ~ \forall i$ und damit ist $E(X_i) =\mu_i = \frac{6+1}{2} = 3.5$ und $Var(X_i) = \sigma^2= \frac{6^2- 1}{12} = \frac{35}{12}~ \forall i$ \\
+
+Da die $X_i$s i.i.d. verteilt sind, gilt laut dem zentralen Grenzwertsatz:
+
+\[\frac{\sqrt{n}(\overline{X}_n- \mu)}{\sigma} \overset{d}{\rightarrow} \mathcal{N}(0,1)\]
+
+Und daraus folgt
+\[\overline{X}_n \overset{ass.}{\sim }\mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right) = \mathcal{N}\left(3.5, \frac{35}{200\cdot 12}\right)\]
+
+Wir wollen wissen, wie groß die Wahrscheinlichkeit ist, dass bei 200 Würfen ein Durchschnitt von maximal 3.6 entsteht. Dafür soll $\Phi$ die Verteilungsfunktion der Standardnormalverteilung sein. Wir suchen:
+
+\begin{align*}
+    P(\overline{X}_200 \leq 3.6) &= \Phi(\frac{\overline{X}_n - \mu}{\sigma_{\overline{X_n}_n}})\\
+    &= \Phi(\frac{3.6 - 3.5}{\sqrt{\sigma^2_{\overline{X}_n}}}) \\
+    &= \Phi(\frac{0.1}{0.1208}) \\
+    &\approx \Phi(0.8278) \\
+    &\approx 0.7967
+\end{align*}
+
+Das heißt, dass die Wahrscheinlichkeit dafür, dass der Durchschnitt bei 200 Würfen unter 3.6 bleibt, bei ca. 80\% liegt
+\end{document}

@@ -1,7 +1,7 @@
 PWD c:\Users\Victor\Desktop\Studium\3. Semester\Fortgeschrittene Statistik\Übung\Übungen
 INPUT C:\Users\Victor\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Victor\Desktop\Studium\3. Semester\Fortgeschrittene Statistik\Übung\Übungen\Lösung Übung 4.tex
-OUTPUT Lösung Übung 4.log
+INPUT c:\Users\Victor\Desktop\Studium\3. Semester\Fortgeschrittene Statistik\Übung\Übungen\Lösung Übung 5.tex
+OUTPUT Lösung Übung 5.log
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
@@ -55,10 +55,10 @@ INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\Lösung Übung 4.aux
-INPUT .\Lösung Übung 4.aux
-INPUT Lösung Übung 4.aux
-OUTPUT Lösung Übung 4.aux
+INPUT .\Lösung Übung 5.aux
+INPUT .\Lösung Übung 5.aux
+INPUT Lösung Übung 5.aux
+OUTPUT Lösung Übung 5.aux
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphicx.sty
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphicx.sty
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\graphics\graphics.sty
@@ -112,18 +112,19 @@ INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sy
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-OUTPUT Lösung Übung 4.pdf
+OUTPUT Lösung Übung 5.pdf
 INPUT C:\Users\Victor\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
+INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
+INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT Lösung Übung 4.aux
+INPUT Lösung Übung 5.aux
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
-INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cmextra\cmex7.pfb
-INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cmextra\cmex7.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi5.pfb
@@ -142,8 +143,6 @@ INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
-INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy5.pfb
-INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy5.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT C:\Users\Victor\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb

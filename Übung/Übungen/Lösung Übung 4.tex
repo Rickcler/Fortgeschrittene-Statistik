@@ -162,7 +162,144 @@ Die momenterzeugende Funktion einer standardnormalverteilten ZV ist \[M(t) = e^{
 
 \begin{align*}
     M_X(t) &= \int_{-\infty}^{\infty} e^{tx}f(x) dx \\
-    &= \int_{-\infty}^{\infty} e^{tx} \frac{1}{\sqrt{2\pi} \cdot 1} e^{\left(-\frac{1}{2}\right)\left(\frac{x- 0}{1}\right)^2} dx
-    &= 
+    &= \int_{-\infty}^{\infty} e^{tx} \frac{1}{\sqrt{2\pi} \cdot 1} e^{\left(-\frac{1}{2}\right)\left(\frac{x- 0}{1}\right)^2} dx \\
+    &= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{tx - \frac{x^2}{2}} dx \\
+    &= e^{\frac{t^2}{2}} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}(x-t)^2} dx \\
+    &= e^{\frac{t^2}{2}}
 \end{align*}
+\section*{5}
+\textbf{Gegeben:} \\
+
+Bivariate Normalverteilung mit:
+\[\mu = \begin{pmatrix}
+    \mu_1 \\
+    \mu_2
+\end{pmatrix} =\begin{pmatrix}
+    5 \\
+    8
+\end{pmatrix} \qquad \text{und} \qquad \Sigma = \begin{pmatrix}
+    \Sigma_{11}& \Sigma_{12} \\
+    \Sigma_{21}& \Sigma_{22}
+\end{pmatrix} = \begin{pmatrix}
+    2& -1 \\
+    -1& 3
+\end{pmatrix}\]
+\subsection*{a)}
+\textbf{Gesucht:}\\
+
+Regressionsfunktion von $X_1$ auf $X_2$  sowie $E(X_1|x_2 = 9)$
+\textbf{Lösung:}\\
+
+Gesucht ist also zunächst:
+\begin{align*}
+    E(X_1|X_2) &= \mu_1 + \Sigma_{12} \Sigma_{22}^{-1}(x_2 - \mu_2) \\
+    &= 5 + (-1) \frac{1}{3}(x_2 - 8) \\
+    &= 5 - \frac{1}{3} x_2 + \frac{8}{3} \\
+    &= \frac{23}{3} - \frac{1}{3} x_2 \\ 
+    E(X_1| x_2 = 9) &= \frac{23}{3} - \frac{1}{3} 9  \\
+    &=  \frac{14}{3}
+\end{align*}
+\subsection*{b)}
+\textbf{Gesucht:}\\
+
+Bedingte Varianz von $X_1$ gegeben $x_2 = 9$\\\\
+\textbf{Lösung:}\\
+
+\begin{align*}
+    Var(X_1|x_2 = 9) &= \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21} \\
+    &= 2 - (-1)\frac{1}{3}(-1)\\
+    &= \frac{5}{3}
+\end{align*}
+\subsection*{c)}
+\textbf{Gesucht:}\\
+
+Die Wahrscheinlichkeit $P(x_1 > 5)$ und die bedingte Warscheinlichkeit $P(x_1 > 5| x_2 = 9)$\\\\
+\textbf{Lösung:}\\
+
+Da $E(X_1) = 5$ ist und aufgrund der Symmetrie der Normalverteilung um den Ewartungswert gilt $P(x_1 > 5) = \frac{1}{2}$ \\
+
+
+Wie in $a$ und $b$ gezeigt ist $X_1|x_2 = 9$  verteilt mit $\mathcal{N}(\frac{14}{3}, \frac{5}{3})$. \\
+
+Wir $Z$-standartisieren zunächst (es gilt also $Z \sim \mathcal{N}(0,1)$): \[P(x_1 > 5| x_2 = 9) = P(Z > \frac{5 - \mu_{1|2}}{\sigma_{1|2}}) = P(Z > \frac{5- \frac{14}{3}}{\frac{5}{3}}) = P (Z > 0.2) \] 
+
+\section*{6}
+Es folgen einige PDFs und es gilt zu überprüfen, ob es sich um Mitglieder der Exponentialfamilie handelt \\
+
+Eine PDF $f(x;\Theta)$ gilt als Mitglied der Exponentialfamilie wenn:
+
+\[f(x; \Theta) = \begin{cases}
+    e^{\sum_{i=1}^{k} c_i(\Theta)g_i(x) + d(\Theta) + z(x)} & \text{for }x\in A\\
+    0 &\text{otherwise}
+\end{cases}\]
+
+Wobei $x = (x_1, \ldots, x_n)', \Theta = (\Theta_1, \ldots, \Theta_k)'; c_i(\Theta), ~ i = 1, \ldots, k $ und $d(\Theta)$ sind reelwertige Funktionen von $\Theta$ die uanbhängig von $x$  sind  und $g_i(x), i=1, \ldots, k$ und $z(x)$ sind reelwertige Funktionen die nicht abhängig von $\Theta$ sind. $A \in R^n$ ist eine Menge von $n$ Tupeln im $n$-dimensionalen reelen Raum deren Definition unabhäging von $\Theta$ ist  
+
+\subsection*{a)}
+\textbf{Gegeben:}\\
+
+Bernoulliverteilung
+\[f(x;p) = p^{x}(1-p)^{1-x}I_{\{0,1\}}(x) \qquad p\in[0,1]\]
+\textbf{Lösung:}
+
+\begin{align*}
+    f(x;p) &= p^{x}(1-p)^{1-x}I_{\{0,1\}}(x) \tag*{$a = e^{\ln(a)}$}\\
+    &= e^{\ln(p^{x}(1-p)^{1-x}I_{\{0,1\}}(x))} \tag*{$\ln(a \cdot b) = \ln(a) + \ln(b)$}\\
+    &= e^{\ln(p^x) + \ln((1-p)^{1-x}) + \ln(I_{\{0,1\}}(x))} \tag*{$\ln(a^b) = b \cdot \ln(a)$} \\
+    &= e^{x\ln(p) + (1-x) \ln(1-p) + \ln(I_{\{0,1\}}(x))} \\
+    &= e^{x\ln(p) + \ln(1-p) + x\ln((1-p)^{-1}) + \ln(I_{\{0,1\}}(x))} \\
+    &= e^{x(\ln(p) + ln(\frac{1}{1-p})) + \ln(1-p) + \ln(I_{\{0,1\}}(x))} \tag*{$\ln(a)+\ln(b) = \ln(a\cdot b)$}\\
+    &= e^{x \ln \left(\frac{p}{1-p}\right) + \ln(1-p) + \ln(I_{\{0,1\}}(x))} \\ \\
+    \Longrightarrow ~ &\text{Ist in Exponentialfamilie mit:} \\
+    c_i(\Theta) = \ln(\frac{\Theta}{1-\Theta}) &\quad g_i(x) = x \quad d(\Theta) = \ln(1-\Theta) \quad z(x) = \ln(I_{\{0,1\}}(x))
+\end{align*}
+\subsection*{b)}
+\textbf{Gegeben:}\\
+
+Gammaverteilung
+\[f(x; \alpha, \beta) = \frac{1}{\beta^{\alpha} \Gamma(\alpha)x^{\alpha-1}} e^{-x/\beta}I_{(0, \infty)}(x), \qquad \alpha, \beta > 0\]
+\textbf{Lösung:}
+\begin{align*}
+    f(x; \alpha, \beta) &= \frac{1}{\beta^{\alpha} \Gamma(\alpha)}x^{\alpha-1} e^{-x/\beta}I_{(0, \infty)}(x) \\ 
+    &= e^{\ln(\frac{1}{\beta^{\alpha} \Gamma(\alpha)}x^{\alpha-1})} e^{-x/\beta} e^{ln(I_{(0, \infty)}(x))} \\
+    &= e^{\ln(\frac{1}{\beta^{\alpha} \Gamma(\alpha)}x^{\alpha-1})-x/\beta + ln(I_{(0, \infty)}(x))} \\
+    &= e^{\ln(\beta^{-\alpha}) + \ln(\Gamma(\alpha)^{-1}) + \ln(x^{\alpha-1}) - \frac{x}{\beta} +ln(I_{(0, \infty)}(x))} \\
+    &= e^{-\alpha\ln(\beta) - \ln(\Gamma(\alpha)) + (\alpha -1 )\ln(x)  - \frac{x}{\beta} +ln(I_{(0, \infty)}(x))} \\
+    &= e^{(\alpha- 1)\ln(x) - \frac{x}{\beta} - \ln(\Gamma(\alpha)) - \alpha\ln(\beta) + ln(I_{(0, \infty)}(x))} \\ \\
+    \Longrightarrow ~ &\text{Ist in Exponentialfamilie mit:} \\
+    c_1(\Theta) = \Theta_1 - 1 &\quad g_1(x) = \ln(x) \quad c_2(\Theta) = -\frac{1}{\Theta} \quad g_2(x) = x \\
+    d(\Theta) = - \ln(\Gamma(\Theta_1)) &- \Theta_1 \ln(\Theta_2) \quad z(x) = \ln(I_{(0,\infty)}(x))
+\end{align*}
+\subsection*{c)}
+\textbf{Gegeben:}\\
+
+Paretoverteilung
+\[f(x, \beta) = \beta x^{-(\beta + 1)} I_{(1, \infty)}(x), \qquad \beta > 0\]
+\textbf{Lösung:}
+\begin{align*}
+    f(x, \beta) &= \beta x^{-(\beta + 1)} I_{(1, \infty)}(x) \\
+    &= e^{\ln(\beta x^{-(\beta +1 )})I_{(1, \infty)}(x)}\\
+    &= e^{\ln(\beta)+ \ln(x^{-(\beta+1)}) + \ln(I_{(1, \infty)}(x))} \\
+    &= e^{(\beta+1)\ln(\frac{1}{x})+ \ln(\beta) +\ln(I_{(1, \infty)}(x))} \\ \\
+    \Longrightarrow ~ &\text{Ist in Exponentialfamilie mit:} \\
+    c_1(\Theta) = \Theta + 1 \quad & g_1(x) = \ln(\frac{1}{x}) \quad d(\Theta) = \ln(\Theta) \quad z(x) = \ln(I_{(1, \infty)}(x))
+\end{align*}
+\subsection*{d}
+\textbf{Gegeben:}\\
+
+Lognormalverteilung
+\[f(x;\mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma x} e^{-[\ln(x) - \mu]^2/ (2\sigma^2)} I_{(0, \infty)}(x), \qquad \mu \in \mathbb{R}, \sigma > 0.\]
+\textbf{Lösung:}
+
+\begin{align*}
+    f(x;\mu, \sigma) &= \frac{1}{\sqrt{2\pi}\sigma x} e^{-[\ln(x) - \mu]^2/ (2\sigma^2)} I_{(0, \infty)}(x) \\
+    &= e^{\ln(\frac{1}{\sqrt{2 \pi}\sigma x})}e^{-[\ln(x) - \mu]^2/ (2\sigma^2)} e^{\ln(I_{(0, \infty)}(x))} \\
+    &= e^{\ln(\frac{1}{\sqrt{2 \pi}\sigma x})-[\ln(x) - \mu]^2/ (2\sigma^2) + \ln(I_{(0, \infty)}(x))} \\
+    &= e^{\ln(\frac{1}{\sqrt{2 \pi}\sigma x})- [\ln(x)^2 + \mu^2 - 2\ln(x)\mu]/ (2\sigma^2)+ \ln(I_{(0, \infty)}(x))} \\
+    &= e^{\ln(\frac{1}{\sqrt{2 \pi}\sigma})+ \ln(\frac{1}{x})- \frac{\ln(x)^2}{2\sigma^2} - \frac{\mu^2}{2\sigma^2} + \frac{\ln(x)\mu}{\sigma^2} + \ln(I_{(0, \infty)}(x))} \\\\
+    \Longrightarrow ~ &\text{Ist in Exponentialfamilie mit:} \\
+    c_1(\Theta) = \frac{-1}{2\Theta_2^2} \quad & g_1(x) = \ln(x)^2 \quad c_2 = \frac{\Theta_1}{\Theta_2^2} \quad g_2 = \ln(x) \\
+    d(\Theta) = \ln(\frac{1}{\sqrt{2\pi}\Theta_2}) - &\frac{\mu^2}{2\sigma^2}\quad z(x) = \ln(x) + \ln(I_{(0, \infty)}(x))
+\end{align*}
+
 \end{document}
